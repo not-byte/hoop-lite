@@ -1,97 +1,61 @@
-# tournament-app
+# Tournament App Overview
 
-## Navigation tabs
-Sidebar for navigation
-- Player,
-- Team,
-- Schedule,
-- Leaderboard,
-- Account,
+## Navigation Overview
 
-### Player
-- Details
-  - First and last name,
-  - Position,
-  - Height,
-  - Gender,
-- Statistics,
-  - Graphs,
-  - Tables,
-- Avatar,
+The app features a sidebar for easy navigation across its main sections:
 
-### Team
-- Details
-    - Name,
-    - Age category,
-    - Tournaments,
-- Statistics,
-  - Graphs,
-  - Tables,
+- **Player:** Focuses on individual player profiles, including personal details, performance statistics, and an avatar.
+- **Team:** Provides information about teams, including basic details and performance statistics.
+- **Schedule:** Lists upcoming games and events, including a live game feature and detailed schedules for contests and matches.
+- **Leaderboard:** Displays rankings based on team scores and individual player statistics.
+- **Account:** Allows users to customize their experience and manage account settings.
 
-### Schedule
-- Live game,
-- Events,
-  - Dunk contest,
-  - Shooting contest,
-  - Dance show,
-- Ladder,
-- Match by match,
+### Detailed Section Descriptions
 
-### Leaderboard
-- Team score,
-- Player statistics,
-  - Graphs,
-  - Tables,
+#### Player Section
 
-### Account
-- Preferences,
-  - Light/Dark mode
-- Settings,
-  - Change e-mail,
-  - Change password,
-- About,
-  - Version,
-  - Creators (notByte),
-- Support (Discord/Phone number)
+- **Details:** Includes personal information like name, position, height, and gender.
+- **Statistics:** Showcases performance through graphs and tables.
 
-## User workflow
+#### Team Section
 
-1. Enters the page,
-2. Registers an account,
-3. Verifies it via e-mail activation link,
-4. Logs on the account,
-5. Chooses a role (Player, Coach, Referee),
-  - Player:
-      1. Creates or joins (via mail, link or notification on App) a Team, if User creates a Team he becomes a Captain, which means User can join a tournament and manage team settings.
-      2. After entering to a tournament, User can see upcoming matches (and set as ready if needed), his statistics and team's leaderboard,
-  - Coach:
-      1. Similar to Player, but cannot play in-game (Coach >> Captain),
-  - Referee:
-      1. Selects a upcoming match and sets him as game referee,
+- **Details:** Covers team name, age category, and tournament participation.
+- **Statistics:** Presents team performance data in graphs and tables.
 
-## Game system
+#### Schedule Section
 
-### Statistics
+- **Live Game:** Features ongoing matches.
+- **Events:** Lists special events like contests and shows.
+- **Ladder & Match by Match:** Provides a tournament ladder and detailed match schedules.
 
-1. 2-Pointer,
-   - Attempted,
-   - Made,
-2. 3-Pointer,
-   - Attempted,
-   - Made,
-3. Free throw,
-   - Attempted,
-   - Made,
-4. Rebound,
-   - Defensive,
-   - Offensive,
-5. Assists,
-6. Steals,
-7. Blocks,
-8. Turnovers,
-9. Fouls,
+#### Leaderboard Section
 
-### Teams
+- **Team Score & Player Statistics:** Ranks teams and players, displaying data in graphs and tables.
 
-1. Players
-2. Substitution
+#### Account Section
+
+- **Preferences:** Offers theme settings (light/dark mode).
+- **Settings:** Includes options to change email and password.
+- **About & Support:** Provides app information and support contacts.
+
+## User Workflow
+
+1. **Initial Access:** Users start by registering and activating their account.
+2. **Role Selection:** Users choose a role (Player, Coach, or Referee) which determines their app experience.
+   - **Player Role:** Users can create/join teams, participate in tournaments, and view their statistics and rankings.
+   - **Coach Role:** Similar to players, but with a focus on team management without participating in games.
+   - **Referee Role:** Users can select matches to officiate.
+
+## Game System
+
+### Statistics Tracking
+
+- **Scoring:** Tracks 2-pointers, 3-pointers, and free throws, detailing attempts and successes.
+- **Playmaking:** Monitors rebounds (defensive/offensive), assists, and steals.
+- **Defense:** Records blocks, turnovers, and fouls.
+
+### Team Management
+
+- **Roster:** Manages player lists and substitutions during games.
+
+This structure aims to provide a comprehensive and user-friendly experience for tournament participants and organizers, focusing on detailed tracking of player and team performance and facilitating easy navigation and user interaction within the app.
