@@ -71,17 +71,27 @@ Sidebar for navigation
 
 ## Game system
 
-1. 2 Pointer,
-  - Made(true/false),
-2. 3 Ponter,
-   - Made(true/false),
-3. Freethrow,
-   - Made(true/false),
+### Statistics
+
+1. 2-Pointer,
+   - Attempted,
+   - Made,
+2. 3-Pointer,
+   - Attempted,
+   - Made,
+3. Free throw,
+   - Attempted,
+   - Made,
 4. Rebound,
-  - Defensive,
-  - Offensive,
-5. Assits,
+   - Defensive,
+   - Offensive,
+5. Assists,
 6. Steals,
 7. Blocks,
 8. Turnovers,
 9. Fouls,
+
+### Teams
+
+1. Players
+2. Substitution
