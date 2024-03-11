@@ -1,5 +1,14 @@
 # Tournament App Overview
 
+Name placeholder
+
+login section
+register section
+recovery section
+email verified section
+404 section
+dashboard section
+
 ## Navigation Overview
 
 The app features a sidebar for easy navigation across its main sections:

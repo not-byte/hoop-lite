@@ -1,5 +1,11 @@
+<script setup>
+if (useDevice().isMobileOrTablet) {
+  setPageLayout("mobile");
+}
+</script>
+
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
