@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import DefaultHeader from "~/components/header/DefaultHeader.vue";
-import DefaultFooter from "~/components/footer/DefaultFooter.vue";
+useLoadingIndicator().start();
 </script>
 
 <template>
-  <main>
-    <DefaultHeader />
+  <main class="w-screen h-screen grid place-content-center overflow-hidden box-border">
+    <ClientOnly>
+      <LazyNuxtLoadingIndicator/>
+    </ClientOnly>
     <slot />
-    <DefaultFooter />
   </main>
 </template>

@@ -1,7 +1,12 @@
+<script setup lang="ts">
+import LoginForm from "~/components/forms/LoginForm.vue";
+</script>
+
 <template>
   <section>
-    <UInput>E-mail</UInput>
-    <UInput>Password</UInput>
-    <UButton>Submit</UButton>
+    <LoginForm/>
+    <NuxtLink to="/auth/register" class="text-blood">
+      Register
+    </NuxtLink>
   </section>
 </template>

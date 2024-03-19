@@ -1,9 +1,12 @@
+<script setup lang="ts">
+import RegisterForm from "~/components/forms/RegisterForm.vue";
+</script>
+
 <template>
   <section>
-    <UInput>First name</UInput>
-    <UInput>Last name</UInput>
-    <UInput>E-mail</UInput>
-    <UInput>Password</UInput>
-    <UButton>Submit</UButton>
+    <RegisterForm/>
+    <NuxtLink to="/auth/login">
+      Login
+    </NuxtLink>
   </section>
 </template>

@@ -1,11 +1,18 @@
 <script setup lang="ts">
-definePageMeta({
-  middleware: [
-    "auth"
-  ]
-});
+import SidePanel from "~/components/SidePanel.vue";
+import ViewPanel from "~/components/ViewPanel.vue";
+import SideNavigation from "~/components/SideNavigation.vue";
+
+//("auth");
 </script>
 
 <template>
-  <NuxtPage/>
+  <section class="w-screen h-screen grid grid-cols-7">
+    <SidePanel>
+      <SideNavigation/>
+    </SidePanel>
+    <ViewPanel>
+      <NuxtPage/>
+    </ViewPanel>
+  </section>
 </template>

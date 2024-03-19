@@ -4,7 +4,7 @@ import errorRedirect from "~/composables/errorRedirect";
 
 defineProps({
   error: Object as () => NuxtError
-})
+});
 </script>
 
 <template>
