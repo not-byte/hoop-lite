@@ -4,6 +4,9 @@ export default defineAppConfig({
       default: {
         color: "red"
       }
+    },
+    notifications: {
+      position: 'top-0 bottom-auto'
     }
   }
 })

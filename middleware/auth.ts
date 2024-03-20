@@ -1,9 +1,7 @@
-export default defineNuxtRouteMiddleware((to, from) => {
+export default defineNuxtRouteMiddleware(() => {
   const user: { status: boolean } = {
-    status: useCookie<boolean>("auth").value
+    status: useCookie<boolean>("auth").value,
   };
 
-  //TODO AUTHENTICATION
-
-  if (!user.status) return navigateTo("/auth/login");
-})
+  if (!user.status) return navigateTo("auth/login");
+});

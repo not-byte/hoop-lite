@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import loginRedirect from "~/composables/loginRedirect";
+// import { Index } from "~/types/loginData";
 
 const data = ref({
   email: "",
@@ -12,15 +13,13 @@ const data = ref({
     <label>
       Email
     </label>
-    <UInput v-model="data.email" type="email"/>
+    <UInput v-model="data.email" type="email" placeholder="Enter your address"/>
 
     <label>
       Password
     </label>
-    <UInput v-model="data.password" type="password"/>
+    <UInput v-model="data.password" type="password" placeholder="Enter your password"/>
 
-    <UButton @click="loginRedirect(data)">
-      Submit
-    </UButton>
+    <UButton @click="loginRedirect(data, `/dashboard`)" label="Submit"/>
   </form>
 </template>

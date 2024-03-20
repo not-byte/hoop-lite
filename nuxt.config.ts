@@ -1,16 +1,40 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: {
-    enabled: true
+    enabled: true,
   },
-  modules: [
-    "@nuxt/ui",
-    "@nuxtjs/device"
-  ],
+  modules: ["@nuxt/ui", "@nuxtjs/device", "@nuxtjs/i18n"],
   app: {
+    baseURL: "/",
+    rootId: "tournament-app",
+    rootTag: "main",
     pageTransition: {
       name: "page",
-      mode: "out-in"
-    }
+      mode: "in-out",
+    },
   },
-})
+  i18n: {
+    baseUrl: "/",
+    defaultLocale: "en",
+    langDir: "locales",
+    strategy: "no_prefix",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "locale",
+      redirectOn: "root",
+    },
+    locales: [
+      {
+        code: "en",
+        iso: "en",
+        file: "en-EN.json",
+        name: "English",
+      },
+      {
+        code: "pl",
+        iso: "pl-PL",
+        file: "pl-PL.json",
+        name: "Polski",
+      },
+    ],
+  },
+});

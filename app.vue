@@ -6,8 +6,12 @@ if (useDevice().isMobileOrTablet) {
 
 <template>
   <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+    <NuxtPage/>
+    <ClientOnly>
+      <LazyNuxtLoadingIndicator/>
+      <UNotifications/>
+    </ClientOnly>
+ </NuxtLayout>
 </template>
 
 <style>

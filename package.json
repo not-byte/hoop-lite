@@ -1,5 +1,34 @@
 {
-  "name": "nuxt-app",
+  "name": "tournament-app",
+  "version": "0.1.0",
+  "description": "Basketball Tournament App",
+  "contributors": [
+    {
+      "name": "botprzemek",
+      "email": "przemek@notbyte.com",
+      "url": "https://github.com/botprzemek"
+    }
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "basketball",
+    "authentication",
+    "typescript",
+    "nodejs",
+    "socketio",
+    "jwt",
+    "nuxt",
+    "vue"
+  ],
+  "homepage": "https://github.com/not-byte/tournament-app#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/not-byte/tournament-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/not-byte/tournament-app/issues",
+    "email": "support@notbyte.com"
+  },
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,6 +38,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "engines": {
+    "node": ">=v20.8.0"
+  },
   "dependencies": {
     "@nuxt/ui": "^2.14.2",
     "nuxt": "^3.10.3",
@@ -16,6 +48,14 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "@nuxtjs/device": "^3.1.1"
+    "@nuxtjs/device": "^3.1.1",
+    "@nuxtjs/i18n": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-vue": "^9.23.0",
+    "prettier": "^3.2.5"
   }
 }

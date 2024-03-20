@@ -1,6 +1,7 @@
 <script setup lang="ts">
+setTimeout(() => navigateTo("/dashboard"), 3000)
 </script>
 
 <template>
-  <h1>Hello world!</h1>
+  <h1>{{ $t('welcome') }}</h1>
 </template>

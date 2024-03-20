@@ -4,9 +4,7 @@ useLoadingIndicator().start();
 
 <template>
   <main class="w-screen h-screen grid place-content-center overflow-hidden box-border">
-    <ClientOnly>
-      <LazyNuxtLoadingIndicator/>
-    </ClientOnly>
-    <slot />
+    <NuxtPage/>
+    <UNotifications/>
   </main>
 </template>

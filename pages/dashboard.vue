@@ -1,18 +1,23 @@
 <script setup lang="ts">
-import SidePanel from "~/components/SidePanel.vue";
-import ViewPanel from "~/components/ViewPanel.vue";
-import SideNavigation from "~/components/SideNavigation.vue";
+import LogoutButton from "~/components/buttons/LogoutButton.vue";
+import SideNavigation from "~/components/navigation/SideNavigation.vue";
 
-//("auth");
+definePageMeta({
+  middleware: [
+    "auth",
+  ],
+});
 </script>
 
 <template>
+
   <section class="w-screen h-screen grid grid-cols-7">
-    <SidePanel>
+    <aside class="flex flex-col col-span-1 bg-amber-500">
       <SideNavigation/>
-    </SidePanel>
-    <ViewPanel>
+      <LogoutButton/>
+    </aside>
+    <section class="grid grid-flow-row col-start-2 col-end-8">
       <NuxtPage/>
-    </ViewPanel>
+    </section>
   </section>
 </template>
