@@ -1,12 +1,14 @@
+<script setup lang="ts">
+useLoadingIndicator().start();
+</script>
+
 <template>
-  <NuxtLayout>
-    <section>
-      <ClientOnly>
-        <LazyNuxtLoadingIndicator />
-      </ClientOnly>
-      <NuxtPage />
-    </section>
-  </NuxtLayout>
+  <main class="w-screen min-h-screen grid place-content-center">
+    <ClientOnly>
+      <LazyNuxtLoadingIndicator />
+    </ClientOnly>
+    <NuxtPage />
+  </main>
 </template>
 
 <style>
@@ -30,4 +32,3 @@
   transform: rotate3d(1, 1, 1, 15deg);
 }
 </style>
-<script setup lang="ts"></script>
