@@ -2,37 +2,40 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
-  modules: ["@nuxt/ui", "@nuxtjs/device", "@nuxtjs/i18n"],
+  modules: ["@nuxtjs/device", "@nuxtjs/i18n", "@nuxtjs/tailwindcss"],
+  buildModules: ["@nuxtjs/pwa"],
+  runtimeConfig: {
+    public: {
+      name: "Tournament App",
+      version: "0.1.0",
+    },
+  },
   app: {
     baseURL: "/",
     rootId: "tournament-app",
     rootTag: "main",
+    teleportTag: "aside",
     pageTransition: {
       name: "page",
       mode: "in-out",
     },
+    head: {
+      bodyAttrs: {
+        class: "w-screen h-screen",
+      },
+    },
   },
   i18n: {
     baseUrl: "/",
-    defaultLocale: "en",
-    langDir: "locales",
     strategy: "no_prefix",
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: "locale",
-      redirectOn: "root",
-    },
+    vueI18n: "./i18n.config.ts",
     locales: [
       {
         code: "en",
-        iso: "en",
-        file: "en-EN.json",
         name: "English",
       },
       {
         code: "pl",
-        iso: "pl-PL",
-        file: "pl-PL.json",
         name: "Polski",
       },
     ],

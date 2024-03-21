@@ -1,17 +1,12 @@
-<script setup lang="ts">
-if (useDevice().isMobileOrTablet) {
-  setPageLayout("mobile");
-}
-</script>
-
 <template>
   <NuxtLayout>
-    <NuxtPage/>
-    <ClientOnly>
-      <LazyNuxtLoadingIndicator/>
-      <UNotifications/>
-    </ClientOnly>
- </NuxtLayout>
+    <section>
+      <ClientOnly>
+        <LazyNuxtLoadingIndicator />
+      </ClientOnly>
+      <NuxtPage />
+    </section>
+  </NuxtLayout>
 </template>
 
 <style>
@@ -35,3 +30,4 @@ if (useDevice().isMobileOrTablet) {
   transform: rotate3d(1, 1, 1, 15deg);
 }
 </style>
+<script setup lang="ts"></script>

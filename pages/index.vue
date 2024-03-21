@@ -1,7 +1,4 @@
-<script setup lang="ts">
-setTimeout(() => navigateTo("/dashboard"), 3000)
-</script>
-
 <template>
-  <h1>{{ $t('welcome') }}</h1>
+  <h1>Welcome</h1>
+  <NuxtLink to="/dashboard">Dashboard</NuxtLink>
 </template>

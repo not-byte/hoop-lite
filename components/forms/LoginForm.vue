@@ -10,16 +10,12 @@ const data = ref({
 
 <template>
   <form @submit.prevent>
-    <label>
-      Email
-    </label>
-    <UInput v-model="data.email" type="email" placeholder="Enter your address"/>
+    <label> Email </label>
+    <input v-model="data.email" type="email" placeholder="Enter your address" />
 
-    <label>
-      Password
-    </label>
-    <UInput v-model="data.password" type="password" placeholder="Enter your password"/>
+    <label> Password </label>
+    <input v-model="data.password" type="password" placeholder="Enter your password" />
 
-    <UButton @click="loginRedirect(data, `/dashboard`)" label="Submit"/>
+    <button @click="loginRedirect(data, `/dashboard`)">Submit</button>
   </form>
 </template>

@@ -3,9 +3,8 @@ import LogoutIcon from "~/components/icons/LogoutIcon.vue";
 </script>
 
 <template>
-  <UButton @click="logoutRedirect()" label="Logout" variant="solid" block>
-    <template #leading>
-      <LogoutIcon/>
-    </template>
-  </UButton>
+  <button @click="logoutRedirect()">
+    <LogoutIcon />
+    {{ $t("navigation.logout") }}
+  </button>
 </template>

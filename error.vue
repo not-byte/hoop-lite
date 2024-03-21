@@ -3,7 +3,7 @@ import type { NuxtError } from "#app";
 import errorRedirect from "~/composables/errorRedirect";
 
 defineProps({
-  error: Object as () => NuxtError
+  error: Object as () => NuxtError,
 });
 </script>
 
@@ -11,6 +11,6 @@ defineProps({
   <section>
     <h1>{{ error.statusCode }}</h1>
     <p>{{ error.statusMessage }}</p>
-    <UButton @click="errorRedirect(`/`)">Back to main page</UButton>
+    <button @click="errorRedirect(`/`)">Back to main page</button>
   </section>
 </template>

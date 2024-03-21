@@ -9,28 +9,18 @@ const data = ref({
 
 <template>
   <form>
-    <label>
-      First name
-    </label>
-    <UInput v-model="data.first_name" type="text"/>
+    <label> First name </label>
+    <input v-model="data.first_name" type="text" />
 
-    <label>
-      Last name
-    </label>
-    <UInput v-model="data.last_name" type="text"/>
+    <label> Last name </label>
+    <input v-model="data.last_name" type="text" />
 
-    <label>
-      E-mail
-    </label>
-    <UInput v-model="data.email" type="email"/>
+    <label> E-mail </label>
+    <input v-model="data.email" type="email" />
 
-    <label>
-      Password
-    </label>
-    <UInput v-model="data.password" type="password"/>
+    <label> Password </label>
+    <input v-model="data.password" type="password" />
 
-    <UButton>
-      Submit
-    </UButton>
+    <button>Submit</button>
   </form>
 </template>
