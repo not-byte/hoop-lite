@@ -3,5 +3,5 @@ export default defineNuxtRouteMiddleware(() => {
     status: useCookie<boolean>("auth").value,
   };
 
-  if (!user.status) return navigateTo("./auth/login");
+  if (!user.status) return navigateTo("./../auth/login");
 });
