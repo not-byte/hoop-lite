@@ -3,23 +3,23 @@ const route = useRoute();
 const routes = [
   {
     name: "home",
-    path: "dashboard",
+    path: "./",
   },
   {
     name: "teams",
-    path: "dashboard/teams",
+    path: "./teams",
   },
   {
     name: "live",
-    path: "dashboard/live",
+    path: "./live",
   },
   {
     name: "leaderboard",
-    path: "dashboard/leaderboard",
+    path: "./leaderboard",
   },
   {
     name: "schedule",
-    path: "dashboard/schedule",
+    path: "./schedule",
   },
 ];
 </script>
@@ -28,7 +28,7 @@ const routes = [
   <nav class="flex-grow">
     <ul>
       <li v-for="child in routes" :key="child.name">
-        <NuxtLink :to="`/${route.params.tenancy}/${child.path}`">
+        <NuxtLink :to="child.path">
           {{ $t(`navigation.routes.${child.name}`) }}
         </NuxtLink>
       </li>
