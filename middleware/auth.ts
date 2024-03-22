@@ -1,9 +1,10 @@
+import { useParamPath } from "~/composables/paramPath";
+
 export default defineNuxtRouteMiddleware(() => {
   const route = useRoute();
-  const path = route.fullPath.includes(route.params.tenancy as string) ? "" : route.params.tenancy;
   const user: { status: boolean } = {
     status: useCookie<boolean>("auth").value,
   };
 
-  if (!user.status) return navigateTo(path + "/auth/login");
+  if (!user.status) return navigateTo(useParamPath() + "/auth/login");
 });
