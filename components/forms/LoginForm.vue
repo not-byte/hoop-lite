@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import loginRedirect from "~/composables/loginRedirect";
-// import { Index } from "~/types/loginData";
+import type { LoginPayload } from "~/types";
 
-const data = ref({
+const data = ref<LoginPayload>({
   email: "",
   password: "",
 });
@@ -16,6 +16,6 @@ const data = ref({
     <label> Password </label>
     <input v-model="data.password" type="password" placeholder="Enter your password" />
 
-    <button @click="loginRedirect(data, `/dashboard`)">Submit</button>
+    <button @click="loginRedirect(data)">Submit</button>
   </form>
 </template>

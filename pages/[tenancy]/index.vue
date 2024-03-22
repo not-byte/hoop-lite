@@ -8,6 +8,6 @@ const names = {
 <template>
   <section class="w-screen h-screen grid place-content-center">
     <h1>Welcome {{ names[route.params.tenancy] || "Error" }}!</h1>
-    <NuxtLink :to="`${route.params.tenancy}/dashboard`">Dashboard</NuxtLink>
+    <NuxtLink :to="`./dashboard`">Dashboard</NuxtLink>
   </section>
 </template>
