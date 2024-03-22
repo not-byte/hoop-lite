@@ -5,5 +5,5 @@ export default (data: LoginPayload) => {
 
   useCookie<boolean>("auth", { sameSite: true }).value = true;
 
-  return navigateTo("./dashboard");
+  return navigateTo("./../dashboard");
 };
