@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup async lang="ts">
 useLoadingIndicator().start();
 </script>
 
