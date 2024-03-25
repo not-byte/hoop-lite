@@ -1,19 +1,23 @@
-export interface LoginPayload {
-  email: string,
-  password: string,
+declare global {
+  interface LoginPayload {
+    email: string,
+    password: string,
+  }
+
+  interface User {
+    login: string,
+    email: string,
+    token?: string,
+    avatar?: string
+  }
+
+  interface Player {
+    name: string
+  }
+
+  interface Statistics {
+
+  }
 }
 
-export interface User {
-  login: string,
-  email: string,
-  token?: string,
-  avatar?: string
-}
-
-export interface Player {
-  name: string
-}
-
-export interface Statistics {
-
-}
+export {}

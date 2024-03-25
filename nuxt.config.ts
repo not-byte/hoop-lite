@@ -2,14 +2,18 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
-  modules: ["@nuxtjs/device", "@nuxtjs/i18n", "@nuxtjs/tailwindcss"],
-  buildModules: ["@nuxtjs/pwa"],
   runtimeConfig: {
     public: {
       name: "Tournament App",
       version: "0.1.0",
     },
   },
+  imports: {
+    dirs: ["types"],
+  },
+  modules: ["@nuxtjs/device", "@nuxtjs/i18n", "@nuxtjs/tailwindcss"],
+  // @ts-ignore
+  buildModules: ["@nuxtjs/pwa"],
   app: {
     baseURL: "/",
     rootId: "tournament-app",
@@ -28,7 +32,6 @@ export default defineNuxtConfig({
   i18n: {
     baseUrl: "/",
     strategy: "no_prefix",
-    vueI18n: "./i18n.config.ts",
     locales: [
       {
         code: "en",

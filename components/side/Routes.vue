@@ -1,25 +1,24 @@
 <script setup lang="ts">
-const route = useRoute();
 const routes = [
   {
     name: "home",
-    path: "./",
+    path: "/dashboard",
   },
   {
     name: "teams",
-    path: "./teams",
+    path: "/dashboard/teams",
   },
   {
     name: "live",
-    path: "./live",
+    path: "/dashboard/live",
   },
   {
     name: "leaderboard",
-    path: "./leaderboard",
+    path: "/dashboard/leaderboard",
   },
   {
     name: "schedule",
-    path: "./schedule",
+    path: "/dashboard/schedule",
   },
 ];
 </script>

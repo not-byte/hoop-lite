@@ -1,0 +1,1 @@
+export default (path: string) => clearError({ redirect: path });

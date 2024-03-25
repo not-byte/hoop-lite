@@ -39,7 +39,7 @@
     "postinstall": "nuxt prepare"
   },
   "engines": {
-    "node": ">=v21.7.0"
+    "node": ">=v20.7.0"
   },
   "dependencies": {
     "nuxt": "^3.10.3",

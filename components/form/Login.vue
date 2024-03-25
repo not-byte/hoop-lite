@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import loginRedirect from "~/composables/loginRedirect";
-import type { LoginPayload } from "~/types";
-
 const data = ref<LoginPayload>({
   email: "",
   password: "",
@@ -12,10 +9,10 @@ const data = ref<LoginPayload>({
   <form @submit.prevent>
     <label> Email </label>
     <input v-model="data.email" type="email" placeholder="Enter your address" />
-
+n
     <label> Password </label>
     <input v-model="data.password" type="password" placeholder="Enter your password" />
 
-    <button @click="loginRedirect(data)">Submit</button>
+    <ButtonLogin :email="data.password" :password="data.password" />
   </form>
 </template>

@@ -3,6 +3,10 @@ export default defineI18nConfig(() => ({
   locale: "en",
   messages: {
     en: {
+      button: {
+        login: "Log in",
+        logout: "Log out",
+      },
       navigation: {
         routes: {
           home: "Home",
@@ -14,10 +18,13 @@ export default defineI18nConfig(() => ({
         },
         profile: "Your profile",
         support: "Support",
-        logout: "Log out",
       },
     },
     pl: {
+      button: {
+        login: "Zaloguj się",
+        logout: "Wyloguj się",
+      },
       navigation: {
         routes: {
           home: "Panel",
@@ -29,7 +36,6 @@ export default defineI18nConfig(() => ({
         },
         profile: "Twój profil",
         support: "Wsparcie",
-        logout: "Wyloguj się",
       },
     },
   },

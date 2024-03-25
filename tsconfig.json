@@ -1,4 +1,4 @@
 {
   "extends": "./.nuxt/tsconfig.json",
-  "exclude": ["node_modules"],
+  "exclude": [".github", "node_modules"]
 }
