@@ -1,23 +1,21 @@
 declare global {
   interface LoginPayload {
-    email: string,
-    password: string,
+    email: string;
+    password: string;
   }
 
   interface User {
-    login: string,
-    email: string,
-    token?: string,
-    avatar?: string
+    login: string;
+    email: string;
+    token?: string;
+    avatar?: string;
   }
 
   interface Player {
-    name: string
+    name: string;
   }
 
-  interface Statistics {
-
-  }
+  interface Statistics {}
 }
 
-export {}
+export {};

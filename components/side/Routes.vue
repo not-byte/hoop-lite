@@ -13,8 +13,8 @@ const routes = [
     path: "/dashboard/live",
   },
   {
-    name: "leaderboard",
-    path: "/dashboard/leaderboard",
+    name: "standings",
+    path: "/dashboard/standings",
   },
   {
     name: "schedule",

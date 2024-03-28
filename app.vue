@@ -3,7 +3,7 @@ useLoadingIndicator().start();
 </script>
 
 <template>
-  <main class="w-screen min-h-screen grid place-content-center">
+  <main class="w-screen h-screen">
     <ClientOnly>
       <LazyNuxtLoadingIndicator />
     </ClientOnly>

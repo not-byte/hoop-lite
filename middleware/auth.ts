@@ -1,7 +1,12 @@
-export default defineNuxtRouteMiddleware(() => {
-  const user: { status: boolean } = {
-    status: useCookie<boolean>("auth").value,
-  };
+export default defineNuxtRouteMiddleware(async () => {
+  const token = useCookie<string>("token").value;
 
-  if (!user.status) return navigateTo("/auth/login");
+  if (!token) return navigateTo("/auth/login");
+
+  await $fetch.raw("/api/auth", {
+    method: "GET",
+    headers: {
+      authorization: token,
+    },
+  });
 });

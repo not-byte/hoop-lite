@@ -10,7 +10,7 @@ export default defineI18nConfig(() => ({
       navigation: {
         routes: {
           home: "Home",
-          ladder: "Ladder",
+          standings: "Standings",
           leaderboard: "Leaderboard",
           live: "Live scores",
           schedule: "Schedule",
@@ -28,7 +28,7 @@ export default defineI18nConfig(() => ({
       navigation: {
         routes: {
           home: "Panel",
-          ladder: "Drabinka",
+          standings: "Ranking",
           leaderboard: "Tabela wyników",
           live: "Na żywo",
           schedule: "Terminarz",

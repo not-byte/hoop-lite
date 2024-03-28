@@ -1,5 +1,8 @@
 <script setup lang="ts">
-const props = defineProps<LoginPayload>()
+const props = defineProps<{
+  email: LoginPayload["email"];
+  password: LoginPayload["password"];
+}>();
 </script>
 
 <template>
