@@ -3,7 +3,7 @@ export default defineEventHandler(async (event) => {
 
   if (!token) return sendRedirect(event, "/auth/login", 302);
 
-  if (token !== useRuntimeConfig(event).app.token) return sendRedirect(event, "/auth/login", 302);
+  if (token !== useRuntimeConfig(event).token) return sendRedirect(event, "/auth/login", 302);
 
   return setResponseStatus(event, 202);
 });

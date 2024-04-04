@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const routeName = useRouteName();
 const data = ref<LoginPayload>({
-  email: "",
-  password: "",
+  email: "info@botprzemek.pl",
+  password: "Test123",
 });
 </script>
 

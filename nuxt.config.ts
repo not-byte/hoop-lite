@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     dirs: ["types"],
   },
   runtimeConfig: {
+    token: "",
     public: {
       name: "Knury Knurów",
       version: "0.1.0",

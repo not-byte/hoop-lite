@@ -26,3 +26,7 @@ logs
 # Service worker
 
 sw.*
+
+# Development
+
+.vscode

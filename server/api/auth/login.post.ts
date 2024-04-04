@@ -4,6 +4,6 @@ export default defineEventHandler(async (event) => {
   if (email !== "info@botprzemek.pl" || password !== "Test123") return;
 
   return {
-    token: "Test",
+    token: useRuntimeConfig(event).token,
   };
 });

@@ -20,6 +20,7 @@ const data = ref({
 
     <label> Password </label>
     <input v-model="data.password" type="password" />
+    <input v-model="data.password" type="password" />
 
     <button>Submit</button>
   </form>
