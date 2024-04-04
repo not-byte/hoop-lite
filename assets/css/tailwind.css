@@ -8,7 +8,7 @@
         font-style: normal;
         font-weight: 300;
         font-display: swap;
-        src: url('/fonts/inter-v13-latin_latin-ext-300.woff2') format('woff2');
+        src: url('~/assets/font/inter-v13-latin_latin-ext-300.woff2') format('woff2');
     }
 
     @font-face {
@@ -16,7 +16,7 @@
         font-style: normal;
         font-weight: 500;
         font-display: swap;
-        src: url('/fonts/inter-v13-latin_latin-ext-regular.woff2') format('woff2');
+        src: url('~/assets/font/inter-v13-latin_latin-ext-regular.woff2') format('woff2');
     }
 
     @font-face {
@@ -24,30 +24,26 @@
         font-style: normal;
         font-weight: 700;
         font-display: swap;
-        src: url('/fonts/inter-v13-latin_latin-ext-700.woff2') format('woff2');
+        src: url('~/assets/font/inter-v13-latin_latin-ext-700.woff2') format('woff2');
     }
 
     html {
-        font-family: 'Inter', system-ui, sans-serif;
-    }
-
-    body {
-        @apply text-dark bg-cover bg-center bg-white;
+        @apply font-display text-gray text-md bg-mid select-none;
     }
 
     h1 {
-        @apply text-xxl font-bold;
+        @apply font-bold text-dark text-xxl;
     }
 
     h2 {
-        @apply text-xl font-bold;
+        @apply font-bold text-dark text-xl;
     }
 
     h3 {
-        @apply text-lg font-bold;
+        @apply font-bold text-dark text-lg;
     }
 
     h4 {
-        @apply text-md font-bold;
+        @apply font-bold text-dark text-md;
     }
 }

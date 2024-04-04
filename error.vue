@@ -10,6 +10,6 @@ defineProps({
   <section>
     <h1>{{ error.statusCode }}</h1>
     <p>{{ error.statusMessage }}</p>
-    <button @click="errorRedirect(`/`)">Back to main page</button>
+    <button @click="useErrorRedirect(`/`)">Back to main page</button>
   </section>
 </template>

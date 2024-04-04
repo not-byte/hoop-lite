@@ -1,5 +1,5 @@
 <template>
-  <button @click="logoutRedirect()">
+  <button @click="useLogoutRedirect()">
     {{ $t("button.logout") }}
   </button>
 </template>

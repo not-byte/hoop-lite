@@ -1,11 +1,11 @@
 <script setup lang="ts">
 definePageMeta({
-  // middleware: ["auth"],
+  middleware: ["auth"],
 });
 </script>
 
 <template>
-  <section class="w-full h-full p-4 grid grid-rows-1 grid-cols-8 gap-4">
+  <section class="w-screen h-screen p-4 grid grid-rows-1 grid-cols-8 gap-4">
     <aside class="flex flex-col col-span-1 gap-4 rounded-lg p-4 bg-blood">
       <SideHeader />
       <SideRoutes />

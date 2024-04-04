@@ -9,12 +9,15 @@ export default defineNuxtConfig({
     public: {
       name: "Knury Knurów",
       version: "0.1.0",
+      authorName: "notByte",
+      authorUrl: "https://notByte.com",
     },
   },
   modules: ["@nuxtjs/device", "@nuxtjs/i18n", "@nuxtjs/tailwindcss", "nuxt-simple-sitemap", "@vite-pwa/nuxt"],
   i18n: {
-    baseUrl: "/",
+    baseUrl: process.env.APP_URL || "http://localhost:3000",
     strategy: "no_prefix",
+    defaultLocale: "pl",
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: "locale",
@@ -36,10 +39,7 @@ export default defineNuxtConfig({
     rootId: "tournament-app",
     rootTag: "main",
     teleportTag: "aside",
-    pageTransition: {
-      name: "page",
-      mode: "in-out",
-    },
+    pageTransition: { name: "page", mode: "out-in" },
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
@@ -47,7 +47,7 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-            "Strona drużyny koszykarskiej Knury Knurów. Inicjatywa wytrwałej młodzieży z ambicjami. Nasza społeczność wciąż się rozrasta, co pozwala nam cieszyć się z gry na boisku i poza nim.",
+            "Do you remember the first edition of the Knurowski Streetball tournament? We do too and we want to share some good news with you 🥳 On May 25th, we are organizing another installment of our basketball event for YOU.",
         },
         {
           name: "author",
@@ -107,8 +107,7 @@ export default defineNuxtConfig({
       name: "Knury Knurów",
       short_name: "Knury",
       description:
-        "Strona drużyny koszykarskiej Knury Knurów. Inicjatywa wytrwałej młodzieży z ambicjami. Nasza społeczność wciąż się rozrasta, co pozwala nam cieszyć się z gry na boisku i poza nim.",
-      lang: "pl",
+        "Do you remember the first edition of the Knurowski Streetball tournament? We do too and we want to share some good news with you 🥳 On May 25th, we are organizing another installment of our basketball event for YOU.",
       display: "standalone",
       background_color: "#1d1d1d",
       theme_color: "#f23535",
