@@ -48,9 +48,26 @@ export default defineI18nConfig(() => ({
               },
             },
             register: {
-              name: "",
+              name: "Register",
               description: "",
-              content: "",
+              content: {
+                header: {
+                  title: "Register",
+                  description: "Enter your credentials",
+                },
+                form: {
+                  first_name: "First name",
+                  last_name: "Last name",
+                  email: "E-mail address",
+                  password: "Secret password",
+                  repeated_password: "Repeat your password",
+                  submit: "Register",
+                },
+                aside: {
+                  title: "Already have an account?",
+                  description: "Log in!",
+                },
+              },
             },
             verify: {
               name: "",

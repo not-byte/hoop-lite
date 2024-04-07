@@ -5,8 +5,9 @@ declare global {
   }
 
   interface RegisterPayload extends LoginPayload {
-    firstName: string;
-    lastName: string;
+    first_name: string;
+    last_name: string;
+    repeated_password: string;
   }
 
   interface User {

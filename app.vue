@@ -55,6 +55,6 @@ useSeoMeta({
 }
 
 .page-enter-from {
-  transform: translateY(-3%);
+  transform: translateY(-12px);
 }
 </style>
