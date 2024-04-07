@@ -1,27 +1,27 @@
 <script setup async lang="ts">
 const config = useRuntimeConfig();
-const routeName = ref<string>(useRouteName());
+const routeName = useRouteName();
 const { t, locale } = useI18n({ useScope: "global" });
 
 useHeadSafe({
   titleTemplate: (titleChunk) =>
     titleChunk
-      ? `${titleChunk} · ${config.public.name}`
-      : `${t(`routes.${routeName.value}.name`)} · ${config.public.name}`,
+      ? `${t(`routes.${titleChunk}.name`)} · ${config.public.name}`
+      : `${t(`routes.${routeName}.name`)} · ${config.public.name}`,
   htmlAttrs: {
     lang: locale.value,
   },
   meta: [
     {
       name: "description",
-      content: `${t(`routes.${routeName.value}.description`)}`,
+      content: `${t(`routes.${routeName}.description`)}`,
     },
   ],
 });
 
 useSeoMeta({
-  ogTitle: `${t(`routes.${routeName.value}.name`)} · ${config.public.name}`,
-  ogDescription: `${t(`routes.${routeName.value}.description`)}`,
+  ogTitle: `${t(`routes.${routeName}.name`)} · ${config.public.name}`,
+  ogDescription: `${t(`routes.${routeName}.description`)}`,
   ogImage: "[og:image]",
   ogUrl: "[og:url]",
   twitterTitle: "[twitter:title]",

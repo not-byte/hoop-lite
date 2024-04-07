@@ -15,12 +15,13 @@ export default defineNuxtConfig({
     },
   },
   modules: [
+    "@nuxt/test-utils/module",
+    "@nuxt/image",
     "@nuxtjs/device",
     "@nuxtjs/i18n",
     "@nuxtjs/tailwindcss",
     "nuxt-simple-sitemap",
     "@vite-pwa/nuxt",
-    "@nuxt/test-utils/module",
   ],
   i18n: {
     baseUrl: process.env.APP_URL || "http://localhost:3000",

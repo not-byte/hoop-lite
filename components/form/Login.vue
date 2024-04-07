@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const routeName = useRouteName();
+useHeadSafe({
+  title: routeName,
+});
 const data = ref<LoginPayload>({
   email: "",
   password: "",
