@@ -2,6 +2,9 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
+  devServer: {
+    port: 80,
+  },
   imports: {
     dirs: ["types"],
   },

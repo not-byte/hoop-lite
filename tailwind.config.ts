@@ -19,7 +19,7 @@ export default <Partial<Config>>{
         inside: "1rem",
       },
       colors: {
-        blood: "rgba(242,53,53,1.00)",
+        blood: "rgb(231,36,36)",
         dark: "rgb(30,30,30,1.00)",
         gray: "rgb(75,75,75,1.00)",
         high: "rgb(125,125,125,1.00)",
