@@ -4,14 +4,7 @@ const routeName = useRouteName();
 
 <template>
   <section class="relative bg-smoke rounded-outside pt-3 pb-5 px-5">
-    <header class="mb-3">
-      <h2>
-        {{ $t(`routes.${routeName}.content.header.title`) }}
-      </h2>
-      <p>
-        {{ $t(`routes.${routeName}.content.header.description`) }}
-      </p>
-    </header>
+    <HeaderForm />
     <FormLogin />
     <aside class="mt-4 px-12">
       <p class="text-high text-sm text-center">

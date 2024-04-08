@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     dirs: ["types"],
   },
   runtimeConfig: {
+    apiKey: "",
     token: "",
     public: {
       name: "Knury Knurów",

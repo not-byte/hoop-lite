@@ -1,12 +1,12 @@
 <script setup lang="ts">
 const { route, type, placeholder } = defineProps(["route", "type", "placeholder"]);
 const emit = defineEmits(["typing"]);
-const onChange = (event: any) => emit("typing", placeholder, event.target.value);
+const onInput = (event: any) => emit("typing", placeholder, event.target.value);
 </script>
 
 <template>
   <input
-    @input="onChange($event)"
+    @input="onInput($event)"
     :name="placeholder"
     :type="type"
     :placeholder="$t(`routes.${route}.content.form.${placeholder}`)"

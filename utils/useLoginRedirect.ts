@@ -6,7 +6,7 @@ export default async (data: LoginPayload) => {
     body: data,
   });
 
-  if (!response.token) return;
+  if (!response || !response.token) return;
 
   const expires: Date = new Date(new Date().getTime() + 1000 * 3600 * 24 * 30);
 

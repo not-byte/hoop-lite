@@ -1,8 +1,6 @@
 <template>
   <section class="grid grid-cols-4 grid-rows-5">
-    <header class="col-span-4">
-      <h1>Welcome user123!</h1>
-    </header>
+    <HeaderDashboard />
     <aside class="row-span-2">
       <h3>16 Teams</h3>
     </aside>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const routeName = useRouteName();
 const data = ref<RegisterPayload>({
   first_name: "",
   last_name: "",
@@ -7,7 +6,13 @@ const data = ref<RegisterPayload>({
   password: "",
   repeated_password: "",
 });
+
 const onTyping = (key: string, value: any) => (data.value[key as keyof Object] = value);
+
+const routeName = useRouteName();
+useHeadSafe({
+  title: routeName,
+});
 </script>
 
 <template>

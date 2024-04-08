@@ -1,34 +1,24 @@
 <script setup lang="ts">
 const routes = [
-  {
-    name: "home",
-    path: "/dashboard",
-  },
-  {
-    name: "teams",
-    path: "/dashboard/teams",
-  },
-  {
-    name: "live",
-    path: "/dashboard/live",
-  },
-  {
-    name: "standings",
-    path: "/dashboard/standings",
-  },
-  {
-    name: "schedule",
-    path: "/dashboard/schedule",
-  },
+  "teams",
+  "live",
+  "standings",
+  "schedule",
+  "leaderboard",
 ];
 </script>
 
 <template>
   <nav class="flex-grow">
     <ul>
-      <li v-for="child in routes" :key="child.name">
-        <NuxtLink :to="child.path">
-          {{ $t(`navigation.routes.${child.name}`) }}
+      <li>
+        <NuxtLink to="/dashboard">
+          {{ $t(`routes.dashboard.name`) }}
+        </NuxtLink>
+      </li>
+      <li v-for="route in routes" :key="route">
+        <NuxtLink :to="`/dashboard/${route}`">
+          {{ $t(`routes.dashboard.children.${route}.name`) }}
         </NuxtLink>
       </li>
     </ul>

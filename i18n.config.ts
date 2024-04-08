@@ -17,15 +17,59 @@ export default defineI18nConfig(() => ({
           },
         },
         dashboard: {
-          name: "",
+          name: "Home",
           description: "",
-          content: "",
+          content: {
+            header: {
+              title: "Dashboard",
+              description: "Hello!",
+            },
+          },
+          children: {
+            teams: {
+              name: "Teams",
+              description: "",
+              content: {},
+            },
+            live: {
+              name: "Live",
+              description: "",
+              content: {},
+            },
+            standings: {
+              name: "Standings",
+              description: "",
+              content: {},
+            },
+            schedule: {
+              name: "Schedule",
+              description: "",
+              content: {},
+            },
+            leaderboard: {
+              name: "Leaderboard",
+              description: "",
+              content: {
+                header: {
+                  title: "Leaderboard",
+                  description: "Check your performance!",
+                },
+                sections: {
+                  points: "Points",
+                  rebounds: "Rebounds",
+                  assists: "Assists",
+                  steals: "Steals",
+                  blocks: "Blocks",
+                },
+              },
+            },
+          },
         },
         auth: {
           name: "",
           description: "",
           content: "",
-          child: {
+          children: {
             login: {
               name: "Login",
               description: "",
@@ -77,57 +121,13 @@ export default defineI18nConfig(() => ({
           },
         },
       },
-      button: {
-        login: "Log in",
-        logout: "Log out",
-      },
-      navigation: {
-        routes: {
-          home: "Home",
-          standings: "Standings",
-          leaderboard: "Leaderboard",
-          live: "Live scores",
-          schedule: "Schedule",
-          teams: "Teams",
-        },
-        profile: "Your profile",
-        support: "Support",
-      },
-    },
-    pl: {
-      routes: {
-        index: {
-          name: "Koszykówka 3x3",
-          description:
-            "Pamiętacie pierwszą edycję turnieju Knurowski Streetball? My tak samo i chcemy wam przekazać dobrą wiadomość 🥳 Już 25 maja organizujemy dla WAS kolejną odsłona naszego koszykarskiego eventu.",
-          content: {
-            header: {
-              title: "Rejestracja na turniej 3x3 jest aktualnie zamknięta!",
-              description:
-                "Odwiedzając tą stronę prawdopodobnie znasz już Knury i organizowanym przez nie turniej koszykówki ulicznej. Wkrótce pojawi się więcej informacji o Knurowskim Streetballu na naszych profilach społecznościowych!",
-            },
+      components: {
+        side: {
+          buttons: {
+            login: "Login",
+            logout: "Logout",
           },
         },
-        dashboard: {
-          name: "",
-          description: "",
-        },
-      },
-      button: {
-        login: "Zaloguj się",
-        logout: "Wyloguj się",
-      },
-      navigation: {
-        routes: {
-          home: "Panel",
-          standings: "Ranking",
-          leaderboard: "Tabela wyników",
-          live: "Na żywo",
-          schedule: "Terminarz",
-          teams: "Drużyny",
-        },
-        profile: "Twój profil",
-        support: "Wsparcie",
       },
     },
   },
