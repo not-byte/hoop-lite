@@ -28,7 +28,7 @@ useHeadSafe({
         {{ $t(`routes.${routeName}.content.form.reset`) }}
       </NuxtLink>
     </p>
-    <button @click="useLoginRedirect(data);console.table(data);" class="bg-blood py-2 px-4 rounded-full mb-2 font-bold text-light">
+    <button @click="useLoginRedirect(data)" class="bg-blood py-2 px-4 rounded-full mb-2 font-bold text-light">
       {{ $t(`routes.${routeName}.content.form.submit`) }}
     </button>
   </form>

@@ -4,5 +4,5 @@ export default (data: LoginPayload | RegisterPayload) => {
     password: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
   };
 
-  return Object.keys(data).every((key) => regex[key] ? regex[key].test((data as any)[key]) : false);
-}
+  return Object.keys(data).every((key) => (regex[key] ? regex[key].test((data as any)[key]) : false));
+};
