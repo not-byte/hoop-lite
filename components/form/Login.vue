@@ -13,7 +13,7 @@ useHeadSafe({
 </script>
 
 <template>
-  <form @submit.prevent class="bg-light rounded-inside pt-3 pb-4 px-4 grid grid-flow-row">
+  <form @submit.prevent class="w-full grid grid-flow-row gap-3">
     <InputForm
       v-for="(value, key) in data"
       :key="key"
@@ -22,13 +22,13 @@ useHeadSafe({
       :route="routeName"
       :placeholder="key"
     />
-    <p class="text-high text-sm text-right mb-2">
+    <p class="text-high text-sm text-right">
       {{ $t(`routes.${routeName}.content.form.forgot`) }}
       <NuxtLink to="/auth/register" class="text-blood underline">
         {{ $t(`routes.${routeName}.content.form.reset`) }}
       </NuxtLink>
     </p>
-    <button @click="useLoginRedirect(data)" class="bg-blood py-2 px-4 rounded-full mb-2 font-bold text-light">
+    <button @click="useLoginRedirect(data)" class="bg-blood rounded-lg py-3 px-6 text-light font-bold">
       {{ $t(`routes.${routeName}.content.form.submit`) }}
     </button>
   </form>

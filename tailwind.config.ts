@@ -23,7 +23,7 @@ export default <Partial<Config>>{
         dark: "rgb(30,30,30,1.00)",
         gray: "rgb(75,75,75,1.00)",
         high: "rgb(125,125,125,1.00)",
-        mid: "rgba(220,221,226,1.00)",
+        mid: "rgba(166,161,166,1.00)",
         smoke: "rgb(231,232,236,1.00)",
         light: "rgba(255,255,255,1.00)",
       },

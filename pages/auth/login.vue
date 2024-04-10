@@ -3,10 +3,10 @@ const routeName = useRouteName();
 </script>
 
 <template>
-  <section class="relative bg-smoke rounded-outside pt-3 pb-5 px-5">
+  <section>
     <HeaderForm />
     <FormLogin />
-    <aside class="mt-4 px-12">
+    <aside class="mt-3">
       <p class="text-high text-sm text-center">
         {{ $t(`routes.${routeName}.content.aside.title`) }}
         <NuxtLink to="/auth/register" class="text-blood underline">
@@ -14,12 +14,5 @@ const routeName = useRouteName();
         </NuxtLink>
       </p>
     </aside>
-    <!--    <footer>-->
-    <!--      All rights reserved ©-->
-    <!--      {{ new Date().getUTCFullYear() }}-->
-    <!--      <NuxtLink :to="useRuntimeConfig().public.authorUrl" external target="_blank" rel="noopener">-->
-    <!--        {{ useRuntimeConfig().public.authorName }}-->
-    <!--      </NuxtLink>-->
-    <!--    </footer>-->
   </section>
 </template>

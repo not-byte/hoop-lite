@@ -3,12 +3,12 @@ const routeName = useRouteName();
 </script>
 
 <template>
-  <header class="mb-3">
-    <h2>
+  <header class="place-content-center mb-6 text-center">
+    <h1>
       {{ $t(`routes.${routeName}.content.header.title`) }}
-    </h2>
-    <p>
+    </h1>
+    <!-- <p class="text-mid">
       {{ $t(`routes.${routeName}.content.header.description`) }}
-    </p>
+    </p> -->
   </header>
 </template>

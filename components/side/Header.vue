@@ -4,10 +4,15 @@ const config = useRuntimeConfig();
 
 <template>
   <header>
-    <h4>
+    <h3>
       {{ config.public.name }}
-      <br/>
+    </h3>
+    <NuxtLink
+      external
+      target="_blank"
+      rel="noreferrer"
+      to="https://github.com/not-byte/tournament-app">
       {{ config.public.version }}
-    </h4>
+    </NuxtLink>
   </header>
 </template>

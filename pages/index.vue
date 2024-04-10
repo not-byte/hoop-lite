@@ -21,10 +21,10 @@ const routeName = (useRouter().currentRoute.value.name as string).split("___")[0
         <h3>Instagram</h3>
         <p>Zobacz nasze najnowsze zdjęcia!</p>
         <NuxtLink
-          :to="`https://www.instagram.com/knury.knurow`"
           external
           target="_blank"
           rel="noopener"
+          :to="`https://www.instagram.com/knury.knurow`"
           class="w-full h-full absolute z-50 inset-0"
         ></NuxtLink>
       </section>

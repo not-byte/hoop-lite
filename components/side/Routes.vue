@@ -1,10 +1,11 @@
 <script setup lang="ts">
 const routes = [
   "teams",
-  "live",
   "standings",
+  "liv",
   "schedule",
   "leaderboard",
+  "players",
 ];
 </script>
 

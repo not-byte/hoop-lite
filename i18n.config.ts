@@ -32,7 +32,7 @@ export default defineI18nConfig(() => ({
               content: {},
             },
             live: {
-              name: "Live",
+              name: "Live Game",
               description: "",
               content: {},
             },
@@ -43,6 +43,11 @@ export default defineI18nConfig(() => ({
             },
             schedule: {
               name: "Schedule",
+              description: "",
+              content: {},
+            },
+            players: {
+              name: "Players",
               description: "",
               content: {},
             },
@@ -75,13 +80,13 @@ export default defineI18nConfig(() => ({
               description: "",
               content: {
                 header: {
-                  title: "Login",
+                  title: "Welcome back",
                   description: "Enter your credentials",
                 },
                 form: {
-                  email: "E-mail address",
-                  password: "Secret password",
-                  submit: "Login",
+                  email: "E-mail",
+                  password: "Password",
+                  submit: "Sign in",
                   forgot: "Forgot your",
                   reset: "password?",
                 },

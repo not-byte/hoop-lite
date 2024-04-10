@@ -35,6 +35,13 @@ useSeoMeta({
   <VitePwaManifest />
   <NuxtLoadingIndicator />
   <NuxtPage />
+  <!-- <footer>-->
+  <!--      All rights reserved ©-->
+  <!--      {{ new Date().getUTCFullYear() }}-->
+  <!--      <NuxtLink :to="useRuntimeConfig().public.authorUrl" external target="_blank" rel="noopener">-->
+  <!--        {{ useRuntimeConfig().public.authorName }}-->
+  <!--      </NuxtLink>-->
+  <!--    </footer> -->
 </template>
 
 <style>
