@@ -9,6 +9,7 @@ declare global {
     last_name: string;
     repeated_password: string;
   }
+  
   interface ResetPayload {
     email: string;
   }
@@ -37,7 +38,9 @@ declare global {
     name: string;
   }
 
-  interface Statistics {}
+  interface Statistics {
+    points: int;
+  }
 }
 
 export {};
