@@ -32,7 +32,7 @@
     }
 
     main {
-        @apply overflow-hidden
+        @apply overflow-hidden;
     }
 
     h1 {
