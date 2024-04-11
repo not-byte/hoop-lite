@@ -10,6 +10,6 @@ const onInput = (event: any) => emit("typing", placeholder, event.target.value);
     :name="placeholder"
     :type="type"
     :placeholder="$t(`routes.${route}.content.form.${placeholder}`)"
-    class="bg-transparent placeholder:text-mid border-1 border-mid rounded-lg py-2 px-4 outline-1 outline-transparent focus:outline-blood focus:ring-0"
+    class="bg-transparent rounded-lg py-2 px-4 outline-none border-1 border-mid focus:border-blood placeholder:text-mid"
   />
 </template>

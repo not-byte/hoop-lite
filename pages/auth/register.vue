@@ -3,7 +3,7 @@ const routeName = useRouteName();
 </script>
 
 <template>
-  <section class="relative bg-smoke rounded-outside pt-3 pb-5 px-5">
+  <section  class="flex flex-col sm:max-w-48 md:max-w-[18rem] lg:max-w-[24rem]">
     <HeaderForm />
     <FormRegister />
     <aside class="mt-4 px-12">

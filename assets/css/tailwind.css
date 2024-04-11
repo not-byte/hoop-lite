@@ -31,6 +31,10 @@
         @apply font-display text-mid text-md bg-dark select-none;
     }
 
+    main {
+        @apply overflow-hidden
+    }
+
     h1 {
         @apply font-bold text-white text-xxl;
     }

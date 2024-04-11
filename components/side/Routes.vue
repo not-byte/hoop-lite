@@ -2,7 +2,7 @@
 const routes = [
   "teams",
   "standings",
-  "liv",
+  "live",
   "schedule",
   "leaderboard",
   "players",

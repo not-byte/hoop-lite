@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import { boxShadow } from "@unocss/preset-mini/theme";
 
 export default <Partial<Config>>{
   theme: {

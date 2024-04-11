@@ -7,8 +7,8 @@ const routeName = useRouteName();
     <h1>
       {{ $t(`routes.${routeName}.content.header.title`) }}
     </h1>
-    <!-- <p class="text-mid">
+    <p>
       {{ $t(`routes.${routeName}.content.header.description`) }}
-    </p> -->
+    </p>
   </header>
 </template>

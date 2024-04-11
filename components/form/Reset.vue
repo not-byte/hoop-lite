@@ -1,15 +1,9 @@
 <script setup lang="ts">
-const data = ref<RegisterPayload>({
-  first_name: "",
-  last_name: "",
-  email: "",
-  password: "",
-  repeated_password: "",
-});
-
 const onTyping = (key: string, value: any) => (data.value[key as keyof Object] = value);
-
 const routeName = useRouteName();
+const data = ref<ResetPayload>({
+  email: "",
+});
 </script>
 
 <template>
@@ -22,8 +16,14 @@ const routeName = useRouteName();
       :route="routeName"
       :placeholder="key"
     />
-    <ButtonBasic @click="useRegisterRedirect(data)">
+    <p class="text-high text-sm text-right">
+      {{ $t(`routes.${routeName}.content.form.forgot`) }}
+      <NuxtLink to="/contact" class="text-blood underline">
+        {{ $t(`routes.${routeName}.content.form.reset`) }}
+      </NuxtLink>
+    </p>
+    <ButtonLink @click="useResetRedirect(data.email)">
       {{ $t(`routes.${routeName}.content.form.submit`) }}
-    </ButtonBasic>
+    </ButtonLink>
   </form>
 </template>

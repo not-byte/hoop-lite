@@ -9,6 +9,22 @@ declare global {
     last_name: string;
     repeated_password: string;
   }
+  interface ResetPayload {
+    email: string;
+  }
+
+  interface PasswordPayload {
+    password: string;
+    repeated_password: string;
+  }
+
+  interface VerifyPayload {
+    token: string;
+  }
+  
+  interface VerifyStatus {
+    authorized: boolean;
+  }
 
   interface User {
     login: string;

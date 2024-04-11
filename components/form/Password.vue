@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const onTyping = (key: string, value: any) => (data.value[key as keyof Object] = value);
 const routeName = useRouteName();
-const data = ref<LoginPayload>({
-  email: "",
+const data = ref<PasswordPayload>({
   password: "",
+  repeated_password: "",
 });
 </script>
 
@@ -19,11 +19,11 @@ const data = ref<LoginPayload>({
     />
     <p class="text-high text-sm text-right">
       {{ $t(`routes.${routeName}.content.form.forgot`) }}
-      <NuxtLink to="/auth/reset" class="text-blood underline">
+      <NuxtLink to="/contact" class="text-blood underline">
         {{ $t(`routes.${routeName}.content.form.reset`) }}
       </NuxtLink>
     </p>
-    <ButtonBasic @click="useLoginRedirect(data)">
+    <ButtonBasic @click="usePasswordRedirect(data)">
       {{ $t(`routes.${routeName}.content.form.submit`) }}
     </ButtonBasic>
   </form>
