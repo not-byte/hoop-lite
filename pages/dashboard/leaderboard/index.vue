@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const routeName = useRouteName(); 
+const routeName = getPath(); 
 const { data: leaderboards } = await useFetch("/api/data/leaderboards");
 </script>
 

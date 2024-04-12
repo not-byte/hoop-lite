@@ -124,7 +124,7 @@ export default defineI18nConfig(() => ({
                   password: "Password",
                   repeated_password: "Repeated Password",
                   submit: "Set a new password",
-                  forgot: "Cannot change the",
+                  forgot: "Can't change your",
                   reset: "old password?",
                 },
               },
@@ -138,6 +138,9 @@ export default defineI18nConfig(() => ({
             header: {
               title: "Dashboard",
               description: "Hello!",
+            },
+            side: {
+              logout: "Log out",
             },
           },
           children: {

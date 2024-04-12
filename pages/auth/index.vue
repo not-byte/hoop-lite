@@ -1,10 +1,18 @@
 <script setup async lang="ts">
-const routeName = useRouteName();
+const routeName = getPath();
 const { token } = useRoute().query;
+let status = false;
 
-if (Array.isArray(token)) navigateTo("/auth/register");
+status = Array.isArray(token);
 
-const status = await useVerifyRedirect(token as string | string[]);
+const { data: response } = await useFetch("/api/auth/verify", {
+    headers: {
+      authorization: token as string,
+    },
+  },
+);
+
+status = response.value ? response.value.authorized : false;
 </script>
 
 <template>

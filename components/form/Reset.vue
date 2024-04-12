@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const onTyping = (key: string, value: any) => (data.value[key as keyof Object] = value);
-const routeName = useRouteName();
+const routeName = getPath();
 const data = ref<ResetPayload>({
   email: "",
 });
@@ -8,11 +8,10 @@ const data = ref<ResetPayload>({
 
 <template>
   <form @submit.prevent class="w-full grid grid-flow-row gap-3">
-    <InputForm
+    <InputBase
       v-for="(value, key) in data"
       :key="key"
       @typing="onTyping"
-      :type="useInputType(key)"
       :route="routeName"
       :placeholder="key"
     />

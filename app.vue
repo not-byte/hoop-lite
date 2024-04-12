@@ -1,6 +1,6 @@
 <script setup async lang="ts">
 const config = useRuntimeConfig();
-const routeName = useRouteName();
+const routeName = getPath();
 const { t, locale } = useI18n({ useScope: "global" });
 
 useHeadSafe({

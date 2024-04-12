@@ -8,8 +8,18 @@ defineProps({
 
 <template>
   <section>
-    <h1>{{ error.statusCode }}</h1>
-    <p>{{ error.statusMessage }}</p>
-    <button @click="useErrorRedirect(`/`)">Back to main page</button>
+    <header class="mb-3">
+      <h2>
+        {{ error?.statusCode }}
+        -
+        {{ $t(`routes.error.content.header.${error?.statusCode}.title`) }}
+      </h2>
+      <p>
+        {{ $t(`routes.error.content.header.${error?.statusCode}.description`) }}
+      </p>
+    </header>
+    <ButtonBasic @click="errorRedirect(`/`)">
+      {{ $t(`routes.error.content.button`) }}
+    </ButtonBasic>
   </section>
 </template>

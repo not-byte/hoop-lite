@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /dashboard
+Disallow: /dashboard/
+Disallow: /auth/
+
+Sitemap: https://3x3.knuryknurow.pl/sitemap.xml
