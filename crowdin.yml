@@ -1,0 +1,6 @@
+files:
+  - source: /
+    ignore:
+      - /i18n.config.ts
+    translation: /i18n.config.ts
+    multilingual: 1
