@@ -18,8 +18,8 @@ defineProps({
         {{ $t(`routes.error.content.header.${error?.statusCode}.description`) }}
       </p>
     </header>
-    <ButtonBasic @click="errorRedirect(`/`)">
+    <ButtonBase @click="errorRedirect(`/`)">
       {{ $t(`routes.error.content.button`) }}
-    </ButtonBasic>
+    </ButtonBase>
   </section>
 </template>

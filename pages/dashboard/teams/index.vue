@@ -5,8 +5,8 @@ let { data: teams } = await useFetch("/api/data/teams");
 <template>
   <section class="w-full h-full flex flex-col overflow-hidden">
     <h1>Teams</h1>
-    <section class="grid grid-cols-4 w-full h-full overflow-y-scroll gap-4 box-content">
-      <NuxtLink v-for="{ name, city, created, players } in teams" :key="name" :to="`/dashboard/teams/${name.replaceAll(` `, `-`).toLowerCase()}`" class="h-full p-4 rounded-inside">
+    <section class="grid grid-cols-2 w-full h-full overflow-y-scroll gap-4 box-content">
+      <section v-for="{ name, city, created, players } in teams" :key="name" :to="`/dashboard/teams/${name.replaceAll(` `, `-`).toLowerCase()}`" class="relative">
         <h2>
           {{ name }}
         </h2>
@@ -21,7 +21,8 @@ let { data: teams } = await useFetch("/api/data/teams");
             {{ first_name }} {{ last_name }} #{{ number }}
           </h4>
         </aside>
-      </NuxtLink>
+        <NuxtLink class="z-50 absolute w-full h-full"></NuxtLink>
+      </section>
     </section>
   </section>
 </template>

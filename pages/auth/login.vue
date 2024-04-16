@@ -42,9 +42,9 @@ const login = async () => {
           {{ $t(`routes.${routeName}.content.form.reset`) }}
         </NuxtLink>
       </p>
-      <ButtonBasic @click="login()">
+      <ButtonBase @click="login()">
         {{ $t(`routes.${routeName}.content.form.submit`) }}
-      </ButtonBasic>
+      </ButtonBase>
     </form>
     <aside class="mt-3">
       <p class="text-high text-sm text-center">

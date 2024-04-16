@@ -51,9 +51,9 @@ const logout = (to?: string) => {
           </li>
         </ul>
       </nav>
-      <ButtonBasic @click="logout()">
+      <ButtonBase @click="logout()">
         {{ $t(`routes.dashboard.content.side.logout`) }}
-      </ButtonBasic>
+      </ButtonBase>
     </aside>
     <section class="w-full h-full grid grid-flow-row col-start-2 col-end-9">
       <NuxtPage />
