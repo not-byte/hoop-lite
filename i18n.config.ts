@@ -1,28 +1,60 @@
-<script setup lang="ts">
-let { data: teams } = await useFetch("/api/data/teams");
-</script>
-
-<template>
-  <section class="w-full h-full flex flex-col overflow-hidden">
-    <h1>Teams</h1>
-    <section class="grid grid-cols-2 w-full h-full overflow-y-scroll gap-4 box-content">
-      <section v-for="{ name, city, created, players } in teams" :key="name" :to="`/dashboard/teams/${name.replaceAll(` `, `-`).toLowerCase()}`" class="relative">
-        <h2>
-          {{ name }}
-        </h2>
-        <p>
-          {{ city }} - {{ new Date(created).getFullYear() }}
-        </p>
-        <h3>
-          Players
-        </h3>
-        <aside v-for="{ first_name, last_name, number } in players" :key="number">
-          <h4>
-            {{ first_name }} {{ last_name }} #{{ number }}
-          </h4>
-        </aside>
-        <NuxtLink class="z-50 absolute w-full h-full"></NuxtLink>
-      </section>
-    </section>
-  </section>
-</template>
+name: Publish and deploy Docker image
+on:
+  release:
+    types:
+      - published
+jobs:
+  publish:
+    name: Publish Docker image to GitHub Packages
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - 
+        name: Checkout
+        uses: actions/checkout@v4
+      - 
+        name: Auth GitHub
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: '${{ github.actor }}'
+          password: '${{ secrets.GITHUB_TOKEN }}'
+      - 
+        name: Add tags and labels
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images:
+            - ghcr.io/${{ github.repository }}
+      - 
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - 
+        name: Set up Docker Build
+        uses: docker/setup-buildx-action@v3
+      - 
+        name: Push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: '${{ steps.meta.outputs.tags }}'
+          labels: '${{ steps.meta.outputs.labels }}'
+  deploy:
+    name: Deploy Docker to a Linux instance
+    runs-on: ubuntu-latest
+    needs: publish
+    steps:
+      - 
+        name: Deploy into a Server with SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: '${{ secrets.SERVER_HOST }}'
+          username: '${{ secrets.SERVER_USERNAME }}'
+          password: '${{ secrets.SERVER_PASSWORD }}'
+          port: '${{ secrets.SERVER_PORT }}'
+          key: '${{ secrets.SERVER_KEY }}'
+          script: '${{ vars.SCRIPT }} ${{ github.repository }} ${{ secrets.APP_NAME }} ${{ secrets.APP_PORT }}'
