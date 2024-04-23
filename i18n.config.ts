@@ -1,28 +1,15 @@
-<script setup lang="ts">
-let { data: teams } = await useFetch("/api/data/teams");
+<template>
+  <aside class="flex items-center gap-3">
+    <aside class="p-4 aspect-square rounded-lg overflow-hidden bg-center bg-no-repeat bg-cover bg-[url('https://bi.im-g.pl/im/a9/64/18/z25575849Q.jpg')]">
+    </aside>
+    User123
+  </aside>
+</template>
+
+<script lang="ts" setup>
+
 </script>
 
-<template>
-  <section class="w-full h-full flex flex-col overflow-hidden">
-    <h1>Teams</h1>
-    <section class="grid grid-cols-2 w-full h-full overflow-y-scroll gap-4 box-content">
-      <section v-for="{ name, city, created, players } in teams" :key="name" :to="`/dashboard/teams/${name.replaceAll(` `, `-`).toLowerCase()}`" class="relative">
-        <h2>
-          {{ name }}
-        </h2>
-        <p>
-          {{ city }} - {{ new Date(created).getFullYear() }}
-        </p>
-        <h3>
-          Players
-        </h3>
-        <aside v-for="{ first_name, last_name, number } in players" :key="number">
-          <h4>
-            {{ first_name }} {{ last_name }} #{{ number }}
-          </h4>
-        </aside>
-        <NuxtLink class="z-50 absolute w-full h-full"></NuxtLink>
-      </section>
-    </section>
-  </section>
-</template>
+<style>
+
+</style>
