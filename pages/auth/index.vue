@@ -1,4 +1,8 @@
 <script setup async lang="ts">
+definePageMeta({
+  middleware: ["query"],
+});
+
 const routeName = getPath();
 const { token } = useRoute().query;
 let status = false;
@@ -31,7 +35,7 @@ status = response.value ? response.value.authorized : false;
     <aside class="mt-3">
       <p class="text-high text-sm text-center">
         {{ $t(`routes.${routeName}.content.${status}.content.aside.title`) }}
-        <NuxtLink to="/contact" class="text-blood underline">
+        <NuxtLink to="/auth/register" class="text-blood underline">
           {{ $t(`routes.${routeName}.content.${status}.content.aside.description`) }}
         </NuxtLink>
       </p>

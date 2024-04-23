@@ -1,4 +1,4 @@
-type Payload = LoginPayload | RegisterPayload | ResetPayload | PasswordPayload | VerifyPayload;
+type Payload = LoginPayload | RegisterPayload | ResetPayload | RecoveryPayload | VerifyPayload;
 
 const regex: { [key: string]: RegExp } = {
   first_name:        /^([a-zA-ZąćęłńóżźĄĆĘŁŃÓŻŹ]){3,32}$/,

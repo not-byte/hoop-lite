@@ -1,4 +1,8 @@
 <script setup async lang="ts">
+definePageMeta({
+  middleware: ["query"],
+});
+
 const routeName = getPath();
 const data = ref<RecoveryPayload>({
   password: "",
@@ -36,15 +40,9 @@ const recovery = async () => {
         :route="routeName"
         :placeholder="key"
       />
-      <p class="text-high text-sm text-right">
-        {{ $t(`routes.${routeName}.content.form.forgot`) }}
-        <NuxtLink to="/contact" class="text-blood underline">
-          {{ $t(`routes.${routeName}.content.form.reset`) }}
-        </NuxtLink>
-      </p>
-      <ButtonBasic @click="recovery()">
+      <ButtonBase @click="recovery()">
         {{ $t(`routes.${routeName}.content.form.submit`) }}
-      </ButtonBasic>
+      </ButtonBase>
     </form>
   </section>
 </template>
