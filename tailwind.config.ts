@@ -14,12 +14,16 @@ export default <Partial<Config>>{
         sm: "0.833rem",
       },
       colors: {
-        blood: "rgb(231,36,36)",
-        dark: "rgb(30,30,30,1.00)",
-        gray: "rgb(75,75,75,1.00)",
+        blood: "rgba(231,36,36,1.00)",
+        dark: "rgba(30,30,30,1.00)",
+        gray: "rgba(75,75,75,1.00)",
+        mid: "rgba(125,125,125,1.00)",
       },
       borderWidth: {
         "1": "1px",
+      },
+      gridTemplateColumns: {
+        "13": "repeat(13, minmax(0, 1fr))"
       },
     },
   },

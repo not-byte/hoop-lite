@@ -4,7 +4,7 @@ const { link } = defineProps([ "link" ]);
 
 <template>
   <NuxtLink :to="link" class="w-full bg-blood rounded-lg py-3 px-6 text-center">
-    <span class="text-light font-bold">
+    <span class="text-white font-bold">
       <slot/>
     </span>
   </NuxtLink>
