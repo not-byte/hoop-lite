@@ -1,4 +1,8 @@
 declare global {
+  interface FormPayload {
+    email: string;
+  }
+
   interface LoginPayload {
     email: string;
     password: string;

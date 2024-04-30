@@ -1,9 +1,30 @@
 <script setup lang="ts">
 const routeName = getPath();
+const data = ref<FormPayload>({
+  email: "",
+});
+
+const onTyping = (key: string, value: any) => (data.value[key as keyof Object] = value);
+
+const registration = async () => {
+  if (!validateData(data.value)) return;
+
+  const response = await $fetch("/api/data/teams", {
+    method: "PUT",
+    body: data.value,
+  });
+
+  if (!response) return;
+
+  return navigateTo("/dashboard");
+};
 </script>
 
 <template>
-  <section v-if="false" class="w-screen h-screen grid place-content-center">
+  <section class="w-screen h-screen grid place-content-center">
+    <form @submit.prevent="registration()">
+      <InputBase/>
+    </form>
     Knurowski Streetball
     <br />
     Rejestracja drużyny
