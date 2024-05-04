@@ -1,87 +1,60 @@
-declare global {
-  interface FormPayload {
-    email: string;
-  }
-  interface LoginPayload {
-    email: string;
-    password: string;
-  }
-  interface RegisterPayload extends LoginPayload {
-    first_name: string;
-    last_name: string;
-    repeated_password: string;
-  }
-  interface ResetPayload {
-    email: string;
-  }
-  interface RecoveryPayload {
-    password: string;
-    repeated_password: string;
-  }
-  enum VerifyStatus {
-    SUCCESS,
-    INVALID,
-    ERROR,
-  }
-  interface VerifyPayload {
-    token: string;
-  }
-  enum InviteStatus {
-    SUCCESS,
-    INVALID,
-    ERROR,
-    AWAIT,
-  }
-  interface InvitePayload {
-    token: string;
-  }
-  class Arena {
-    id: bigint;
-    city_id: bigint;
-    arena_name: string;
-    city_name: string;
-    coordinates: string;
-  }
-  enum AccountType {
-    PLAYER,
-    OWNER,
-    REFEREE,
-    ADMIN,
-  }
-  class Account {
-    id: bigint;
-    player_id: bigint;
-    team_id?: bigint;
-    email: string;
-    verified: boolean;
-    signed_agreement: boolean;
-    type: AccountType;
-    token?: string;
-    avatar?: string;
-    constructor() {}
-  }
-  enum Position {
-    PG,
-    SG,
-    SF,
-    PF,
-    C,
-  }
-  class Player {
-    position: Position;
-    height: int;
-    gender: boolean;
-    constructor() {}
-  }
-  class Team {
-    id: bigint;
-    owner_id: bigint;
-    name: string;
-    created: Date;
-    constructor() {}
-  }
-  interface Statistics {
-    points: int;
-  }
-}
-export {};
+name: Publish and deploy Docker image
+on:
+  release:
+    types:
+      - published
+jobs:
+  publish:
+    name: Publish Docker image to GitHub Packages
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - 
+        name: Checkout
+        uses: actions/checkout@v4
+      - 
+        name: Auth GitHub
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: '${{ github.actor }}'
+          password: '${{ secrets.GITHUB_TOKEN }}'
+      - 
+        name: Add tags and labels
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images:
+            - ghcr.io/${{ github.repository }}
+      - 
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - 
+        name: Set up Docker Build
+        uses: docker/setup-buildx-action@v3
+      - 
+        name: Push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: '${{ steps.meta.outputs.tags }}'
+          labels: '${{ steps.meta.outputs.labels }}'
+  deploy:
+    name: Deploy Docker to a Linux instance
+    runs-on: ubuntu-latest
+    needs: publish
+    steps:
+      - 
+        name: Deploy into a Server with SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: '${{ secrets.SERVER_HOST }}'
+          username: '${{ secrets.SERVER_USERNAME }}'
+          password: '${{ secrets.SERVER_PASSWORD }}'
+          port: '${{ secrets.SERVER_PORT }}'
+          key: '${{ secrets.SERVER_KEY }}'
+          script: '${{ vars.SCRIPT }} ${{ github.repository }} ${{ secrets.APP_NAME }} ${{ secrets.APP_PORT }}'
