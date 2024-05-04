@@ -5,6 +5,7 @@ export default <Partial<Config>>{
     extend: {
       fontFamily: {
         display: "Inter",
+        body: "Monument",
       },
       fontSize: {
         xxl: "2.986rem",
@@ -14,7 +15,7 @@ export default <Partial<Config>>{
         sm: "0.833rem",
       },
       colors: {
-        blood: "rgba(231,36,36,1.00)",
+        blood: "rgba(242,53,53,1.00)",
         dark: "rgba(30,30,30,1.00)",
         gray: "rgba(75,75,75,1.00)",
         mid: "rgba(125,125,125,1.00)",

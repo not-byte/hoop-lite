@@ -5,9 +5,10 @@ export default defineI18nConfig(() => ({
     en: {
       routes: {
         index: {
-          name: "3x3 Basketball",
-          description:
-            "Do you remember the first edition of the Knurowski Streetball tournament? We do too and we want to share some good news with you 🥳 On May 25th, we are organizing another installment of our basketball event for YOU.",
+          //name: "3x3 Basketball",
+          name: "3X3",
+          //description: "Do you remember the first edition of the Knurowski Streetball tournament? We do too and we want to share some good news with you 🥳 On May 25th, we are organizing another installment of our basketball event for YOU.",
+          description: "Pamiętacie pierwszą edycję Knurowskiego Streetballa w 2023? Ogłaszamy że specjalnie dla WAS, już w niedzielę 5 maja otwieramy rejestrację na drugą edycję turnieju, do zobaczenia!",
           content: {
             header: {
               title: "Registration for the 3x3 tournament is currently closed!",

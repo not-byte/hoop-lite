@@ -33,6 +33,27 @@
             format('woff2');
     }
 
+
+    @font-face {
+        font-family: 'Monument';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src:
+                url('~/assets/font/mnt_l.woff')
+                format('woff');
+    }
+
+    @font-face {
+        font-family: 'Monument';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src:
+                url('~/assets/font/mnt_b.woff')
+                format('woff');
+    }
+
     html {
         @apply font-display text-mid text-md bg-dark select-none;
     }
