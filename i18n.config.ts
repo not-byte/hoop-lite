@@ -1,5 +1,3 @@
-<template>
-  <div>
-    Wybierz mecz
-  </div>
-</template>
+export default defineEventHandler(async event => {
+  return 'Hello Nitro';
+});
