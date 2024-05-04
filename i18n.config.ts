@@ -1,30 +1,12 @@
-import type { Config } from "tailwindcss";
-export default (<Partial<Config>> {
-  theme: {
-    extend: {
-      fontFamily: {
-        display: "Inter",
-        body: "Monument"
-      },
-      fontSize: {
-        xxl: "2.986rem",
-        xl: "1.728rem",
-        lg: "1.2rem",
-        md: "1rem",
-        sm: "0.833rem"
-      },
-      colors: {
-        blood: "rgba(242,53,53,1.00)",
-        dark: "rgba(30,30,30,1.00)",
-        gray: "rgba(75,75,75,1.00)",
-        mid: "rgba(125,125,125,1.00)"
-      },
-      borderWidth: {
-        "1": "1px"
-      },
-      gridTemplateColumns: {
-        "13": "repeat(13, minmax(0, 1fr))"
-      }
-    }
-  }
-});
+type Payload = LoginPayload | RegisterPayload | ResetPayload | RecoveryPayload | VerifyPayload;
+const regex: {
+  [key: string]: RegExp;
+} = {
+  first_name: /^([a-zA-ZąćęłńóżźĄĆĘŁŃÓŻŹ]){3,32}$/,
+  last_name: /^([a-zA-ZąćęłńóżźĄĆĘŁŃÓŻŹ]){3,32}$/,
+  email: /^[\w-.]+@([\w-]+\.)+[\w-]{2,6}$/,
+  password: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,32}$/,
+  repeated_password: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,32}$/,
+  token: /^([a-zA-Z0-9!#$%^&*_]){8}$/
+};
+export default ((data: Payload) => Object.keys(data).every(key => regex[key] ? regex[key].test((data as any)[key]) : false));
