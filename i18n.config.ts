@@ -1,19 +1,15 @@
 <script setup lang="ts">
 const routeName = getPath();
-const data = ref<RegisterPayload>({
-  first_name: "",
-  last_name: "",
+const data = ref<ResetPayload>({
   email: "",
-  password: "",
-  repeated_password: "",
 });
 
 const onTyping = (key: string, value: any) => (data.value[key as keyof Object] = value);
 
-const register = async () => {
+const reset = async () => {
   if (!validateData(data.value)) return;
 
-  const response = await $fetch("/api/auth/register", {
+  const response = await $fetch("/api/auth/reset", {
     method: "POST",
     body: data.value,
   });
@@ -35,17 +31,15 @@ const register = async () => {
         :route="routeName"
         :placeholder="key"
       />
-      <ButtonBase @click="register()">
-        {{ $t(`routes.${routeName}.content.form.submit`) }}
-      </ButtonBase>
-    </form>
-    <aside class="mt-4 px-12">
-      <p class="text-high text-sm text-center">
-        {{ $t(`routes.${routeName}.content.aside.title`) }}
+      <p class="text-high text-sm text-right">
+        {{ $t(`routes.${routeName}.content.form.forgot`) }}
         <NuxtLink to="/auth/login" class="text-blood underline">
-          {{ $t(`routes.${routeName}.content.aside.description`) }}
+          {{ $t(`routes.${routeName}.content.form.reset`) }}
         </NuxtLink>
       </p>
-    </aside>
+      <ButtonLink @click="reset()">
+        {{ $t(`routes.${routeName}.content.form.submit`) }}
+      </ButtonLink>
+    </form>
   </section>
 </template>
