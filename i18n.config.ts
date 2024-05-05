@@ -1,58 +1,80 @@
-<script setup async lang="ts">
-const config = useRuntimeConfig();
-const routeName = getPath();
-const { t, locale } = useI18n({ useScope: "global" });
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-useHeadSafe({
-  titleTemplate: (titleChunk) =>
-    titleChunk ? `${titleChunk} · ${config.public.name}` : `${t(`routes.${routeName}.name`)} · ${config.public.name}`,
-  htmlAttrs: {
-    lang: locale.value,
-  },
-  meta: [
-    {
-      name: "description",
-      content: `${t(`routes.${routeName}.description`)}`,
-    },
-  ],
-});
+@layer base {
+    @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src:
+            url('~/assets/font/inter-v13-latin_latin-ext-300.woff2')
+            format('woff2');
+    }
 
-useSeoMeta({
-  ogTitle: `${t(`routes.${routeName}.name`)} · ${config.public.name}`,
-  ogDescription: `${t(`routes.${routeName}.description`)}`,
-  ogImage: "[og:image]",
-  ogUrl: "[og:url]",
-  twitterTitle: "[twitter:title]",
-  twitterDescription: "[twitter:description]",
-  twitterImage: "[twitter:image]",
-  twitterCard: "summary",
-});
-</script>
+    @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src:
+            url('~/assets/font/inter-v13-latin_latin-ext-regular.woff2')
+            format('woff2');
+    }
 
-<template>
-  <VitePwaManifest />
-  <NuxtLoadingIndicator />
-  <NuxtPage />
-</template>
+    @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src:
+            url('~/assets/font/inter-v13-latin_latin-ext-700.woff2')
+            format('woff2');
+    }
 
-<style>
-.page-enter-active,
-.page-leave-active {
-  transition:
-    opacity 500ms ease-in-out,
-    transform 750ms;
+
+    @font-face {
+        font-family: 'Monument';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src:
+                url('~/assets/font/mnt_l.woff')
+                format('woff');
+    }
+
+    @font-face {
+        font-family: 'Monument';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src:
+                url('~/assets/font/mnt_b.woff')
+                format('woff');
+    }
+
+    html {
+        @apply font-display text-mid text-md bg-dark select-none;
+    }
+
+    main {
+        @apply overflow-hidden;
+    }
+
+    h1 {
+        @apply font-bold text-white text-xxl;
+    }
+
+    h2 {
+        @apply font-bold text-white text-xl;
+    }
+
+    h3 {
+        @apply font-bold text-white text-lg mb-2;
+    }
+
+    h4 {
+        @apply font-bold text-white text-md;
+    }
 }
-
-.page-enter-active {
-  transition-delay: 250ms;
-}
-
-.page-enter-from,
-.page-leave-to {
-  opacity: 0;
-}
-
-.page-enter-from {
-  transform: translateY(-2rem);
-}
-</style>
