@@ -1,61 +1,28 @@
 <script setup lang="ts">
-definePageMeta({
-  middleware: ["auth"],
-});
-
-const config = useRuntimeConfig();
-const routes = [
-  "teams",
-  "standings",
-  "live",
-  "schedule",
-  "leaderboard",
-  "players",
-];
-
-const logout = (to?: string) => {
-  useCookie("token", { sameSite: true }).value = null;
-
-  navigateTo(to ? to : "/auth/login");
-};
+let { data: teams } = await useFetch("/api/data/teams");
 </script>
 
 <template>
-  <section class="relative w-screen h-screen grid grid-rows-1 grid-cols-8 gap-4">
-    <aside class="flex flex-col col-span-1 gap-4 bg-high/10">
-      <header class="w-full bg-blood">
+  <section class="w-full h-full flex flex-col overflow-hidden">
+    <h1>Teams</h1>
+    <section class="grid grid-cols-2 w-full h-full overflow-y-scroll gap-4 box-content">
+      <section v-for="{ name, city, created, players } in teams" :key="name" :to="`/dashboard/teams/${name.replaceAll(` `, `-`).toLowerCase()}`" class="relative">
+        <h2>
+          {{ name }}
+        </h2>
+        <p>
+          {{ city }} - {{ new Date(created).getFullYear() }}
+        </p>
         <h3>
-          {{ config.public.name }}
+          Players
         </h3>
-        <NuxtLink
-          external
-          target="_blank"
-          rel="noreferrer"
-          to="https://github.com/not-byte/tournament-app"
-        >
-          {{ config.public.version }}
-        </NuxtLink>
-      </header>
-      <nav class="flex-grow">
-        <ul class="flex flex-col gap-4">
-          <li class="flex flex-row gap-2 bg-mid/25">
-            <IconUser/>
-            <NuxtLink to="/dashboard" class="text-white font-bold">
-              {{ $t(`routes.dashboard.name`) }}
-            </NuxtLink>
-          </li>
-          <li v-for="route in routes" :key="route" class="flex flex-row gap-2">
-            <IconUser/>
-            <NuxtLink :to="`/dashboard/${route}`">
-              {{ $t(`routes.dashboard.children.${route}.name`) }}
-            </NuxtLink>
-          </li>
-        </ul>
-      </nav>
-      <ButtonAccount/>
-    </aside>
-    <section class="w-full h-full grid grid-flow-row col-start-2 col-end-9">
-      <NuxtPage />
+        <aside v-for="{ first_name, last_name, number } in players" :key="number">
+          <h4>
+            {{ first_name }} {{ last_name }} #{{ number }}
+          </h4>
+        </aside>
+        <NuxtLink class="z-50 absolute w-full h-full"></NuxtLink>
+      </section>
     </section>
   </section>
 </template>
