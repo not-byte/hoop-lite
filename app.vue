@@ -5,9 +5,7 @@ const { t, locale } = useI18n({ useScope: "global" });
 
 useHeadSafe({
   titleTemplate: (titleChunk) =>
-    titleChunk
-      ? `${t(`routes.${titleChunk}.name`)} · ${config.public.name}`
-      : `${t(`routes.${routeName}.name`)} · ${config.public.name}`,
+    titleChunk ? `${titleChunk} · ${config.public.name}` : `${t(`routes.${routeName}.name`)} · ${config.public.name}`,
   htmlAttrs: {
     lang: locale.value,
   },
@@ -35,12 +33,6 @@ useSeoMeta({
   <VitePwaManifest />
   <NuxtLoadingIndicator />
   <NuxtPage />
-<!--  <NuxtLink external target="_blank" rel="noreferrer" to="https://bud-expert.com.pl" class="grid grid-flow-row absolute top-0 w-screen text-center text-white py-2 bg-blood font-bold">-->
-<!--    BUD-EXPERT-->
-<!--    <span class="text-smoke text-sm font-light">-->
-<!--      Sponsor of the Event-->
-<!--    </span>-->
-<!--  </NuxtLink>-->
 </template>
 
 <style>

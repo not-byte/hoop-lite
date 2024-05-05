@@ -5,15 +5,17 @@ export default defineI18nConfig(() => ({
     en: {
       routes: {
         index: {
-          //name: "3x3 Basketball",
           name: "3X3",
-          //description: "Do you remember the first edition of the Knurowski Streetball tournament? We do too and we want to share some good news with you 🥳 On May 25th, we are organizing another installment of our basketball event for YOU.",
-          description: "Pamiętacie pierwszą edycję Knurowskiego Streetballa w 2023? Ogłaszamy że specjalnie dla WAS, już w niedzielę 5 maja otwieramy rejestrację na drugą edycję turnieju, do zobaczenia!",
+          description:
+            "Do you remember the first edition of the Knurowski Streetball tournament? We do too and we want to share some good news with you 🥳 On May 25th, we are organizing another installment of our basketball event for YOU.",
           content: {
-            header: {
-              title: "Registration for the 3x3 tournament is currently closed!",
-              description:
-                "Visiting this website, you probably already know about Knury and the street basketball tournament organized by them. Soon, more information about Knurowski Streetball will appear on our social media profiles!",
+            form: {
+              name: "Nazwa drużyny",
+              email: "Adres e-mail",
+              phone: "Numer telefonu",
+              first_name: "Imię",
+              last_name: "Nazwisko",
+              age: "Wiek",
             },
           },
         },
@@ -27,7 +29,7 @@ export default defineI18nConfig(() => ({
               content: {
                 header: {
                   title: "Thank you!",
-                  description: "Your account has been verified, you can now participate in the event",  
+                  description: "Your account has been verified, you can now participate in the event",
                 },
                 button: "Log in",
                 aside: {
@@ -42,7 +44,8 @@ export default defineI18nConfig(() => ({
               content: {
                 header: {
                   title: "Error occured!",
-                  description: "It seems that your verification token is invalid, try again later or contact our support",  
+                  description:
+                    "It seems that your verification token is invalid, try again later or contact our support",
                 },
                 button: "Sign up again",
                 aside: {

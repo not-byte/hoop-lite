@@ -11,11 +11,15 @@ export default defineNuxtConfig({
   runtimeConfig: {
     apiKey: "",
     token: "",
+    mailHost: "",
+    mailPort: "",
+    mailUser: "",
+    mailPassword: "",
     public: {
       name: "Knury Knurów",
       version: "0.1.0",
       authorName: "notByte",
-      authorUrl: "https://notByte.com",
+      authorUrl: "https://notByte.com/",
     },
   },
   modules: [
@@ -28,9 +32,9 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt",
   ],
   i18n: {
-    baseUrl: process.env.APP_URL || "http://localhost:3000",
+    baseUrl: process.env.APP_URL || "http://localhost:3000/",
     strategy: "no_prefix",
-    defaultLocale: "pl",
+    defaultLocale: "en",
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: "locale",
@@ -40,10 +44,6 @@ export default defineNuxtConfig({
       {
         code: "en",
         name: "English",
-      },
-      {
-        code: "pl",
-        name: "Polski",
       },
     ],
   },
