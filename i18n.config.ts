@@ -1,9 +1,15 @@
-export default ((seconds: number): string => {
-  const days = Math.floor(seconds / (3600 * 24));
-  const hours = Math.floor(seconds % (3600 * 24) / 3600);
-  const minutes = Math.floor(seconds % 3600 / 60);
-  const paddedDays = days.toString().padStart(2, "0");
-  const paddedHours = hours.toString().padStart(2, "0");
-  const paddedMinutes = minutes.toString().padStart(2, "0");
-  return `${paddedDays}d ${paddedHours}h ${paddedMinutes}m`;
-});
+<script setup lang="ts">
+const { route, placeholder } = defineProps(["route", "placeholder"]);
+const emit = defineEmits(["typing"]);
+const onInput = (event: any) => emit("typing", placeholder, event.target.value);
+</script>
+
+<template>
+  <input
+    @input="onInput($event)"
+    :name="placeholder"
+    :type="`${getInputType(placeholder)}`"
+    :placeholder="$t(`routes.${route}.content.form.${placeholder}`)"
+    class="w-full h-12 bg-transparent rounded-lg py-2 px-4 outline-none border-1 border-mid placeholder:text-mid focus:border-blood focus:text-blood focus:placeholder:text-blood"
+  />
+</template>
