@@ -2,9 +2,6 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
-  devServer: {
-    port: 80,
-  },
   imports: {
     dirs: ["types"],
   },
@@ -21,9 +18,9 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxtjs/device",
     "@nuxtjs/i18n",
+    "@nuxtjs/sitemap",
     "@nuxtjs/tailwindcss",
     "@vite-pwa/nuxt",
-    "nuxt-simple-sitemap",
   ],
   i18n: {
     baseUrl: process.env.APP_URL || "http://localhost:3000/",
@@ -40,6 +37,9 @@ export default defineNuxtConfig({
         name: "English",
       },
     ],
+  },
+  site: {
+    url: process.env.APP_URL || "http://localhost:3000/",
   },
   app: {
     baseURL: "/",
