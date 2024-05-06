@@ -2,9 +2,6 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
-  devServer: {
-    port: 80,
-  },
   imports: {
     dirs: ["types"],
   },
@@ -12,18 +9,17 @@ export default defineNuxtConfig({
     mailUlrl: "",
     public: {
       name: "Knury Knurów",
-      version: "0.1.0",
+      version: "1.0.0",
       authorName: "notByte",
       authorUrl: "https://notByte.com/",
     },
   },
   modules: [
-    "@nuxt/test-utils/module",
     "@nuxt/image",
     "@nuxtjs/device",
     "@nuxtjs/i18n",
+    "@nuxtjs/sitemap",
     "@nuxtjs/tailwindcss",
-    "nuxt-simple-sitemap",
     "@vite-pwa/nuxt",
   ],
   i18n: {
@@ -42,21 +38,22 @@ export default defineNuxtConfig({
       },
     ],
   },
+  site: {
+    url: process.env.APP_URL || "http://localhost:3000/",
+  },
   app: {
     baseURL: "/",
     rootId: "tournament-app",
     rootTag: "main",
     teleportTag: "aside",
-    pageTransition: { name: "page", mode: "out-in" },
+    pageTransition: {
+      name: "page",
+      mode: "out-in"
+    },
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
       meta: [
-        {
-          name: "description",
-          content:
-            "Do you remember the first edition of the Knurowski Streetball tournament? We do too and we want to share some good news with you 🥳 On May 25th, we are organizing another installment of our basketball event for YOU.",
-        },
         {
           name: "author",
           content: "notbyte.com",

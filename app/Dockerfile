@@ -2,23 +2,22 @@ FROM node:current-alpine
 
 LABEL authors = "botprzemek,pawelos231,akolt19d,nozowymrozon"
 
+ARG NUXT_APP_URL
 ARG NUXT_MAIL_URL
 
-ENV HOST="127.0.0.1"
-ENV PORT="3000"
-ENV NODE_ENV="production"
+ENV NUXT_APP_URL ${NUXT_APP_URL}
 ENV NUXT_MAIL_URL ${NUXT_MAIL_URL}
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package*.json .
 
-RUN npm ci --only=production
+RUN npm ci --omit=dev
 
 COPY . .
 
 RUN npm run build
 
-CMD ["node", ".output/server/index.mjs"]
+RUN npm run preview
 
 EXPOSE 3000
