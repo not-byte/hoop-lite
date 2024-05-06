@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     dirs: ["types"],
   },
   runtimeConfig: {
-    mailUlrl: "",
+    mailUrl: "",
     public: {
       name: "Knury Knurów",
       version: "1.0.0",
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt",
   ],
   i18n: {
-    baseUrl: process.env.APP_URL || "http://localhost:3000/",
+    baseUrl: process.env.NUXT_APP_URL || "http://localhost:3000/",
     strategy: "no_prefix",
     defaultLocale: "en",
     detectBrowserLanguage: {
@@ -39,7 +39,7 @@ export default defineNuxtConfig({
     ],
   },
   site: {
-    url: process.env.APP_URL || "http://localhost:3000/",
+    url: process.env.NUXT_APP_URL || "http://localhost:3000/",
   },
   app: {
     baseURL: "/",

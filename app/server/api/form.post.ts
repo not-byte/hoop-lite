@@ -219,9 +219,6 @@ export default defineEventHandler(async (event) => {
         width: 100% !important;
       }
     }
-    /* -------------------------------------
-    PRESERVE THESE STYLES IN THE HEAD
-------------------------------------- */
     
     @media all {
       .ExternalClass {
@@ -324,21 +321,13 @@ export default defineEventHandler(async (event) => {
   };
 
   const confirmation = {
-    from: `3X3 · Knury Knurów <${config.mailUser}>`,
+    from: "3X3 · Knury Knurów <3x3@knuryknurow.pl>",
     to: "Dump · Knury Knurów <dump@knuryknurow.pl>",
     subject: `Dump mail from ${data.email}`,
     text: JSON.stringify(data),
   };
 
-  const transporter = nodemailer.createTransport({
-    host: config.mailHost,
-    port: config.mailPort,
-    secure: true,
-    auth: {
-      user: config.mailUser,
-      pass: config.mailPassword,
-    },
-  });
+  const transporter = nodemailer.createTransport(config.mailUrl);
 
   let status = 401;
 
@@ -346,6 +335,9 @@ export default defineEventHandler(async (event) => {
     if (error) {
       status = 401;
       console.log(error);
+    }
+    else {
+      status = 200;
     }
   });
 
