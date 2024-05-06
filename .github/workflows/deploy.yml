@@ -2,9 +2,11 @@ name: Publish and deploy Docker image
 
 on:
   push:
-    branch: main
+    branches: 
+    - main
   release:
-    types: [published]
+    types:
+    - published
 
 jobs:
   publish:
