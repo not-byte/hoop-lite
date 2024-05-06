@@ -1,6 +1,8 @@
 name: Publish and deploy Docker image
 
 on:
+  push:
+    branch: main
   release:
     types: [published]
 
@@ -42,7 +44,7 @@ jobs:
           context: ./config/app
           file: ./config/app/Dockerfile
           platforms: linux/amd64,linux/arm64
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: "ghcr.io/${{ github.repository }}:latest"
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             "NUXT_MAIL_URL=${{ secrets.MAIL_URL }}"

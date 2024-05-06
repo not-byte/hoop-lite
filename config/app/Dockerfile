@@ -10,8 +10,6 @@ ENV NUXT_MAIL_URL ${NUXT_MAIL_URL}
 
 WORKDIR /var/www/html/tournament-app
 
-COPY . .
-
 RUN npm install
 RUN npm run build
 
