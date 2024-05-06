@@ -1,28 +1,28 @@
 # Nuxt dev/build outputs
-.output
-.data
-.nuxt
-.nitro
-.cache
-dist
+app/.output
+app/.data
+app/.nuxt
+app/.nitro
+app/.cache
+app/dist
 
 # Node dependencies
-node_modules
+app/node_modules
 
 # Logs
-logs
-*.log
+app/logs
+app/*.log
 
 # Misc
 
 # Local env files
-.env
-.env.*
-!.env.example
+app/.env
+app/.env.*
+app/!.env.example
 
 # Service worker
 
-sw.*
+app/sw.*
 
 # Development
 
