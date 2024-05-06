@@ -43,8 +43,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          context: ./config/app
-          file: ./config/app/Dockerfile
+          context: .
+          file: ./app/Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: "ghcr.io/${{ github.repository }}:latest"
           labels: ${{ steps.meta.outputs.labels }}
