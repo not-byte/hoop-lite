@@ -8,7 +8,7 @@ ENV HOST="127.0.0.1"
 ENV PORT="3000"
 ENV NUXT_MAIL_URL ${NUXT_MAIL_URL}
 
-WORKDIR /var/www/html/tournament-app
+WORKDIR /app
 
 RUN npm install
 RUN npm run build
