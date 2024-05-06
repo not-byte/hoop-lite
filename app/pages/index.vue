@@ -151,8 +151,7 @@ const register = async () => {
         </aside>
         <h1 class="text-center">Rejestracja drużyny</h1>
         <p class="text-justify">
-          Aby zapisać swoją drużynę na turniej koszykówki ulicznej Knurowski Streetball Kapitan musi wypełnienić
-          formularz, a następnie potwierdzić go drogą e-mail.
+          Turniej odbędzie się 25 Maja 2024 na Kompleksie Boisk "Orlik" przy ulicy Ułanów 8 w Knurowie. Aby zapisać swoją drużynę na turniej koszykówki ulicznej Knurowski Streetball Kapitan musi wypełnienić formularz, a następnie potwierdzić go drogą e-mail. 
           <span>
             Wymogiem rejestracji jest akceptacja
             <NuxtLink

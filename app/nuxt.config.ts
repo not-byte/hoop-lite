@@ -9,12 +9,7 @@ export default defineNuxtConfig({
     dirs: ["types"],
   },
   runtimeConfig: {
-    apiKey: "",
-    token: "",
-    mailHost: "",
-    mailPort: "",
-    mailUser: "",
-    mailPassword: "",
+    mailUlrl: "",
     public: {
       name: "Knury Knurów",
       version: "0.1.0",

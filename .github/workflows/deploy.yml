@@ -38,11 +38,14 @@ jobs:
       - name: Push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
-          platforms: linux/amd64,linux/arm64
           push: true
+          context: ./config/app
+          file: ./config/app/Dockerfile
+          platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            "NUXT_MAIL_URL=${{ secrets.MAIL_URL }}"
   deploy:
     name: Deploy Docker to a Linux instance
     runs-on: ubuntu-latest

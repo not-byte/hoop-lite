@@ -14,9 +14,6 @@ logs
 *.log
 
 # Misc
-.DS_Store
-.fleet
-.idea
 
 # Local env files
 .env
@@ -30,3 +27,6 @@ sw.*
 # Development
 
 .vscode
+.DS_Store
+.fleet
+.idea
