@@ -43,12 +43,13 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          context: .
+          context: ./app
           file: ./app/Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: "ghcr.io/${{ github.repository }}:latest"
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
+            "NUXT_APP_URL=${{ secrets.APP_URL }}"
             "NUXT_MAIL_URL=${{ secrets.MAIL_URL }}"
   deploy:
     name: Deploy Docker to a Linux instance
