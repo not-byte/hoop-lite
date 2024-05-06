@@ -10,6 +10,8 @@ ENV NUXT_MAIL_URL ${NUXT_MAIL_URL}
 
 WORKDIR /app
 
+COPY ./app .
+
 RUN npm install
 RUN npm run build
 
