@@ -18,6 +18,6 @@ COPY . .
 
 RUN npm run build
 
-RUN npm run preview
+CMD ["node", "./output/server/index.mjs"]
 
 EXPOSE 3000
