@@ -185,7 +185,7 @@ const register = async () => {
         <aside class="w-full h-12 rounded-lg py-2 px-4 border-1 border-mid placeholder:text-mid">
           <select required v-model="data.category" class="bg-transparent w-full h-full outline-none">
             <option disabled :value="undefined">Kategoria</option>
-            <option :value="Category.OPEN">Open (Bez limitu wieku)</option>
+            <option disabled :value="Category.OPEN">Open (Bez limitu wieku)</option>
             <option :value="Category.SCHOOL">Szkolna (Roczniki 07+)</option>
           </select>
         </aside>
