@@ -52,7 +52,7 @@
     "nodemailer": "^6.9.13",
     "nuxt": "^3.11.2",
     "vue": "^3.4.19",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
     "prettier": "^3.2.5"
