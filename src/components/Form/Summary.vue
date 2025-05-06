@@ -20,7 +20,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
                 target="_blank"
                 rel="noreferrer"
                 to="https://www.facebook.com/knury.knurow"
-                class="text-blood underline"
+                class="text-crimson underline"
             >
                 {{ $t(`pages.index.content.form.summary.messenger`) }}
             </NuxtLink>
@@ -31,7 +31,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
                 target="_blank"
                 rel="noreferrer"
                 to="https://www.instagram.com/knury.knurow"
-                class="text-blood underline"
+                class="text-crimson underline"
             >
                 {{ $t(`pages.index.content.form.summary.instagram`) }}
             </NuxtLink>
@@ -48,7 +48,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
                 {{ $t(`components.input.team.name`) }}
                 <span
                     @click="set(Stage.TEAM)"
-                    class="text-blood underline hover:cursor-pointer"
+                    class="text-crimson underline hover:cursor-pointer"
                 >
                     {{
                         !data.name
@@ -64,7 +64,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
                 {{ $t(`components.select.category.0`) }}
                 <span
                     @click="set(Stage.TEAM)"
-                    class="text-blood underline hover:cursor-pointer"
+                    class="text-crimson underline hover:cursor-pointer"
                 >
                     {{
                         !data.category
@@ -80,7 +80,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
                 {{ $t(`components.input.team.email`) }}
                 <span
                     @click="set(Stage.TEAM)"
-                    class="text-blood underline hover:cursor-pointer"
+                    class="text-crimson underline hover:cursor-pointer"
                 >
                     {{
                         !data.email
@@ -96,7 +96,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
                 {{ $t(`components.input.team.phone`) }}
                 <span
                     @click="set(Stage.TEAM)"
-                    class="text-blood underline hover:cursor-pointer"
+                    class="text-crimson underline hover:cursor-pointer"
                 >
                     {{
                         !data.phone
@@ -127,7 +127,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
                 }}
                 <span
                     @click="stage.setPlayers()"
-                    class="text-blood underline hover:cursor-pointer"
+                    class="text-crimson underline hover:cursor-pointer"
                 >
                     {{ player.age || $t(`components.input.fill`) }}
                 </span>
@@ -140,7 +140,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
             v-model="data.accepted"
             type="checkbox"
             required
-            class="accent-blood"
+            class="accent-crimson"
         />
         <i18n-t
             tag="span"
@@ -153,7 +153,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
                     target="_blank"
                     rel="noreferrer"
                     to="/regulamin"
-                    class="text-blood underline"
+                    class="text-crimson underline"
                 >
                     {{
                         $t(`pages.index.content.form.start.regulations`)
