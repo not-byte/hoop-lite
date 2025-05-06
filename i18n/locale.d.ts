@@ -12,6 +12,7 @@ type Locale = {
     pages: {
         index: Page<{}>;
         admin: Page<{}>;
+        about: Page<{}>;
     };
     components: {};
 };

@@ -27,7 +27,7 @@ const { next } = useStageManager();
             <NuxtLink
                 target="_blank"
                 rel="noreferrer"
-                to="/o-turnieju"
+                to="/about"
                 class="text-crimson underline"
             >
                 {{ $t(`pages.index.content.form.start.link`) }}
