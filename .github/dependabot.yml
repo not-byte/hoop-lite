@@ -1,6 +1,14 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/app"
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
       interval: "weekly"
+    assignees:
+      - "botprzemek"
+  - package-ecosystem: "npm"
+    directory: "/src"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "botprzemek"

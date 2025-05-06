@@ -1,20 +1,19 @@
 # Security Policy
 
+This file describes our policy of app usage.
+
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+| Version | Supported          |
+| ------- | ------------------ |
+| 1.x.x   | :white_check_mark: |
 
-TODO
-
-| Version | Supported |
-| ------- | --------- |
-| 0.x.x   | :x:       |
+Released version of the App is considered UNDER-DEVELOPMENT, currently there's no guarantee that it will function
+properly.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+You have spotted a bug? Want to report a vulnerability?
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Tell us at our e-mail [support@notbyte.com](mailto:support@notbyte.com) Updates are expected to be released as fast as
+possible (not longer that a month).
