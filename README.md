@@ -1,112 +1,51 @@
-# Tournament App Overview
+# Hoop App
 
-Name placeholder
+TODO
 
-login section
-register section
-recovery section
-email verified section
-404 section
-dashboard section
+og:locale
+lang
 
-## Navigation Overview
+title change on route change
 
-The app features a sidebar for easy navigation across its main sections:
+NuxtJS is an open source framework that makes web development intuitive and powerful.
+Create performant and production-grade full-stack web apps and websites with confidence.
+Template written in [TypeScript](https://typescriptlang.org/), [Nuxt](https://nuxt.com/)
 
-- **Player:** Focuses on individual player profiles, including personal details, performance statistics, and an avatar.
-- **Team:** Provides information about teams, including basic details and performance statistics.
-- **Schedule:** Lists upcoming games and events, including a live game feature and detailed schedules for contests and matches.
-- **Leaderboard:** Displays rankings based on team scores and individual player statistics.
-- **Account:** Allows users to customize their experience and manage account settings.
+### About
 
-### Detailed Section Descriptions
+> [!Caution]
+> Project is still under a development
 
-#### Player Section
+If you encounter any bugs or errors, create an issue and head to the [Security section](#security)
 
-- **Details:** Includes personal information like name, position, height, and gender.
-- **Statistics:** Showcases performance through graphs and tables.
+<p id="navigation"></p>
 
-#### Team Section
+| Section      | Topic                                                        |
+| ------------ | ------------------------------------------------------------ |
+| Summary      | [Short summary of the project](#blink)                       |
 
-- **Details:** Covers team name, age category, and tournament participation.
-- **Statistics:** Presents team performance data in graphs and tables.
+<p id="features"></p>
 
-#### Schedule Section
+<p id="technologies"></p>
 
-- **Live Game:** Features ongoing matches.
-- **Events:** Lists special events like contests and shows.
-- **Ladder & Match by Match:** Provides a tournament ladder and detailed match schedules.
+<p id="setup"></p>
 
-#### Leaderboard Section
+## Setup
 
-- **Team Score & Player Statistics:** Ranks teams and players, displaying data in graphs and tables.
-
-#### Account Section
-
-- **Preferences:** Offers theme settings (light/dark mode).
-- **Settings:** Includes options to change email and password.
-- **About & Support:** Provides app information and support contacts.
-
-## User Workflow
-
-1. **Initial Access:** Users start by registering and activating their account.
-2. **Role Selection:** Users choose a role (Player, Coach, or Referee) which determines their app experience.
-   - **Player Role:** Users can create/join teams, participate in tournaments, and view their statistics and rankings.
-   - **Coach Role:** Similar to players, but with a focus on team management without participating in games.
-   - **Referee Role:** Users can select matches to officiate.
-
-## Game System
-
-### Statistics Tracking
-
-- **Scoring:** Tracks 2-pointers, 3-pointers, and free throws, detailing attempts and successes.
-- **Playmaking:** Monitors rebounds (defensive/offensive), assists, and steals.
-- **Defense:** Records blocks, turnovers, and fouls.
-
-### Team Management
-
-- **Roster:** Manages player lists and substitutions during games.
-
-This structure aims to provide a comprehensive and user-friendly experience for tournament participants and organizers, focusing on detailed tracking of player and team performance and facilitating easy navigation and user interaction within the app.
-
-## Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-### Setup
-
-Make sure to install the dependencies:
+Make sure to install dependencies:
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
+
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ### Development Server
 
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
 ### Production
@@ -114,33 +53,54 @@ bun run dev
 Build the application for production:
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+<p id="authors"></p>
+
+![Authors](./.github/readme/authors.svg)
+
+<p align="center">
+    <a href="https://github.com/botprzemek">
+        <img src="./.github/readme/botprzemek.svg" alt="botprzemek" width="31%" align="left"/>
+    </a>
+</p>
+
+<p id="contributing"></p>
+
+![Contributing](./.github/readme/contributing.svg)
+
+> I would like to join this list. How can I help the project?
+
+We're currently looking for contributions for the following:
+
+1. Bug fixes and penetration
+2. Refactors
+3. Configs improvements
+4. Ideas (even if we already have a ton to implement)
+
+<p id="license"></p>
+
+![License](./.github/readme/license.svg)
+
+This project is licensed under the Apache License, Version 2.0. Key points are: permissions and conditions of usage. For
+more detailed information, please refer to the [LICENSE file](./LICENSE)
+
+<p id="security"></p>
+
+![Security](./.github/readme/security.svg)
+
+To learn more about project versions see [SECURITY.md](./SECURITY.md)
+
+<p align="center">
+    Thanks for reaching the bottom!
+    <a href="#navigation">Go back to the top</a>
+</p>
