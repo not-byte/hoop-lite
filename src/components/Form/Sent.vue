@@ -18,7 +18,7 @@ const { data } = useStageManager();
                 target="_blank"
                 rel="noreferrer"
                 to="/regulamin"
-                class="text-blood underline"
+                class="text-crimson underline"
             >
                 {{ $t(`pages.index.content.form.sent.additional_info`) }}
             </NuxtLink>
@@ -28,7 +28,7 @@ const { data } = useStageManager();
                 target="_blank"
                 rel="noreferrer"
                 to="/o-turnieju"
-                class="text-blood underline"
+                class="text-crimson underline"
             >
                 {{ $t(`pages.index.content.form.start.link`) }}
             </NuxtLink>
