@@ -1,9 +1,6 @@
 <script lang="ts" setup>
 const { Stage, stage, data, previous, set, next } = useStageManager(); // ← upewnij się, że `next` też jest tu!
 const regulationError = ref(false);
-<script lang="js" setup>
-const { Stage, stage, data, set } = useStageManager();
-</script>
 
 const handleSubmit = () => {
   if (!data.value.accepted) {
@@ -27,7 +24,7 @@ const handleSubmit = () => {
         scope="global"
         class="text-justify"
     >
-        <template v-slot:messenger>
+        <template #messenger>
             <TextLink
                 external
                 target="_blank"
@@ -47,13 +44,8 @@ const handleSubmit = () => {
         </template>
     </i18n-t>
 
-<<<<<<< HEAD
     <h3 class="w-full text-left">
         {{ $t(`pages.index.content.form.summary.subtitle.team`) }}
-=======
-    <h3 class="text-left">
-        {{ $t(`pages.index.content.summary.subtitle.team`) }}
->>>>>>> 6a9e8a0354d360735a8287f07607076eca8e834b
     </h3>
     <ul class="w-full">
         <li>
@@ -134,7 +126,7 @@ const handleSubmit = () => {
 <template v-if="number === 3 && (!player.first_name && !player.last_name && !player.age)">
   <span class="flex gap-2">
     <span>4.</span>
-    <span class="italic text-gray-500">{{ $t(`pages.index.content.form.summary.noplayer`) }}</span>
+    <span class="italic text-gray-500">{{ $t(`pages.index.content.summary.summary.noplayer`) }}</span>
   </span>
   <span
     class="text-crimson underline hover:cursor-pointer"
@@ -144,7 +136,6 @@ const handleSubmit = () => {
   </span>
 </template>
 
-<<<<<<< HEAD
 <template v-else>
   {{ number + 1 }}.
   {{ player.first_name || $t(`components.input.player.first_name`) }}
@@ -184,7 +175,7 @@ const handleSubmit = () => {
           to="/regulamin"
           class="text-crimson underline"
         >
-          {{ $t(`pages.index.content.form.start.regulations`).split(" ", 1).at(0) }}
+          {{ $t(`pages.index.content.summary.regulations`).split(" ", 1).at(0) }}
         </NuxtLink>
       </template>
     </i18n-t>
@@ -206,31 +197,3 @@ const handleSubmit = () => {
 
     </aside>
 </template>
-=======
-    <fieldset class="w-full flex gap-2 items-center justify-end">
-        <input
-            v-model="data.accepted"
-            type="checkbox"
-            name="accept"
-            required
-            class="accent-crimson"
-        />
-        <i18n-t
-            tag="span"
-            keypath="components.input.submit"
-            scope="global"
-            class="text-high text-sm text-right"
-        >
-            <template v-slot:regulations>
-                <TextLink target="_blank" to="/regulamin">
-                    {{
-                        $t(`pages.index.content.summary.regulations`)
-                            .split(" ", 1)
-                            .at(0)
-                    }}
-                </TextLink>
-            </template>
-        </i18n-t>
-    </fieldset>
-</template>
->>>>>>> 6a9e8a0354d360735a8287f07607076eca8e834b
