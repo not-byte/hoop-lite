@@ -13,6 +13,8 @@ const validate = () => {
   let valid = true;
 
   data.value.players?.forEach((player, index) => {
+    if (index === 3) return;
+
     const first = !!player.first_name?.trim();
     const last = !!player.last_name?.trim();
     const age = typeof player.age === "number" && player.age >= 10 && player.age <= 99;
@@ -35,6 +37,8 @@ const handleNext = () => {
   }
 };
 </script>
+
+
 
 <template>
   <h2 class="text-center">

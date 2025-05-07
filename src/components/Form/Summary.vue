@@ -1,7 +1,17 @@
-<script lang="js" setup>
-const { Stage, stage, data, previous, set } = useStageManager();
-</script>
+<script lang="ts" setup>
+const { Stage, stage, data, previous, set, next } = useStageManager(); // ← upewnij się, że `next` też jest tu!
+const regulationError = ref(false);
 
+const handleSubmit = () => {
+  if (!data.value.accepted) {
+    regulationError.value = true;
+    return;
+  }
+
+  regulationError.value = false;
+  next();
+};
+</script>
 <template>
     <h2 class="text-center">
         <span>{{ stage }}/3</span>
@@ -38,12 +48,13 @@ const { Stage, stage, data, previous, set } = useStageManager();
         </template>
     </i18n-t>
 
-    <h3 class="text-left">
+    <h3 class="w-full text-left">
         {{ $t(`pages.index.content.form.summary.subtitle.team`) }}
     </h3>
     <ul class="w-full">
         <li>
             <p class="flex justify-between">
+                1.1
                 {{ $t(`components.input.team.name`) }}
                 <span
                     @click="set(Stage.TEAM)"
@@ -59,6 +70,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
         </li>
         <li>
             <p class="flex justify-between">
+                1.2
                 {{ $t(`components.select.category.0`) }}
                 <span
                     @click="set(Stage.TEAM)"
@@ -74,6 +86,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
         </li>
         <li>
             <p class="flex justify-between">
+                1.3
                 {{ $t(`components.input.team.email`) }}
                 <span
                     @click="set(Stage.TEAM)"
@@ -89,6 +102,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
         </li>
         <li>
             <p class="flex justify-between">
+                1.4
                 {{ $t(`components.input.team.phone`) }}
                 <span
                     @click="set(Stage.TEAM)"
@@ -108,68 +122,82 @@ const { Stage, stage, data, previous, set } = useStageManager();
         {{ $t(`pages.index.content.form.summary.subtitle.players`) }}
     </h3>
     <ul class="w-full">
-        <li>
-            <p
-                v-for="(player, number) in data.players"
-                class="flex justify-between"
-            >
-                {{ number + 1 }}.
-                {{
-                    player.first_name ||
-                    $t(`components.input.player.first_name`)
-                }}
-                {{
-                    player.last_name || $t(`components.input.player.last_name`)
-                }}
-                - {{
-                   player.age || $t(`components.input.player.age`) 
-                }}
-                <span
-                    @click="stage.setPlayers()"
-                    class="text-crimson underline hover:cursor-pointer"
-                >
-                    {{$t(`components.input.fill`) }}
-                </span>
-            </p>
-        </li>
-    </ul>
+        <li
+  v-for="(player, number) in data.players"
+  :key="number"
+  class="flex justify-between"
+>
+<template v-if="number === 3 && (!player.first_name && !player.last_name && !player.age)">
+  <span class="flex gap-2">
+    <span>4.</span>
+    <span class="italic text-gray-500">{{ $t(`pages.index.content.form.summary.noplayer`) }}</span>
+  </span>
+  <span
+    class="text-crimson underline hover:cursor-pointer"
+    @click="set(Stage.PLAYERS)"
+  >
+    {{ $t(`components.input.add`) }}
+  </span>
+</template>
 
-    <fieldset class="w-full flex gap-2 items-center justify-end">
-        <input
-            v-model="data.accepted"
-            type="checkbox"
-            required
-            class="accent-crimson"
-        />
-        <i18n-t
-            tag="span"
-            keypath="components.input.submit"
-            scope="global"
-            class="text-high text-sm text-right"
+<template v-else>
+  {{ number + 1 }}.
+  {{ player.first_name || $t(`components.input.player.first_name`) }}
+  {{ player.last_name || $t(`components.input.player.last_name`) }}
+  - {{ player.age || $t(`components.input.player.age`) }}
+  <span
+    class="text-crimson underline hover:cursor-pointer"
+    @click="set(Stage.PLAYERS)"
+  >
+    {{ $t(`components.input.fill`) }}
+  </span>
+</template>
+
+</li>
+
+</ul>
+
+<fieldset class="w-full flex flex-col items-start gap-2 justify-end">
+  <div class="flex gap-2 items-center">
+    <input
+      v-model="data.accepted"
+      type="checkbox"
+      required
+      class="accent-crimson"
+    />
+
+    <i18n-t
+      tag="span"
+      keypath="components.input.submit"
+      scope="global"
+      class="text-high text-sm"
+    >
+      <template v-slot:regulations>
+        <NuxtLink
+          target="_blank"
+          rel="noreferrer"
+          to="/regulamin"
+          class="text-crimson underline"
         >
-            <template v-slot:regulations>
-                <NuxtLink
-                    target="_blank"
-                    rel="noreferrer"
-                    to="/regulamin"
-                    class="text-crimson underline"
-                >
-                    {{
-                        $t(`pages.index.content.form.start.regulations`)
-                            .split(" ", 1)
-                            .at(0)
-                    }}
-                </NuxtLink>
-            </template>
-        </i18n-t>
-    </fieldset>
+          {{ $t(`pages.index.content.form.start.regulations`).split(" ", 1).at(0) }}
+        </NuxtLink>
+      </template>
+    </i18n-t>
+  </div>
 
+  <!-- Komunikat POD checkboxem -->
+  <p v-if="regulationError" class="text-red-600 text-sm mt-1">
+    Musisz zaakceptować regulamin, aby kontynuować.
+  </p>
+</fieldset>
+    
     <aside class="w-full grid grid-cols-2 gap-4">
         <ButtonBase @click="previous()" type="button">
             {{ $t(`components.button.previous`) }}
         </ButtonBase>
-        <ButtonBase>
-            {{ $t(`components.button.submit`) }}
-        </ButtonBase>
+        <ButtonBase @click="handleSubmit" type="button">
+  {{ $t(`components.button.submit`) }}
+</ButtonBase>
+
     </aside>
 </template>

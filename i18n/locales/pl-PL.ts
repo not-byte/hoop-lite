@@ -13,6 +13,7 @@ export default {
         },
         input: {
             fill: "Uzupełnij",
+            add: "Dodaj",
             submit: "Zatwierdzając akceptujesz {regulations}",
             team: {
                 name: "Nazwa drużyny",
@@ -76,7 +77,8 @@ export default {
                         subtitle: {
                             team: "Drużyna",
                             players: "Zawodnicy"
-                        }
+                        },
+                        noplayer: "Brak Zawodnika"
                     },
                     sent: {
                         title: "Zgłoszenie wysłane!",
