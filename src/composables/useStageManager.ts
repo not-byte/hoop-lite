@@ -26,7 +26,8 @@ const data = ref<Data>({
 export const useStageManager = () => {
     function previous(): void {
         switch (stage.value) {
-            case (Stage.START, Stage.SENT):
+            case Stage.START:
+            case Stage.SENT:
                 break;
             default: {
                 stage.value--;
@@ -37,16 +38,6 @@ export const useStageManager = () => {
 
     function next(): void {
         switch (stage.value) {
-            case Stage.SUMMARY: {
-                $fetch("/api/form", {
-                    method: "POST"
-                    // body: data.value
-                })
-                    .then(() => stage.value++)
-                    .catch(console.error);
-
-                break;
-            }
             case Stage.SENT:
                 break;
             default: {
