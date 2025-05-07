@@ -44,7 +44,7 @@
     h2,
     h3,
     h4 {
-        @apply w-full font-bold text-white;
+        @apply w-full font-bold text-white block;
     }
 
     h1 {

@@ -15,7 +15,6 @@ defineI18nRoute({
         </h1>
 
         <SectionAbout />
-
         <i18n-t
             tag="p"
             keypath="pages.about.description"
@@ -39,7 +38,7 @@ defineI18nRoute({
             </template>
         </i18n-t>
 
-        <h3 class="text-left">
+        <h3 class="text-left" id="p1">
             {{ $t(`pages.about.content.p1.title`) }}
         </h3>
         <i18n-t
@@ -55,7 +54,7 @@ defineI18nRoute({
             </template>
         </i18n-t>
 
-        <h3 class="text-left">
+        <h3 class="text-left" id="p2">
             {{ $t("pages.about.content.p2.title") }}
         </h3>
         <ul class="max-w-2xl list-disc list-inside">
@@ -103,7 +102,7 @@ defineI18nRoute({
             </li>
         </ul>
 
-        <h3 class="text-left">
+        <h3 class="text-left" id="p3">
             {{ $t(`pages.about.content.p3.title`) }}
         </h3>
         <i18n-t
@@ -119,7 +118,7 @@ defineI18nRoute({
             </template>
         </i18n-t>
 
-        <h3>
+        <h3 id="p4">
             {{ $t(`pages.about.content.p4.title`) }}
         </h3>
         <i18n-t
@@ -160,7 +159,7 @@ defineI18nRoute({
             </template>
         </i18n-t>
 
-        <h3 class="text-left">
+        <h3 class="text-left" id="p5">
             {{ $t(`pages.about.content.p5.title`) }}
         </h3>
         <i18n-t
@@ -176,7 +175,7 @@ defineI18nRoute({
             </template>
         </i18n-t>
 
-        <h3 class="text-left">
+        <h3 class="text-left" id="p6">
             {{ $t(`pages.about.content.p6.title`) }}
         </h3>
         <i18n-t
@@ -192,7 +191,7 @@ defineI18nRoute({
             </template>
         </i18n-t>
 
-        <h3 class="text-left">
+        <h3 class="text-left" id="p7">
             {{ $t(`pages.about.content.p7.title`) }}
         </h3>
         <i18n-t
@@ -208,7 +207,7 @@ defineI18nRoute({
             </template>
         </i18n-t>
 
-        <h3 class="text-left">
+        <h3 class="text-left" id="p8">
             {{ $t(`pages.about.content.p8.title`) }}
         </h3>
         <i18n-t
@@ -237,7 +236,7 @@ defineI18nRoute({
             </template>
         </i18n-t>
 
-        <h3 class="text-left">
+        <h3 class="text-left" id="p10">
             {{ $t(`pages.about.content.p10.title`) }}
         </h3>
         <i18n-t

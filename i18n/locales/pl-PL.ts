@@ -93,11 +93,14 @@ export default {
                     title: "Faza zasadnicza (mecze w grupach)",
                     content:
                         "Około {hour} ruszy faza zasadnicza turnieju, zespoły zostaną przydzielone losowo do grup, z których wychodzą dwie zwycięskie.",
-                    hour: "9:30"
+                    hour: "9:30",
+                    titleshort:"Faza zasadnicza",
+                    descshort:"Losowe grupy, wychodzą dwie drużyny",
                 },
 
                 p2: {
                     title: "Przewidziane atrakcje",
+                    hour: "13:00",
                     list: {
                         item1: {
                             label: "Dunk Contest",
@@ -114,17 +117,22 @@ export default {
                             description:
                                 "{label} energiczny pokaz w wykonaniu lokalnej grupy tanecznej"
                         }
-                    }
+                    },
+                    descshort:"Dunk Contest, 3 Point Contest, Grupa EXTERIA"
                 },
 
                 p3: {
                     title: "Zbiórka charytatywna",
                     content:
                         "Podczas wydarzenia prowadzona będzie zbiórka na rzecz podopiecznego {organization}. Zachęcamy wszystkich uczestników do wsparcia tej inicjatywy – każda złotówka ma znaczenie.",
-                    organization: "Stowarzyszenia Cała Naprzód"
+                    organization: "Stowarzyszenia Cała Naprzód",
+                    hour: "Całość",
+                    descshort:"Zbiórka na rzecz podopiecznego Całej Naprzód",
                 },
                 p4: {
                     title: "Strefa gastronomiczna",
+                    hour:"Całość",
+                    descshort:"Za dowolną dopłatą zjedz coś pysznego!",
                     beforeList:
                         "Na terenie wydarzenia będzie funkcjonować {zone}, w której w zamian za {donation} będzie można otrzymać:",
                     zone: "strefa gastronomiczna",
@@ -143,36 +151,44 @@ export default {
                     title: "Strefa dla dzieci",
                     content:
                         "Dla najmłodszych przygotowaliśmy specjalną {zone}, gdzie pod okiem animatora najmłodsi uczestnicy będą mogli aktywnie i bezpiecznie spędzić czas.",
-                    zone: "strefę dziecięcą"
+                    zone: "strefę dziecięcą",
+                    hour: "całość",
+                    descshort:"Strefa dla najmłodszych z animatorami",
                 },
                 p6: {
                     title: "Bezpieczeństwo",
                     content:
                         "Nad bezpieczeństwem wszystkich obecnych będzie czuwać {group}, zapewniająca pełną opiekę medyczną podczas całego wydarzenia.",
-                    group: "Grupa Ratownicza SAFETY Gliwice"
+                    group: "Grupa Ratownicza SAFETY Gliwice",
+                    hour: "całość",
                 },
                 p7: {
-                    title: "",
+                    title: "Nagrody",
                     content:
                         "Dla zwycięzców turnieju przewidziane są {prizes}.",
-                    prizes: "nagrody"
+                    prizes: "nagrody",
+                    hour: "16:00",
+                    descshort:"Nagrody dla uczestników",
                 },
                 p8: {
                     title: "Informacje dodatkowe",
                     content:
                         "Każdy zawodnik otrzyma {water}, aby zadbać o odpowiednie nawodnienie w trakcie rozgrywek.",
-                    water: "wodę mineralną"
+                    water: "wodę mineralną",
+                    hour: "całość",
+                    descshort:"Woda dla uczestników oraz fotografowie",
                 },
                 p9: {
                     content:
                         "Całe wydarzenie będzie {photo}, aby każdy mógł odnaleźć swoje sportowe chwile.",
-                    photo: "profesjonalnie dokumentowane przez fotografów"
+                    photo: "profesjonalnie dokumentowane przez fotografów",
                 },
                 p10: {
                     title: "Zakończenie",
                     content:
                         "Zakończenie wydarzenia przewidziane jest na godzinę {hour}.",
-                    hour: "około 17:00"
+                    hour: "około 17:00",
+                    descshort: "Zakończenie wydarzenia",
                 },
                 p11: {
                     content:
