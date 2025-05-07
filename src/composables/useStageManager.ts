@@ -13,7 +13,7 @@ enum Stage {
 }
 
 const stage = ref<Stage>(Stage.START);
-const data = ref<Partial<Payload>>({
+const data = ref<Partial<Data>>({
     category: 0,
     players: Array.from({ length: 4 }, () => ({}))
 });

@@ -9,10 +9,6 @@ type Locale = {
         name: string;
         description: string;
     };
-    pages: {
-        index: Page<{}>;
-        admin: Page<{}>;
-        about: Page<{}>;
-    };
+    pages: Record<Page>;
     components: {};
 };
