@@ -13,10 +13,15 @@ enum Stage {
 }
 
 const stage = ref<Stage>(Stage.START);
-const data = ref<Partial<Data>>({
-    category: 0,
-    players: Array.from({ length: 4 }, () => ({}))
-});
+const data = ref<Data>({
+    name: "",
+    email: "",
+    phone: "",
+    category: Category.NOT_SELECTED,
+    players: Array.from({ length: 4 }, () => ({})),
+    accepted: false,
+  });
+  
 
 export const useStageManager = () => {
     function handler(): void {

@@ -20,9 +20,9 @@ type Player = {
 
 type Data = {
     name: string;
-    category?: Category | undefined;
+    category: Category;
     email: string;
-    phone: number;
+    phone: string;
     players: Partial<Player>[];
     accepted: boolean;
 };

@@ -44,7 +44,6 @@ const { Stage, stage, data, previous, set } = useStageManager();
     <ul class="w-full">
         <li>
             <p class="flex justify-between">
-                1.1
                 {{ $t(`components.input.team.name`) }}
                 <span
                     @click="set(Stage.TEAM)"
@@ -60,7 +59,6 @@ const { Stage, stage, data, previous, set } = useStageManager();
         </li>
         <li>
             <p class="flex justify-between">
-                1.2
                 {{ $t(`components.select.category.0`) }}
                 <span
                     @click="set(Stage.TEAM)"
@@ -76,7 +74,6 @@ const { Stage, stage, data, previous, set } = useStageManager();
         </li>
         <li>
             <p class="flex justify-between">
-                1.3
                 {{ $t(`components.input.team.email`) }}
                 <span
                     @click="set(Stage.TEAM)"
@@ -92,7 +89,6 @@ const { Stage, stage, data, previous, set } = useStageManager();
         </li>
         <li>
             <p class="flex justify-between">
-                1.4
                 {{ $t(`components.input.team.phone`) }}
                 <span
                     @click="set(Stage.TEAM)"
@@ -117,7 +113,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
                 v-for="(player, number) in data.players"
                 class="flex justify-between"
             >
-                2.{{ number + 1 }}
+                {{ number + 1 }}.
                 {{
                     player.first_name ||
                     $t(`components.input.player.first_name`)
@@ -125,11 +121,14 @@ const { Stage, stage, data, previous, set } = useStageManager();
                 {{
                     player.last_name || $t(`components.input.player.last_name`)
                 }}
+                - {{
+                   player.age || $t(`components.input.player.age`) 
+                }}
                 <span
                     @click="stage.setPlayers()"
                     class="text-crimson underline hover:cursor-pointer"
                 >
-                    {{ player.age || $t(`components.input.fill`) }}
+                    {{$t(`components.input.fill`) }}
                 </span>
             </p>
         </li>
