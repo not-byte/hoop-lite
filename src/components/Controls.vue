@@ -1,5 +1,30 @@
-<script lang="ts" setup>
-const { Stage, stage, previous, next } = useStageManager();
+<script lang="ts" setup async>
+const { Stage, stage, data, previous, next } = useStageManager();
+
+async function register(): Promise<void> {
+    if (stage.value !== Stage.SUMMARY) {
+        return;
+    }
+
+    if (!data.value) {
+        return;
+    }
+
+    const { data: response } = await useFetch("/api/form", {
+        method: "POST",
+        body: data.value
+    });
+
+    if (!response.value) {
+        return;
+    }
+
+    if (response.value.status !== 202) {
+        return;
+    }
+
+    next();
+}
 </script>
 
 <template>
@@ -20,7 +45,7 @@ const { Stage, stage, previous, next } = useStageManager();
             </ButtonBase>
         </template>
         <template v-if="stage === Stage.SUMMARY">
-            <ButtonBase>
+            <ButtonBase @click="register()">
                 {{ $t(`components.button.submit`) }}
             </ButtonBase>
         </template>

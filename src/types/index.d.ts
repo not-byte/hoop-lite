@@ -36,3 +36,7 @@ type Link = {
     sizes?: string;
     media?: string;
 };
+
+type FormPost = {
+    status: 400 | 202;
+};

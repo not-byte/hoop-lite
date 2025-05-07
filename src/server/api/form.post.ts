@@ -1,8 +1,12 @@
-export default defineEventHandler(async (event): Promise<void> => {
+export default defineEventHandler(async (event): Promise<FormPost> => {
     const team = await readBody(event);
 
     if (!team) {
-        return setResponseStatus(event, 400);
+        setResponseStatus(event, 400);
+
+        return {
+            status: 400
+        };
     }
 
     const teams = (await useStorage().getItem<Data[]>("teams")) || [];
@@ -11,5 +15,9 @@ export default defineEventHandler(async (event): Promise<void> => {
 
     await useStorage().setItem(`teams`, teams);
 
-    return setResponseStatus(event, 202);
+    setResponseStatus(event, 202);
+
+    return {
+        status: 202
+    };
 });
