@@ -183,7 +183,7 @@ const handleSubmit = () => {
 
   <!-- Komunikat POD checkboxem -->
   <p v-if="regulationError" class="text-red-600 text-sm mt-1">
-    Musisz zaakceptować regulamin, aby kontynuować.
+    {{$t(`requirements.regul`)}}
   </p>
 </fieldset>
     

@@ -43,7 +43,7 @@ const handleNext = () => {
 <template>
   <h2 class="text-center">
     <span>{{ stage }}/3</span>
-    {{ $t(`pages.index.content.form.players.title`) }}
+    {{ $t(`pages.index.content.players.title`) }}
   </h2>
 
   <fieldset
@@ -62,7 +62,7 @@ const handleNext = () => {
       :placeholder="$t(`components.input.player.first_name`)"
     />
     <p v-if="errors[index].first_name" class="text-red-600 text-sm">
-      Imię jest wymagane.
+      {{$t(`requirements.field`)}}
     </p>
 
     <InputBase
@@ -82,7 +82,7 @@ const handleNext = () => {
       pattern="^[1-9][0-9]$"
     />
     <p v-if="errors[index].age" class="text-red-600 text-sm">
-      Wiek musi być liczbą od 10 do 99.
+      {{$t(`requirements.age`)}}
     </p>
   </fieldset>
 

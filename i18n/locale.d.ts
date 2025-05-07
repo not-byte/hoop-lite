@@ -11,4 +11,5 @@ type Locale = {
     };
     pages: Record<Page>;
     components: {};
+    requirements: {};
 };

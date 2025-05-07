@@ -39,7 +39,8 @@ export default {
                 "1": "Amatorska",
                 "2": "Profesjonalna"
             }
-        }
+        },
+        
     },
     pages: {
         404: {
@@ -117,7 +118,9 @@ export default {
                     additional_info:
                         "(UWAGA! Nie oznacza to zapewnionego miejsca na turnieju, sprawdźcie również SPAM poczty)"
                 }
-            }
+            },
+            
+
         },
         admin: {
             title: "Lista drużyn",
@@ -241,5 +244,13 @@ export default {
                 }
             }
         }
+    },
+    requirements: {
+        field: "Imie jest wymagane.",
+        age: "Wiek musi być liczbą od 10 do 99.",
+        regul: "Musisz zaakceptować regulamin, aby kontynuować.",
+        category: "Wybierz kategorię.",
+        email: "Podaj poprawny adres e-mail.",
+        tel: "Podaj poprawny numer telefonu (min. 9 cyfr).",
     }
 } satisfies Locale;

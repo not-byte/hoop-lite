@@ -26,7 +26,7 @@
                 to="/o-turnieju"
                 class="text-crimson underline"
             >
-                {{ $t(`pages.index.content.start.link`) }}
+                {{ $t(`pages.index.content.start.about`) }}
             </NuxtLink>
         </template>
     </i18n-t>

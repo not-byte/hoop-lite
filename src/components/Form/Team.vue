@@ -39,7 +39,7 @@ const handleNext = () => {
 <template>
   <h2 class="text-center">
     <span>{{ stage }}/3</span>
-    {{ $t(`pages.index.content.form.team.title`) }}
+    {{ $t(`pages.index.content.team.title`) }}
   </h2>
 
   <fieldset class="w-full flex flex-col gap-3">
@@ -50,7 +50,7 @@ const handleNext = () => {
       :placeholder="$t(`components.input.team.name`)"
       type="text"
     />
-    <p v-if="errors.name" class="text-red-600 text-sm">To pole jest wymagane.</p>
+    <p v-if="errors.name" class="text-red-600 text-sm">{{$t(`requirements.field`)}}</p>
 
     <!-- Kategoria -->
     <aside
@@ -73,7 +73,7 @@ const handleNext = () => {
         </option>
       </select>
     </aside>
-    <p v-if="errors.category" class="text-red-600 text-sm">Wybierz kategorię.</p>
+    <p v-if="errors.category" class="text-red-600 text-sm">{{$t(`requirements.category`)}}</p>
 
     <!-- E-mail -->
     <InputBase
@@ -83,7 +83,7 @@ const handleNext = () => {
       :placeholder="$t(`components.input.team.email`)"
       type="email"
     />
-    <p v-if="errors.email" class="text-red-600 text-sm">Podaj poprawny adres e-mail.</p>
+    <p v-if="errors.email" class="text-red-600 text-sm">{{$t(`requirements.email`)}}</p>
 
     <!-- Telefon -->
     <InputBase
@@ -93,7 +93,7 @@ const handleNext = () => {
       :placeholder="$t(`components.input.team.phone`)"
       type="tel"
     />
-    <p v-if="errors.phone" class="text-red-600 text-sm">Podaj poprawny numer telefonu (min. 9 cyfr).</p>
+    <p v-if="errors.phone" class="text-red-600 text-sm">{{$t(`requirements.tel`)}}</p>
   </fieldset>
 
   <aside class="w-full grid grid-cols-2 gap-3">
