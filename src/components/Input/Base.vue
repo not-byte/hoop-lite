@@ -1,20 +1,23 @@
 <script setup lang="ts">
 const model = defineModel({ required: true });
 const {
+    autocomplete = "off",
+    name,
     placeholder,
-    type = "text",
-    complete = "off"
+    type = "text"
 } = defineProps<{
+    autocomplete?: string;
+    name: string;
     placeholder: string;
     type?: InputType;
-    complete?: string;
 }>();
 </script>
 
 <template>
     <input
         v-model="model"
-        :autocomplete="complete"
+        :autocomplete="autocomplete"
+        :name="name"
         :placeholder="placeholder"
         :type="type"
         required

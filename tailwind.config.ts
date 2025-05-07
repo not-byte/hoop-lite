@@ -21,15 +21,15 @@ export default {
             colors: {
                 crimson: "rgba(242,53,53,1.00)",
                 dark: "rgba(30,30,30,1.00)",
-                mid: "rgba(125,125,125,1.00)",
+                mid: "rgba(125,125,125,1.00)"
             },
             borderWidth: {
-                "1": "1px",
+                "1": "1px"
             },
             gridTemplateColumns: {
                 "13": "repeat(13, minmax(0, 1fr))"
-            },
-        },
+            }
+        }
     },
     plugins: []
 } satisfies Config;

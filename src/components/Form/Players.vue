@@ -36,11 +36,14 @@ const handleNext = () => {
     next();
   }
 };
+<script lang="js" setup>
+const { stage, data } = useStageManager();
 </script>
 
 
 
 <template>
+<<<<<<< HEAD
   <h2 class="text-center">
     <span>{{ stage }}/3</span>
     {{ $t(`pages.index.content.form.players.title`) }}
@@ -94,4 +97,43 @@ const handleNext = () => {
       {{ $t(`components.button.next`) }}
     </ButtonBase>
   </aside>
+=======
+    <h2 class="text-center">
+        <span>{{ stage }}/3</span>
+        {{ $t(`pages.index.content.players.title`) }}
+    </h2>
+
+    <fieldset
+        v-for="index in Object.keys(data.players)"
+        :key="index"
+        class="w-full grid grid-flow-row gap-3"
+    >
+        <label :for="`player-${index}`">
+            {{ $t(`components.input.player.label`) }}
+            {{ parseInt(index) + 1 }}
+        </label>
+        <InputBase
+            v-model="data.players[index].first_name"
+            autocomplete="given-name"
+            name="given-name"
+            :id="`player-${index}`"
+            :placeholder="$t(`components.input.player.first_name`)"
+        />
+        <InputBase
+            v-model="data.players[index].last_name"
+            autocomplete="family-name"
+            name="family-name"
+            :placeholder="$t(`components.input.player.last_name`)"
+        />
+        <InputNumber
+            v-model="data.players[index].age"
+            autocomplete="age"
+            name="age"
+            :placeholder="$t(`components.input.player.age`)"
+            :min="10"
+            :max="99"
+            pattern="^[1-9][0-9]$"
+        />
+    </fieldset>
+>>>>>>> 6a9e8a0354d360735a8287f07607076eca8e834b
 </template>

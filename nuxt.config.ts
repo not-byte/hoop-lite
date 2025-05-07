@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     ],
     runtimeConfig: {
         public: {
+            author: "notbyte.com",
             name: "3X3",
             url: "https://3x3.notbyte.com/"
         }

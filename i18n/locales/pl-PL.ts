@@ -1,6 +1,6 @@
 export default {
     nuxtSiteConfig: {
-        name: "Rejestracja",
+        name: "3X3 Knury Knurów",
         description:
             "Już 1 czerwca organizujemy dla was kolejną edycję Knurowskiego Streetballa! Jak co roku zobaczymy się na kompleksie sportowym ORLIK ul. Ułanów 8 w Knurowie. Aby zapisać swoją drużynę na turniej koszykówki ulicznej Knurowski Streetball 2025 kapitan musi wypełnienić poniższy formularz."
     },
@@ -21,10 +21,16 @@ export default {
                 phone: "Numer telefonu"
             },
             player: {
-                label: "Dane zawodnika",
+                label: "Dane zawodnika nr",
                 first_name: "Imię",
                 last_name: "Nazwisko",
                 age: "Wiek"
+            }
+        },
+        icon: {
+            logo: {
+                title: "Knury Knurów",
+                description: "Logo drużyny koszykarskiej Knury Knurów"
             }
         },
         select: {
@@ -36,8 +42,8 @@ export default {
         }
     },
     pages: {
-        error: {
-            title: "Wystąpił błąd!",
+        404: {
+            title: "Wystąpił błąd! (404)",
             description:
                 "Link, który próbujesz otworzyć nie istnieje! Jeśli myślisz, że to błąd aplikacji lub serwera, skontakuj się z nami na {messenger} lub {instagram}",
             content: {
@@ -54,13 +60,28 @@ export default {
             description:
                 "Już 1 Czerwca organizujemy dla was kolejną edycję Knurowskiego Streetballa! Jak co roku zobaczymy się na kompleksie sportowym ORLIK ul. Ułanów 8 w Knurowie. Aby zapisać swoją drużynę na turniej koszykówki ulicznej Knurowski Streetball 2025 kapitan musi wypełnienić poniższy formularz.",
             content: {
-                form: {
-                    start: {
-                        title: "Rejestracja 3X3",
-                        description:
-                            "Aby zapisać swoją drużynę na turniej koszykówki ulicznej 3X3 Knurowski Streetball 2025 kapitan zespołu musi zaakceptować {regulations} oraz wypełnienić poniższy formularz! Więcej szczegółów o imprezie znajdziecie {link}",
-                        regulations: "regulamin uczestnictwa",
-                        link: "tutaj."
+                start: {
+                    title: "Rejestracja 3X3",
+                    description:
+                        "Aby zapisać swoją drużynę na turniej koszykówki ulicznej 3X3 Knurowski Streetball 2025 kapitan zespołu musi zaakceptować {regulations} oraz wypełnienić poniższy formularz! Więcej szczegółów o imprezie znajdziecie {about}",
+                    regulations: "regulamin uczestnictwa",
+                    about: "tutaj."
+                },
+                team: {
+                    title: "Dane drużyny"
+                },
+                players: {
+                    title: "Dane zawodników"
+                },
+                summary: {
+                    title: "Podsumowanie",
+                    description:
+                        " Sprawdź poprawność podanych danych przed wysłaniem formularza, pamiętaj o zapoznaniu się z regulaminem i potwierdzeniem formularza na podanym adresie e-mail! Jeśli napotkałeś problem skontakuj się z nami na {messenger} lub {instagram}",
+                    messenger: "Messengerze",
+                    instagram: "Instagramie!",
+                    subtitle: {
+                        team: "Drużyna",
+                        players: "Zawodnicy"
                     },
                     team: {
                         title: "Dane drużyny"
@@ -86,7 +107,15 @@ export default {
                             "Wygląda na to, że poprawnie wypełniliście formularz swojej drużyny, wkrótce poinformujemy o potwierdzeniu danych {additional_info}, widzimy się na turnieju już 1 czerwca! Więcej szczegółów o imprezie znajdziecie {link}",
                         additional_info:
                             "(UWAGA! Nie oznacza to zapewnionego miejsca na turnieju, sprawdźcie również SPAM poczty)"
-                    }
+                    },
+                    regulations: "regulamin"
+                },
+                sent: {
+                    title: "Zgłoszenie wysłane!",
+                    description:
+                        "Wygląda na to, że poprawnie wypełniliście formularz swojej drużyny, wkrótce poinformujemy o potwierdzeniu danych {additional_info}, widzimy się na turnieju już 1 czerwca! Więcej szczegółów o imprezie znajdziecie {link}",
+                    additional_info:
+                        "(UWAGA! Nie oznacza to zapewnionego miejsca na turnieju, sprawdźcie również SPAM poczty)"
                 }
             }
         },

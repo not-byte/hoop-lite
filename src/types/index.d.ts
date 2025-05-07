@@ -28,3 +28,11 @@ type Data = {
 };
 
 type InputType = "checkbox" | "email" | "number" | "tel" | "text";
+
+type Link = {
+    href: string;
+    type: string;
+    rel: string;
+    sizes?: string;
+    media?: string;
+};

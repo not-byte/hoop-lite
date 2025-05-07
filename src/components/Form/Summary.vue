@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 const { Stage, stage, data, previous, set, next } = useStageManager(); // ← upewnij się, że `next` też jest tu!
 const regulationError = ref(false);
+<script lang="js" setup>
+const { Stage, stage, data, set } = useStageManager();
+</script>
 
 const handleSubmit = () => {
   if (!data.value.accepted) {
@@ -15,41 +18,42 @@ const handleSubmit = () => {
 <template>
     <h2 class="text-center">
         <span>{{ stage }}/3</span>
-        {{ $t(`pages.index.content.form.summary.title`) }}
+        {{ $t(`pages.index.content.summary.title`) }}
     </h2>
 
     <i18n-t
         tag="p"
-        keypath="pages.index.content.form.summary.description"
+        keypath="pages.index.content.summary.description"
         scope="global"
         class="text-justify"
     >
         <template v-slot:messenger>
-            <NuxtLink
+            <TextLink
                 external
                 target="_blank"
-                rel="noreferrer"
                 to="https://www.facebook.com/knury.knurow"
-                class="text-crimson underline"
             >
-                {{ $t(`pages.index.content.form.summary.messenger`) }}
-            </NuxtLink>
+                {{ $t(`pages.index.content.summary.messenger`) }}
+            </TextLink>
         </template>
         <template v-slot:instagram>
-            <NuxtLink
+            <TextLink
                 external
                 target="_blank"
-                rel="noreferrer"
                 to="https://www.instagram.com/knury.knurow"
-                class="text-crimson underline"
             >
-                {{ $t(`pages.index.content.form.summary.instagram`) }}
-            </NuxtLink>
+                {{ $t(`pages.index.content.summary.instagram`) }}
+            </TextLink>
         </template>
     </i18n-t>
 
+<<<<<<< HEAD
     <h3 class="w-full text-left">
         {{ $t(`pages.index.content.form.summary.subtitle.team`) }}
+=======
+    <h3 class="text-left">
+        {{ $t(`pages.index.content.summary.subtitle.team`) }}
+>>>>>>> 6a9e8a0354d360735a8287f07607076eca8e834b
     </h3>
     <ul class="w-full">
         <li>
@@ -119,7 +123,7 @@ const handleSubmit = () => {
     </ul>
 
     <h3 class="w-full text-left">
-        {{ $t(`pages.index.content.form.summary.subtitle.players`) }}
+        {{ $t(`pages.index.content.summary.subtitle.players`) }}
     </h3>
     <ul class="w-full">
         <li
@@ -140,6 +144,7 @@ const handleSubmit = () => {
   </span>
 </template>
 
+<<<<<<< HEAD
 <template v-else>
   {{ number + 1 }}.
   {{ player.first_name || $t(`components.input.player.first_name`) }}
@@ -201,3 +206,31 @@ const handleSubmit = () => {
 
     </aside>
 </template>
+=======
+    <fieldset class="w-full flex gap-2 items-center justify-end">
+        <input
+            v-model="data.accepted"
+            type="checkbox"
+            name="accept"
+            required
+            class="accent-crimson"
+        />
+        <i18n-t
+            tag="span"
+            keypath="components.input.submit"
+            scope="global"
+            class="text-high text-sm text-right"
+        >
+            <template v-slot:regulations>
+                <TextLink target="_blank" to="/regulamin">
+                    {{
+                        $t(`pages.index.content.summary.regulations`)
+                            .split(" ", 1)
+                            .at(0)
+                    }}
+                </TextLink>
+            </template>
+        </i18n-t>
+    </fieldset>
+</template>
+>>>>>>> 6a9e8a0354d360735a8287f07607076eca8e834b

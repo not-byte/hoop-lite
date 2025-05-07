@@ -24,29 +24,36 @@ const data = ref<Data>({
   
 
 export const useStageManager = () => {
-    function handler(): void {
-        if (stage.value === Stage.SENT) {
-            // api call
-            return;
-        }
-    }
-
     function previous(): void {
-        if (stage.value <= Stage.START) {
-            return;
+        switch (stage.value) {
+            case (Stage.START, Stage.SENT):
+                break;
+            default: {
+                stage.value--;
+                break;
+            }
         }
-
-        stage.value--;
     }
 
     function next(): void {
-        if (stage.value >= Stage.SENT) {
-            return;
+        switch (stage.value) {
+            case Stage.SUMMARY: {
+                $fetch("/api/form", {
+                    method: "POST"
+                    // body: data.value
+                })
+                    .then(() => stage.value++)
+                    .catch(console.error);
+
+                break;
+            }
+            case Stage.SENT:
+                break;
+            default: {
+                stage.value++;
+                break;
+            }
         }
-
-        stage.value++;
-
-        handler();
     }
 
     function set(value: Stage): void {
