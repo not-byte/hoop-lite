@@ -1,18 +1,18 @@
 <script lang="ts" setup>
-const { Category, stage, data, previous, next } = useStageManager();
-const test = ref("");
+const { Category, stage, data } = useStageManager();
 </script>
 
 <template>
     <h2 class="text-center">
         <span>{{ stage }}/3</span>
-        {{ $t(`pages.index.content.form.team.title`) }}
+        {{ $t(`pages.index.content.team.title`) }}
     </h2>
 
     <fieldset class="w-full flex flex-col gap-3">
         <InputBase
             v-model="data.name"
-            complete="username"
+            autocomplete="username"
+            name="username"
             :placeholder="$t(`components.input.team.name`)"
             type="text"
         />
@@ -22,6 +22,7 @@ const test = ref("");
             <select
                 required
                 v-model="data.category"
+                name="category"
                 :placeholder="$t(`components.select.category.0`)"
                 class="bg-transparent w-full h-full outline-none"
             >
@@ -38,24 +39,17 @@ const test = ref("");
         </aside>
         <InputBase
             v-model="data.email"
-            complete="email"
+            autocomplete="email"
+            name="email"
             :placeholder="$t(`components.input.team.email`)"
             type="email"
         />
         <InputBase
             v-model="data.phone"
-            complete="tel"
+            autocomplete="tel"
+            name="tel"
             :placeholder="$t(`components.input.team.phone`)"
             type="tel"
         />
     </fieldset>
-
-    <aside class="w-full grid grid-cols-2 gap-3">
-        <ButtonBase @click="previous()" type="button">
-            {{ $t(`components.button.previous`) }}
-        </ButtonBase>
-        <ButtonBase @click="next()" type="button">
-            {{ $t(`components.button.next`) }}
-        </ButtonBase>
-    </aside>
 </template>

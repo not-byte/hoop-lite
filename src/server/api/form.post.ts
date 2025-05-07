@@ -2,7 +2,7 @@ export default defineEventHandler(async (event): Promise<void> => {
     const team = await readBody(event);
 
     if (!team) {
-        return setResponseStatus(event, 401);
+        return setResponseStatus(event, 400);
     }
 
     const teams = (await useStorage().getItem<Data[]>("teams")) || [];

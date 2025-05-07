@@ -1,11 +1,11 @@
 <template>
     <IconLogo width="200" height="200" />
     <h2 class="text-center">
-        {{ $t(`pages.index.content.form.sent.title`) }}
+        {{ $t(`pages.index.content.sent.title`) }}
     </h2>
     <i18n-t
         tag="p"
-        keypath="pages.index.content.form.sent.description"
+        keypath="pages.index.content.sent.description"
         scope="global"
         class="text-justify"
     >
@@ -16,7 +16,7 @@
                 to="/regulamin"
                 class="text-crimson underline"
             >
-                {{ $t(`pages.index.content.form.sent.additional_info`) }}
+                {{ $t(`pages.index.content.sent.additional_info`) }}
             </NuxtLink>
         </template>
         <template v-slot:link>
@@ -26,7 +26,7 @@
                 to="/o-turnieju"
                 class="text-crimson underline"
             >
-                {{ $t(`pages.index.content.form.start.link`) }}
+                {{ $t(`pages.index.content.start.link`) }}
             </NuxtLink>
         </template>
     </i18n-t>
