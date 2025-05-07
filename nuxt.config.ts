@@ -55,7 +55,7 @@ export default defineNuxtConfig({
                 file: "pl-PL.ts"
             }
         ],
-        strategy: "no_prefix"
+        strategy: "prefix_except_default"
     },
     // TESTING
     nitro: {

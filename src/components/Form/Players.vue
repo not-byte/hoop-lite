@@ -11,7 +11,7 @@ const { stage, data, previous, next } = useStageManager();
     <fieldset
         v-for="index in Object.keys(data.players)"
         :key="index"
-        class="w-full flex flex-col gap-4"
+        class="w-full flex flex-col gap-3"
     >
         <label>
             {{ $t(`components.input.player.label`) }}
@@ -37,7 +37,7 @@ const { stage, data, previous, next } = useStageManager();
         />
     </fieldset>
 
-    <aside class="w-full grid grid-cols-2 gap-4">
+    <aside class="w-full grid grid-cols-2 gap-3">
         <ButtonBase @click="previous()" type="button">
             {{ $t(`components.button.previous`) }}
         </ButtonBase>

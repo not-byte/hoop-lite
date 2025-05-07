@@ -44,8 +44,5 @@
         "singleQuote": false,
         "tabWidth": 4,
         "trailingComma": "none"
-    },
-    "dependencies": {
-        "vue-eslint-parser": "^8.0.0"
     }
 }

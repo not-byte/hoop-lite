@@ -1,7 +1,3 @@
-<script lang="ts" setup>
-const { data } = useStageManager();
-</script>
-
 <template>
     <IconLogo width="200" height="200" />
     <h2 class="text-center">
@@ -34,12 +30,4 @@ const { data } = useStageManager();
             </NuxtLink>
         </template>
     </i18n-t>
-    <ol>
-        <template v-for="(key, number) in Object.keys(data)" :key="key">
-            <li>
-                {{ number + 1 }}. {{ key }} :
-                {{ data[key as keyof typeof data] }}
-            </li>
-        </template>
-    </ol>
 </template>

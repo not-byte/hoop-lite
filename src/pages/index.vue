@@ -17,10 +17,10 @@ async function register() {
 </script>
 
 <template>
-    <main class="w-full h-full grid place-content-center">
+    <main>
         <form
             @submit.prevent="register()"
-            class="w-screen sm:w-[75vw] lg:w-[25vw] flex flex-col gap-4 items-center px-3 mt-6 sm:mt-24 mb-24"
+            class="w-full flex flex-col items-center justify-stretch gap-3"
         >
             <component :is="currentStage" />
         </form>

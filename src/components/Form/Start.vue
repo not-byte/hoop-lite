@@ -15,23 +15,21 @@ const { next } = useStageManager();
     >
         <template v-slot:regulations>
             <NuxtLink
-                target="_blank"
+                :to="useLocalePath()(`regulations`)"
                 rel="noreferrer"
-                to="/regulamin"
                 class="text-crimson underline"
             >
                 {{ $t(`pages.index.content.form.start.regulations`) }}
             </NuxtLink>
         </template>
         <template v-slot:link>
-            <NuxtLink
-                target="_blank"
+            <NuxtLinkLocale
+                :to="useLocalePath()(`about`)"
                 rel="noreferrer"
-                to="/about"
                 class="text-crimson underline"
             >
                 {{ $t(`pages.index.content.form.start.link`) }}
-            </NuxtLink>
+            </NuxtLinkLocale>
         </template>
     </i18n-t>
     <aside class="w-full grid grid-cols-1 gap-4">

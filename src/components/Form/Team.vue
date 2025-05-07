@@ -9,7 +9,7 @@ const test = ref("");
         {{ $t(`pages.index.content.form.team.title`) }}
     </h2>
 
-    <fieldset class="w-full flex flex-col gap-4">
+    <fieldset class="w-full flex flex-col gap-3">
         <InputBase
             v-model="data.name"
             complete="username"
@@ -50,7 +50,7 @@ const test = ref("");
         />
     </fieldset>
 
-    <aside class="w-full grid grid-cols-2 gap-4">
+    <aside class="w-full grid grid-cols-2 gap-3">
         <ButtonBase @click="previous()" type="button">
             {{ $t(`components.button.previous`) }}
         </ButtonBase>

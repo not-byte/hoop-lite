@@ -38,7 +38,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
         </template>
     </i18n-t>
 
-    <h3 class="w-full text-left">
+    <h3 class="text-left">
         {{ $t(`pages.index.content.form.summary.subtitle.team`) }}
     </h3>
     <ul class="w-full">
