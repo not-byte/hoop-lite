@@ -35,6 +35,19 @@ export default {
         }
     },
     pages: {
+        error: {
+            title: "Wystąpił błąd!",
+            description:
+                "Link, który próbujesz otworzyć nie istnieje! Jeśli myślisz, że to błąd aplikacji lub serwera, skontakuj się z nami na {messenger} lub {instagram}",
+            content: {
+                code: {
+                    "404": "Link, który próbujesz otworzyć nie istnieje! Skontaktuj się z nami jeśli myślisz ze to błąd aplikacji lub serwera."
+                },
+                messenger: "Messengerze",
+                instagram: "Instagramie!",
+                back: "Strona główna"
+            }
+        },
         index: {
             title: "Rejestracja",
             description:

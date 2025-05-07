@@ -18,7 +18,7 @@ type Player = {
     age: number;
 };
 
-type Payload = {
+type Data = {
     name: string;
     category?: Category | undefined;
     email: string;

@@ -5,13 +5,11 @@ export default defineEventHandler(async (event): Promise<void> => {
         return setResponseStatus(event, 401);
     }
 
-    const teams = (await useStorage().getItem<Payload[]>("teams")) || [];
+    const teams = (await useStorage().getItem<Data[]>("teams")) || [];
 
     teams.push(team);
 
     await useStorage().setItem(`teams`, teams);
-
-    console.log(await useStorage().getItem("teams"));
 
     return setResponseStatus(event, 202);
 });
