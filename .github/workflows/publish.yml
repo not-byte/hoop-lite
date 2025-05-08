@@ -90,3 +90,5 @@ jobs:
                       ghcr.io/${{ github.repository }}:${{ needs.release.outputs.new_tag }}
                       ghcr.io/${{ github.repository }}:latest
                   labels: ${{ steps.meta.outputs.labels }}
+                  cache-from: type=gha
+                  cache-to: type=gha,mode=max
