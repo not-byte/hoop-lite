@@ -1,6 +1,8 @@
 name: Build and publish Docker image
 
 on:
+    push:
+        branches: [test/workflow]
     workflow_dispatch:
     pull_request:
         types: [closed]
@@ -11,8 +13,7 @@ concurrency: production
 jobs:
     release:
         name: Tag and create GitHub release
-        if: github.event.pull_request.merged == true
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04-arm
         permissions:
             contents: write
         outputs:
@@ -22,7 +23,7 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
 
-            - name: Bump version and push tag
+            - name: Bump release version and push tag
               id: version
               uses: anothrNick/github-tag-action@1.71.0
               env:
@@ -45,7 +46,7 @@ jobs:
         name: Build and publish Docker image to GitHub Packages
         needs: release
         if: needs.release.outputs.part != 'patch'
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04-arm
         permissions:
             packages: write
             contents: read
@@ -71,21 +72,23 @@ jobs:
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v3
               with:
-                  platforms: amd64,arm64
+                  platforms: arm64
 
             - name: Set up Docker Buildx
               uses: docker/setup-buildx-action@v3
               with:
-                  platforms: linux/amd64,linux/arm64
+                  platforms: linux/arm64
 
             - name: Build and push Docker image
               uses: docker/build-push-action@v6
               with:
                   context: .
                   file: ./Dockerfile
-                  platforms: linux/amd64,linux/arm64
+                  platforms: linux/arm64
                   push: true
                   tags: |
                       ghcr.io/${{ github.repository }}:${{ needs.release.outputs.new_tag }}
                       ghcr.io/${{ github.repository }}:latest
                   labels: ${{ steps.meta.outputs.labels }}
+                  cache-from: type=gha
+                  cache-to: type=gha,mode=max

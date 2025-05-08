@@ -34,21 +34,7 @@ export default defineNuxtConfig({
         pageTransition: {
             name: "page",
             mode: "out-in"
-        },
-        scrollBehavior(to, from, savedPosition) {
-            if (to.hash) {
-                return new Promise((resolve) => {
-                setTimeout(() => {
-                    const el = document.querySelector(to.hash)
-                        if (el) {
-                            el.scrollIntoView({ behavior: 'smooth' })
-                        }
-                        resolve({ left: 0, top: 0 })
-                    }, 300) // opóźnienie, żeby DOM zdążył się pojawić
-                })
-            }
-                return savedPosition || { left: 0, top: 0 }
-        },
+        }
     },
     i18n: {
         baseUrl: process.env.NUXT_PUBLIC_URL,
@@ -79,7 +65,6 @@ export default defineNuxtConfig({
                 driver: "fs",
                 base: "./.data/db"
             }
-        },
-    
+        }
     }
 });
