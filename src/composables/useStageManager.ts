@@ -68,7 +68,6 @@ const regex = {
 function validate(): boolean {
     switch (stage.value) {
         case Stage.TEAM: {
-            return true;
             const keys = Object.keys(data.value.team);
 
             return !keys.some(
@@ -79,7 +78,6 @@ function validate(): boolean {
             );
         }
         case Stage.PLAYERS: {
-            return true;
             return !data.value.players.some((_, index) => {
                 const keys = Object.keys(data.value.players[index]);
 
