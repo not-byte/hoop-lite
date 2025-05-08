@@ -19,12 +19,12 @@ const dataFactory = (): Data => ({
         name: "",
         category: Category.NOT_SELECTED,
         email: "",
-        phone: 0
+        phone: undefined
     },
     players: Array.from({ length: 4 }, () => ({
         first_name: "",
         last_name: "",
-        age: 0
+        age: undefined
     })),
     accepted: false
 });

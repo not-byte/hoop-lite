@@ -16,13 +16,13 @@ type Team = {
     name: string;
     category: Category;
     email: string;
-    phone: number;
+    phone?: number;
 };
 
 type Player = {
     first_name: string;
     last_name: string;
-    age: number;
+    age?: number;
 };
 
 type Data = {
