@@ -1,40 +1,36 @@
 <script lang="js" setup>
-const { Stage, stage, data, previous, set } = useStageManager();
+const { Stage, stage, data, errors, set } = useStageManager();
 </script>
 
 <template>
     <h2 class="text-center">
         <span>{{ stage }}/3</span>
-        {{ $t(`pages.index.content.form.summary.title`) }}
+        {{ $t(`pages.index.content.summary.title`) }}
     </h2>
 
     <i18n-t
         tag="p"
-        keypath="pages.index.content.form.summary.description"
+        keypath="pages.index.content.summary.description"
         scope="global"
         class="text-justify"
     >
-        <template v-slot:messenger>
-            <NuxtLink
+        <template #messenger>
+            <TextLink
                 external
                 target="_blank"
-                rel="noreferrer"
                 to="https://www.facebook.com/knury.knurow"
-                class="text-crimson underline"
             >
-                {{ $t(`pages.index.content.form.summary.messenger`) }}
-            </NuxtLink>
+                {{ $t(`pages.index.content.summary.messenger`) }}
+            </TextLink>
         </template>
         <template v-slot:instagram>
-            <NuxtLink
+            <TextLink
                 external
                 target="_blank"
-                rel="noreferrer"
                 to="https://www.instagram.com/knury.knurow"
-                class="text-crimson underline"
             >
-                {{ $t(`pages.index.content.form.summary.instagram`) }}
-            </NuxtLink>
+                {{ $t(`pages.index.content.summary.instagram`) }}
+            </TextLink>
         </template>
     </i18n-t>
 
@@ -67,9 +63,9 @@ const { Stage, stage, data, previous, set } = useStageManager();
                     class="text-crimson underline hover:cursor-pointer"
                 >
                     {{
-                        !data.category
+                        !data.team.category
                             ? $t(`components.input.fill`)
-                            : `${$t(`components.select.category.${data.category}`).substring(0, 7)}...`
+                            : `${$t(`components.select.category.${data.team.category}`).substring(0, 7)}...`
                     }}
                 </span>
             </p>
@@ -83,9 +79,9 @@ const { Stage, stage, data, previous, set } = useStageManager();
                     class="text-crimson underline hover:cursor-pointer"
                 >
                     {{
-                        !data.email
+                        !data.team.email
                             ? $t(`components.input.fill`)
-                            : `${data.email.substring(0, 7)}...`
+                            : `${data.team.email.substring(0, 7)}...`
                     }}
                 </span>
             </p>
@@ -99,7 +95,7 @@ const { Stage, stage, data, previous, set } = useStageManager();
                     class="text-crimson underline hover:cursor-pointer"
                 >
                     {{
-                        !data.phone
+                        !data.team.phone
                             ? $t(`components.input.fill`)
                             : `${data.phone.substring(0, 7)}...`
                     }}
@@ -109,15 +105,38 @@ const { Stage, stage, data, previous, set } = useStageManager();
     </ul>
 
     <h3 class="w-full text-left">
-        {{ $t(`pages.index.content.form.summary.subtitle.players`) }}
+        {{ $t(`pages.index.content.summary.subtitle.players`) }}
     </h3>
     <ul class="w-full">
-        <li>
-            <p
-                v-for="(player, number) in data.players"
-                class="flex justify-between"
+        <li
+            v-for="(player, number) in data.players"
+            :key="number"
+            class="flex justify-between"
+        >
+            <template
+                v-if="
+                    number === 3 &&
+                    !player.first_name &&
+                    !player.last_name &&
+                    !player.age
+                "
             >
-                2.{{ number + 1 }}
+                <span class="flex gap-2">
+                    <span>4.</span>
+                    <span class="italic text-gray-500">{{
+                        $t(`pages.index.content.summary.summary.noplayer`)
+                    }}</span>
+                </span>
+                <span
+                    class="text-crimson underline hover:cursor-pointer"
+                    @click="set(Stage.PLAYERS)"
+                >
+                    {{ $t(`components.input.add`) }}
+                </span>
+            </template>
+
+            <template v-else>
+                {{ number + 1 }}.
                 {{
                     player.first_name ||
                     $t(`components.input.player.first_name`)
@@ -125,52 +144,46 @@ const { Stage, stage, data, previous, set } = useStageManager();
                 {{
                     player.last_name || $t(`components.input.player.last_name`)
                 }}
+                - {{ player.age || $t(`components.input.player.age`) }}
                 <span
-                    @click="stage.setPlayers()"
                     class="text-crimson underline hover:cursor-pointer"
+                    @click="set(Stage.PLAYERS)"
                 >
-                    {{ player.age || $t(`components.input.fill`) }}
+                    {{ $t(`components.input.fill`) }}
                 </span>
-            </p>
+            </template>
         </li>
     </ul>
 
-    <fieldset class="w-full flex gap-2 items-center justify-end">
-        <input
-            v-model="data.accepted"
-            type="checkbox"
-            required
-            class="accent-crimson"
-        />
-        <i18n-t
-            tag="span"
-            keypath="components.input.submit"
-            scope="global"
-            class="text-high text-sm text-right"
-        >
-            <template v-slot:regulations>
-                <NuxtLink
-                    target="_blank"
-                    rel="noreferrer"
-                    to="/regulamin"
-                    class="text-crimson underline"
-                >
-                    {{
-                        $t(`pages.index.content.form.start.regulations`)
-                            .split(" ", 1)
-                            .at(0)
-                    }}
-                </NuxtLink>
-            </template>
-        </i18n-t>
-    </fieldset>
+    <fieldset class="w-full flex flex-col gap-2 items-end justify-end">
+        <section class="w-full flex gap-2 items-start justify-end">
+            <input
+                v-model="data.accepted"
+                type="checkbox"
+                name="accept"
+                required
+                class="accent-crimson"
+            />
+            <i18n-t
+                tag="span"
+                keypath="components.input.submit"
+                scope="global"
+                class="text-high text-sm text-right"
+            >
+                <template v-slot:regulations>
+                    <TextLink target="_blank" to="/regulamin">
+                        {{
+                            $t(`pages.index.content.summary.regulations`)
+                                .split(" ", 1)
+                                .at(0)
+                        }}
+                    </TextLink>
+                </template>
+            </i18n-t>
+        </section>
 
-    <aside class="w-full grid grid-cols-2 gap-4">
-        <ButtonBase @click="previous()" type="button">
-            {{ $t(`components.button.previous`) }}
-        </ButtonBase>
-        <ButtonBase>
-            {{ $t(`components.button.submit`) }}
-        </ButtonBase>
-    </aside>
+        <p v-if="errors.accepted" class="text-red-600 text-sm mt-1">
+            {{ $t(`requirements.regul`) }}
+        </p>
+    </fieldset>
 </template>

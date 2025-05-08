@@ -1,15 +1,11 @@
-<script lang="ts" setup>
-const { data } = useStageManager();
-</script>
-
 <template>
     <IconLogo width="200" height="200" />
     <h2 class="text-center">
-        {{ $t(`pages.index.content.form.sent.title`) }}
+        {{ $t(`pages.index.content.sent.title`) }}
     </h2>
     <i18n-t
         tag="p"
-        keypath="pages.index.content.form.sent.description"
+        keypath="pages.index.content.sent.description"
         scope="global"
         class="text-justify"
     >
@@ -20,26 +16,18 @@ const { data } = useStageManager();
                 to="/regulamin"
                 class="text-crimson underline"
             >
-                {{ $t(`pages.index.content.form.sent.additional_info`) }}
+                {{ $t(`pages.index.content.sent.additional_info`) }}
             </NuxtLink>
         </template>
-        <template v-slot:link>
+        <template v-slot:about>
             <NuxtLink
                 target="_blank"
                 rel="noreferrer"
                 to="/o-turnieju"
                 class="text-crimson underline"
             >
-                {{ $t(`pages.index.content.form.start.link`) }}
+                {{ $t(`pages.index.content.start.about`) }}
             </NuxtLink>
         </template>
     </i18n-t>
-    <ol>
-        <template v-for="(key, number) in Object.keys(data)" :key="key">
-            <li>
-                {{ number + 1 }}. {{ key }} :
-                {{ data[key as keyof typeof data] }}
-            </li>
-        </template>
-    </ol>
 </template>
