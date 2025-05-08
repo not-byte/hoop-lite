@@ -23,7 +23,7 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
 
-            - name: Bump version and push tag
+            - name: Bump release version and push tag
               id: version
               uses: anothrNick/github-tag-action@1.71.0
               env:
