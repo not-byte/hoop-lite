@@ -14,7 +14,7 @@ const { Stage, stage, data, errors, set } = useStageManager();
         scope="global"
         class="text-justify"
     >
-        <template v-slot:messenger>
+        <template #messenger>
             <TextLink
                 external
                 target="_blank"
@@ -34,8 +34,8 @@ const { Stage, stage, data, errors, set } = useStageManager();
         </template>
     </i18n-t>
 
-    <h3 class="text-left">
-        {{ $t(`pages.index.content.summary.subtitle.team`) }}
+    <h3 class="w-full text-left">
+        {{ $t(`pages.index.content.form.summary.subtitle.team`) }}
     </h3>
     <ul class="w-full">
         <li>
@@ -108,12 +108,35 @@ const { Stage, stage, data, errors, set } = useStageManager();
         {{ $t(`pages.index.content.summary.subtitle.players`) }}
     </h3>
     <ul class="w-full">
-        <li>
-            <p
-                v-for="(player, number) in data.players"
-                class="flex justify-between"
+        <li
+            v-for="(player, number) in data.players"
+            :key="number"
+            class="flex justify-between"
+        >
+            <template
+                v-if="
+                    number === 3 &&
+                    !player.first_name &&
+                    !player.last_name &&
+                    !player.age
+                "
             >
-                2.{{ number + 1 }}
+                <span class="flex gap-2">
+                    <span>4.</span>
+                    <span class="italic text-gray-500">{{
+                        $t(`pages.index.content.summary.summary.noplayer`)
+                    }}</span>
+                </span>
+                <span
+                    class="text-crimson underline hover:cursor-pointer"
+                    @click="set(Stage.PLAYERS)"
+                >
+                    {{ $t(`components.input.add`) }}
+                </span>
+            </template>
+
+            <template v-else>
+                {{ number + 1 }}.
                 {{
                     player.first_name ||
                     $t(`components.input.player.first_name`)
@@ -121,13 +144,14 @@ const { Stage, stage, data, errors, set } = useStageManager();
                 {{
                     player.last_name || $t(`components.input.player.last_name`)
                 }}
+                - {{ player.age || $t(`components.input.player.age`) }}
                 <span
-                    @click="stage.setPlayers()"
                     class="text-crimson underline hover:cursor-pointer"
+                    @click="set(Stage.PLAYERS)"
                 >
-                    {{ player.age || $t(`components.input.fill`) }}
+                    {{ $t(`components.input.fill`) }}
                 </span>
-            </p>
+            </template>
         </li>
     </ul>
 

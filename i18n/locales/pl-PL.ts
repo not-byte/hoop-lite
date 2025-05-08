@@ -14,6 +14,7 @@ export default {
         },
         input: {
             fill: "Uzupełnij",
+            add: "Dodaj",
             submit: "Zatwierdzając akceptujesz {regulations}",
             team: {
                 name: "Nazwa drużyny",
@@ -52,6 +53,10 @@ export default {
             description:
                 "Serwer strony WWW nie odpowiada, spróbuj ponownie za chwilę! Jeśli myślisz, że to błąd aplikacji, skontakuj się z nami na {messenger} lub {instagram}"
         },
+        regulations: {
+            title: "Regulamin",
+            description: "Regulamin turnieju."
+        },
         index: {
             title: "Rejestracja",
             description:
@@ -80,6 +85,31 @@ export default {
                         team: "Drużyna",
                         players: "Zawodnicy"
                     },
+                    team: {
+                        title: "Dane drużyny"
+                    },
+                    players: {
+                        title: "Dane zawodników"
+                    },
+                    summary: {
+                        title: "Podsumowanie",
+                        description:
+                            " Sprawdź poprawność podanych danych przed wysłaniem formularza, pamiętaj o zapoznaniu się z regulaminem i potwierdzeniem formularza na podanym adresie e-mail! Jeśli napotkałeś problem skontakuj się z nami na {messenger} lub {instagram}",
+                        messenger: "Messengerze",
+                        instagram: "Instagramie!",
+                        subtitle: {
+                            team: "Drużyna",
+                            players: "Zawodnicy"
+                        },
+                        noplayer: "Brak Zawodnika"
+                    },
+                    sent: {
+                        title: "Zgłoszenie wysłane!",
+                        description:
+                            "Wygląda na to, że poprawnie wypełniliście formularz swojej drużyny, wkrótce poinformujemy o potwierdzeniu danych {additional_info}, widzimy się na turnieju już 1 czerwca! Więcej szczegółów o imprezie znajdziecie {link}",
+                        additional_info:
+                            "(UWAGA! Nie oznacza to zapewnionego miejsca na turnieju, sprawdźcie również SPAM poczty)"
+                    },
                     regulations: "regulamin"
                 },
                 sent: {
@@ -106,11 +136,11 @@ export default {
                 eventname: "Knurowski Streetball 2025",
                 address: "ORLIK, ul. Ułanów 8",
                 p1: {
-                    title: "Faza zasadnicza (mecze w grupach)",
+                    titlefull: "Faza zasadnicza (mecze w grupach)",
                     content:
                         "Około {hour} ruszy faza zasadnicza turnieju, zespoły zostaną przydzielone losowo do grup, z których wychodzą dwie zwycięskie.",
                     hour: "9:30",
-                    titleshort: "Faza zasadnicza",
+                    title: "Faza zasadnicza",
                     descshort: "Losowe grupy, wychodzą dwie drużyny"
                 },
 
@@ -176,7 +206,8 @@ export default {
                     content:
                         "Nad bezpieczeństwem wszystkich obecnych będzie czuwać {group}, zapewniająca pełną opiekę medyczną podczas całego wydarzenia.",
                     group: "Grupa Ratownicza SAFETY Gliwice",
-                    hour: "całość"
+                    hour: "całość",
+                    descshort: "Grupa Ratowniczna SAFETY Gliwice"
                 },
                 p7: {
                     title: "Nagrody",
@@ -184,7 +215,7 @@ export default {
                         "Dla zwycięzców turnieju przewidziane są {prizes}.",
                     prizes: "nagrody",
                     hour: "16:00",
-                    descshort: "Nagrody dla uczestników"
+                    descshort: "Nagrody dla zwycięzców turnieju!"
                 },
                 p8: {
                     title: "Informacje dodatkowe",
@@ -204,7 +235,7 @@ export default {
                     content:
                         "Zakończenie wydarzenia przewidziane jest na godzinę {hour}.",
                     hour: "około 17:00",
-                    descshort: "Zakończenie wydarzenia"
+                    descshort: "Zakończenie całego wydarzenia"
                 },
                 p11: {
                     content:
