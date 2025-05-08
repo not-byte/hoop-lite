@@ -50,46 +50,64 @@ const data = ref<Data>(dataFactory());
 
 const errors = ref<Errors<Data>>(errorsFactory());
 
-function validate() {
+function validate(): boolean {
+    let isValid = true;
+
     switch (stage.value) {
         case Stage.TEAM: {
-            // errors.value.team.name = !data.value.team.name;
-            // errors.value.team.category = !data.value.team.category;
-            // errors.value.team.email =
-            //     !/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(
-            //         data.value.team.email
-            //     );
-            // errors.value.team.phone =
-            //     !/(?:([+]\d{1,4})[-.\s]?)?(?:[(](\d{1,3})[)][-.\s]?)?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})/.test(
-            //         `${data.value.team.phone}`
-            //     );
+            const { team } = errors.value;
+            const { team: teamData } = data.value;
 
-            return true;
+            team.name = !teamData.name;
+            team.category = !teamData.category;
+            team.email = !/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(teamData.email);
+            team.phone = !/^\d{9}$/.test(`${teamData.phone}`);
+
+            return !Object.values(team).includes(true);
         }
+
         case Stage.PLAYERS: {
-            // const validate = () => {
-            //     data.value.players.forEach((player, index) => {
-            //         errors.value[index] = {
-            //             first_name: !player.first_name.trim(),
-            //             last_name: !player.last_name.trim(),
-            //             age: !(
-            //                 typeof player.age === "number" &&
-            //                 player.age >= 10 &&
-            //                 player.age <= 99
-            //             )
-            //         };
-            //     });
+            const { players } = errors.value;
+            const { players: playerData } = data.value;
 
-            //     return !Object.values(errors.value[index]).includes(false);
-            // };
+            playerData.forEach((player, index) => {
+                const isLast = index === 3;
+                const isEmpty = !player.first_name && !player.last_name && !player.age;
 
-            return true;
+                if (isLast && isEmpty) {
+                    players[index] = {
+                        first_name: false,
+                        last_name: false,
+                        age: false
+                    };
+                    return;
+                }
+
+                const playerErrors = {
+                    first_name: !player.first_name.trim(),
+                    last_name: !player.last_name.trim(),
+                    age: !(typeof player.age === "number" && player.age >= 10 && player.age <= 99)
+                };
+
+                players[index] = playerErrors;
+
+                if (Object.values(playerErrors).includes(true)) {
+                    isValid = false;
+                }
+            });
+
+            return isValid;
         }
-        case Stage.SUMMARY: {
+
+        case Stage.SUMMARY:
             return data.value.accepted;
-        }
+
+        default:
+            return true;
     }
 }
+
+
 
 export const useStageManager = () => {
     function previous(): void {

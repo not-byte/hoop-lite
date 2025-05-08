@@ -97,7 +97,7 @@ const { Stage, stage, data, errors, set } = useStageManager();
                     {{
                         !data.team.phone
                             ? $t(`components.input.fill`)
-                            : `${data.phone.substring(0, 7)}...`
+                            : `${data.team.phone.substring(0, 7)}...`
                     }}
                 </span>
             </p>
