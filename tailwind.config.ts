@@ -3,6 +3,7 @@ import type { Config } from "tailwindcss";
 export default {
     content: [
         "./app.vue",
+        "./error.vue",
         "./components/**/*.${vue,ts,js,html}",
         "./pages/**/*.{vue,ts,js,html}"
     ],
@@ -20,14 +21,8 @@ export default {
         extend: {
             colors: {
                 crimson: "rgba(242,53,53,1.00)",
-                dark: "rgba(30,30,30,1.00)",
-                mid: "rgba(125,125,125,1.00)"
-            },
-            borderWidth: {
-                "1": "1px"
-            },
-            gridTemplateColumns: {
-                "13": "repeat(13, minmax(0, 1fr))"
+                mid: "rgba(125,125,125,1.00)",
+                dark: "rgba(30,30,30,1.00)"
             }
         }
     },

@@ -1,5 +1,5 @@
 <script lang="js" setup>
-const { stage, data } = useStageManager();
+const { stage, data, errors } = useStageManager();
 </script>
 
 <template>
@@ -17,6 +17,7 @@ const { stage, data } = useStageManager();
             {{ $t(`components.input.player.label`) }}
             {{ parseInt(index) + 1 }}
         </label>
+
         <InputBase
             v-model="data.players[index].first_name"
             autocomplete="given-name"
@@ -24,12 +25,20 @@ const { stage, data } = useStageManager();
             :id="`player-${index}`"
             :placeholder="$t(`components.input.player.first_name`)"
         />
+        <p v-if="errors.players[index].first_name" class="text-red-600 text-sm">
+            {{ $t(`requirements.field`) }}
+        </p>
+
         <InputBase
             v-model="data.players[index].last_name"
             autocomplete="family-name"
             name="family-name"
             :placeholder="$t(`components.input.player.last_name`)"
         />
+        <p v-if="errors.players[index].last_name" class="text-red-600 text-sm">
+            {{ $t(`requirements.field`) }}
+        </p>
+
         <InputNumber
             v-model="data.players[index].age"
             autocomplete="age"
@@ -39,5 +48,8 @@ const { stage, data } = useStageManager();
             :max="99"
             pattern="^[1-9][0-9]$"
         />
+        <p v-if="errors.players[index].age" class="text-red-600 text-sm">
+            {{ $t(`requirements.age`) }}
+        </p>
     </fieldset>
 </template>

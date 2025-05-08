@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useSiteData().setSiteData();
+useSiteData().set();
 </script>
 
 <template>

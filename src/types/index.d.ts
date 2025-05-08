@@ -12,6 +12,13 @@ enum Stage {
     SENT
 }
 
+type Team = {
+    name: string;
+    category: Category;
+    email: string;
+    phone: number;
+};
+
 type Player = {
     first_name: string;
     last_name: string;
@@ -19,13 +26,16 @@ type Player = {
 };
 
 type Data = {
-    name: string;
-    category?: Category | undefined;
-    email: string;
-    phone: number;
-    players: Partial<Player>[];
+    team: Team;
+    players: Player[];
     accepted: boolean;
 };
+
+type Errors<T> = T extends string | number | boolean
+    ? boolean
+    : T extends Array<infer U>
+      ? Errors<U>[]
+      : { [K in keyof T]: Errors<T[K]> };
 
 type InputType = "checkbox" | "email" | "number" | "tel" | "text";
 

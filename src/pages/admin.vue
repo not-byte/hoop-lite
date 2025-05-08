@@ -5,11 +5,11 @@ definePageMeta({
             return;
         }
 
-        return navigateTo("/");
+        return navigateTo("/", { redirectCode: 301 });
     }
 });
 
-const { data: teams } = await useFetch("/api/form");
+const { data: response } = await useFetch("/api/form");
 </script>
 
 <template>
@@ -28,7 +28,7 @@ const { data: teams } = await useFetch("/api/form");
             class="w-full max-w-6xl grid gap-6 grid-rows-1 sm:grid-rows-2 lg:grid-rows-3 grid-cols-1 sm:grid-cols-3"
         >
             <div
-                v-for="(team, index) in teams"
+                v-for="({ team, players, accepted }, index) in response"
                 :key="index"
                 class="bg-white shadow rounded-xl p-4 border border-gray-200"
             >
@@ -45,11 +45,11 @@ const { data: teams } = await useFetch("/api/form");
                     <span
                         class="inline-block px-3 py-1 text-xs font-medium rounded-full"
                         :class="{
-                            'bg-green-100 text-green-800': team.accepted,
-                            'bg-red-100 text-red-800': !team.accepted
+                            'bg-green-100 text-green-800': accepted,
+                            'bg-red-100 text-red-800': !accepted
                         }"
                     >
-                        {{ team.accepted ? "Accepted" : "Not Accepted" }}
+                        {{ accepted ? "Accepted" : "Not Accepted" }}
                     </span>
                 </div>
 
@@ -57,7 +57,7 @@ const { data: teams } = await useFetch("/api/form");
                     <h3 class="text-md font-semibold mb-1">Players</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <div
-                            v-for="(player, pIndex) in team.players"
+                            v-for="(player, pIndex) in players"
                             :key="pIndex"
                             class="p-2 bg-gray-50 rounded border"
                         >

@@ -1,6 +1,7 @@
 <template>
     <svg
         viewBox="0 0 495 495"
+        xmlns="http://www.w3.org/2000/svg"
         role="img"
         aria-labelledby="logo_title logo_description"
     >

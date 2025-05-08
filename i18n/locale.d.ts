@@ -1,14 +1,22 @@
-type Page<Content extends { [key: string]: unknown }> = {
+type Component = Record<string, string | Component>;
+
+type Page = {
     title: string;
     description: string;
-    content: Content;
+    content?: Component;
 };
+
+type Pages = Record<
+    "404" | "500" | "index" | "admin" | "about" | "regulations",
+    Page
+>;
 
 type Locale = {
     nuxtSiteConfig: {
         name: string;
         description: string;
     };
-    pages: Record<Page>;
-    components: {};
+    components: Component;
+    pages: Pages;
+    requirements: Component;
 };

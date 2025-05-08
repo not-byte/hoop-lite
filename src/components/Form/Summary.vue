@@ -1,5 +1,5 @@
 <script lang="js" setup>
-const { Stage, stage, data, set } = useStageManager();
+const { Stage, stage, data, errors, set } = useStageManager();
 </script>
 
 <template>
@@ -63,9 +63,9 @@ const { Stage, stage, data, set } = useStageManager();
                     class="text-crimson underline hover:cursor-pointer"
                 >
                     {{
-                        !data.category
+                        !data.team.category
                             ? $t(`components.input.fill`)
-                            : `${$t(`components.select.category.${data.category}`).substring(0, 7)}...`
+                            : `${$t(`components.select.category.${data.team.category}`).substring(0, 7)}...`
                     }}
                 </span>
             </p>
@@ -79,9 +79,9 @@ const { Stage, stage, data, set } = useStageManager();
                     class="text-crimson underline hover:cursor-pointer"
                 >
                     {{
-                        !data.email
+                        !data.team.email
                             ? $t(`components.input.fill`)
-                            : `${data.email.substring(0, 7)}...`
+                            : `${data.team.email.substring(0, 7)}...`
                     }}
                 </span>
             </p>
@@ -95,7 +95,7 @@ const { Stage, stage, data, set } = useStageManager();
                     class="text-crimson underline hover:cursor-pointer"
                 >
                     {{
-                        !data.phone
+                        !data.team.phone
                             ? $t(`components.input.fill`)
                             : `${data.phone.substring(0, 7)}...`
                     }}
@@ -131,29 +131,35 @@ const { Stage, stage, data, set } = useStageManager();
         </li>
     </ul>
 
-    <fieldset class="w-full flex gap-2 items-center justify-end">
-        <input
-            v-model="data.accepted"
-            type="checkbox"
-            name="accept"
-            required
-            class="accent-crimson"
-        />
-        <i18n-t
-            tag="span"
-            keypath="components.input.submit"
-            scope="global"
-            class="text-high text-sm text-right"
-        >
-            <template v-slot:regulations>
-                <TextLink target="_blank" to="/regulamin">
-                    {{
-                        $t(`pages.index.content.summary.regulations`)
-                            .split(" ", 1)
-                            .at(0)
-                    }}
-                </TextLink>
-            </template>
-        </i18n-t>
+    <fieldset class="w-full flex flex-col gap-2 items-end justify-end">
+        <section class="w-full flex gap-2 items-start justify-end">
+            <input
+                v-model="data.accepted"
+                type="checkbox"
+                name="accept"
+                required
+                class="accent-crimson"
+            />
+            <i18n-t
+                tag="span"
+                keypath="components.input.submit"
+                scope="global"
+                class="text-high text-sm text-right"
+            >
+                <template v-slot:regulations>
+                    <TextLink target="_blank" to="/regulamin">
+                        {{
+                            $t(`pages.index.content.summary.regulations`)
+                                .split(" ", 1)
+                                .at(0)
+                        }}
+                    </TextLink>
+                </template>
+            </i18n-t>
+        </section>
+
+        <p v-if="errors.accepted" class="text-red-600 text-sm mt-1">
+            {{ $t(`requirements.regul`) }}
+        </p>
     </fieldset>
 </template>

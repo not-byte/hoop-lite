@@ -48,7 +48,7 @@ export function useSiteData() {
         }
     ];
 
-    function setSiteData(_page?: string) {
+    function set(_page?: string) {
         useHeadSafe({
             link,
             charset: "utf-8",
@@ -88,7 +88,7 @@ export function useSiteData() {
         });
     }
 
-    return { description, image, link, name, robots, title, url, setSiteData };
+    return { description, image, link, name, robots, title, url, set };
 }
 
 export default useSiteData;

@@ -7,7 +7,7 @@ const { error } = defineProps({
 
 const page = `${error?.statusCode || 500}`;
 
-useSiteData().setSiteData(page);
+useSiteData().set(page);
 </script>
 
 <template>
@@ -23,13 +23,30 @@ useSiteData().setSiteData(page);
                 :keypath="`pages.${page}.description`"
                 scope="global"
                 class="text-justify"
-            ></i18n-t>
+            >
+                <template v-slot:messenger>
+                    <TextLink
+                        external
+                        target="_blank"
+                        to="https://www.facebook.com/knury.knurow"
+                    >
+                        {{ $t(`pages.index.content.summary.messenger`) }}
+                    </TextLink>
+                </template>
+                <template v-slot:instagram>
+                    <TextLink
+                        external
+                        target="_blank"
+                        to="https://www.instagram.com/knury.knurow"
+                    >
+                        {{ $t(`pages.index.content.summary.instagram`) }}
+                    </TextLink>
+                </template>
+            </i18n-t>
 
-            <ButtonBase>
-                <NuxtLink :to="useLocalePath()(`index`)" rel="noreferrer">
-                    {{ $t(`pages.${page}.content.back`) }}
-                </NuxtLink>
-            </ButtonBase>
+            <ButtonLink to="index">
+                {{ $t(`components.button.back`) }}
+            </ButtonLink>
         </main>
     </NuxtLayout>
 </template>

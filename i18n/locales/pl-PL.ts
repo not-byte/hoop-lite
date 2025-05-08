@@ -9,7 +9,8 @@ export default {
             start: "Rozpocznij",
             next: "Dalej",
             previous: "Cofnij",
-            submit: "Zatwierdź"
+            submit: "Zatwierdź",
+            back: "Strona główna"
         },
         input: {
             fill: "Uzupełnij",
@@ -41,18 +42,15 @@ export default {
         }
     },
     pages: {
-        404: {
+        "404": {
             title: "Wystąpił błąd! (404)",
             description:
-                "Link, który próbujesz otworzyć nie istnieje! Jeśli myślisz, że to błąd aplikacji lub serwera, skontakuj się z nami na {messenger} lub {instagram}",
-            content: {
-                code: {
-                    "404": "Link, który próbujesz otworzyć nie istnieje! Skontaktuj się z nami jeśli myślisz ze to błąd aplikacji lub serwera."
-                },
-                messenger: "Messengerze",
-                instagram: "Instagramie!",
-                back: "Strona główna"
-            }
+                "Strona, którą próbujesz otworzyć nie istnieje, sprawdź dokładnie adres WWW! Jeśli myślisz, że to błąd aplikacji, skontakuj się z nami na {messenger} lub {instagram}"
+        },
+        "500": {
+            title: "Wystąpił błąd! (500)",
+            description:
+                "Serwer strony WWW nie odpowiada, spróbuj ponownie za chwilę! Jeśli myślisz, że to błąd aplikacji, skontakuj się z nami na {messenger} lub {instagram}"
         },
         index: {
             title: "Rejestracja",
@@ -87,7 +85,7 @@ export default {
                 sent: {
                     title: "Zgłoszenie wysłane!",
                     description:
-                        "Wygląda na to, że poprawnie wypełniliście formularz swojej drużyny, wkrótce poinformujemy o potwierdzeniu danych {additional_info}, widzimy się na turnieju już 1 czerwca! Więcej szczegółów o imprezie znajdziecie {link}",
+                        "Wygląda na to, że poprawnie wypełniliście formularz swojej drużyny, wkrótce poinformujemy o potwierdzeniu danych {additional_info}, widzimy się na turnieju już 1 czerwca! Więcej szczegółów o imprezie znajdziecie {about}",
                     additional_info:
                         "(UWAGA! Nie oznacza to zapewnionego miejsca na turnieju, sprawdźcie również SPAM poczty)"
                 }
@@ -112,8 +110,8 @@ export default {
                     content:
                         "Około {hour} ruszy faza zasadnicza turnieju, zespoły zostaną przydzielone losowo do grup, z których wychodzą dwie zwycięskie.",
                     hour: "9:30",
-                    titleshort:"Faza zasadnicza",
-                    descshort:"Losowe grupy, wychodzą dwie drużyny",
+                    titleshort: "Faza zasadnicza",
+                    descshort: "Losowe grupy, wychodzą dwie drużyny"
                 },
 
                 p2: {
@@ -136,7 +134,7 @@ export default {
                                 "{label} energiczny pokaz w wykonaniu lokalnej grupy tanecznej"
                         }
                     },
-                    descshort:"Dunk Contest, 3 Point Contest, Grupa EXTERIA"
+                    descshort: "Dunk Contest, 3 Point Contest, Grupa EXTERIA"
                 },
 
                 p3: {
@@ -145,12 +143,12 @@ export default {
                         "Podczas wydarzenia prowadzona będzie zbiórka na rzecz podopiecznego {organization}. Zachęcamy wszystkich uczestników do wsparcia tej inicjatywy – każda złotówka ma znaczenie.",
                     organization: "Stowarzyszenia Cała Naprzód",
                     hour: "Całość",
-                    descshort:"Zbiórka na rzecz podopiecznego Całej Naprzód",
+                    descshort: "Zbiórka na rzecz podopiecznego Całej Naprzód"
                 },
                 p4: {
                     title: "Strefa gastronomiczna",
-                    hour:"Całość",
-                    descshort:"Za dowolną dopłatą zjedz coś pysznego!",
+                    hour: "Całość",
+                    descshort: "Za dowolną dopłatą zjedz coś pysznego!",
                     beforeList:
                         "Na terenie wydarzenia będzie funkcjonować {zone}, w której w zamian za {donation} będzie można otrzymać:",
                     zone: "strefa gastronomiczna",
@@ -171,14 +169,14 @@ export default {
                         "Dla najmłodszych przygotowaliśmy specjalną {zone}, gdzie pod okiem animatora najmłodsi uczestnicy będą mogli aktywnie i bezpiecznie spędzić czas.",
                     zone: "strefę dziecięcą",
                     hour: "całość",
-                    descshort:"Strefa dla najmłodszych z animatorami",
+                    descshort: "Strefa dla najmłodszych z animatorami"
                 },
                 p6: {
                     title: "Bezpieczeństwo",
                     content:
                         "Nad bezpieczeństwem wszystkich obecnych będzie czuwać {group}, zapewniająca pełną opiekę medyczną podczas całego wydarzenia.",
                     group: "Grupa Ratownicza SAFETY Gliwice",
-                    hour: "całość",
+                    hour: "całość"
                 },
                 p7: {
                     title: "Nagrody",
@@ -186,7 +184,7 @@ export default {
                         "Dla zwycięzców turnieju przewidziane są {prizes}.",
                     prizes: "nagrody",
                     hour: "16:00",
-                    descshort:"Nagrody dla uczestników",
+                    descshort: "Nagrody dla uczestników"
                 },
                 p8: {
                     title: "Informacje dodatkowe",
@@ -194,19 +192,19 @@ export default {
                         "Każdy zawodnik otrzyma {water}, aby zadbać o odpowiednie nawodnienie w trakcie rozgrywek.",
                     water: "wodę mineralną",
                     hour: "całość",
-                    descshort:"Woda dla uczestników oraz fotografowie",
+                    descshort: "Woda dla uczestników oraz fotografowie"
                 },
                 p9: {
                     content:
                         "Całe wydarzenie będzie {photo}, aby każdy mógł odnaleźć swoje sportowe chwile.",
-                    photo: "profesjonalnie dokumentowane przez fotografów",
+                    photo: "profesjonalnie dokumentowane przez fotografów"
                 },
                 p10: {
                     title: "Zakończenie",
                     content:
                         "Zakończenie wydarzenia przewidziane jest na godzinę {hour}.",
                     hour: "około 17:00",
-                    descshort: "Zakończenie wydarzenia",
+                    descshort: "Zakończenie wydarzenia"
                 },
                 p11: {
                     content:
@@ -215,5 +213,13 @@ export default {
                 }
             }
         }
+    },
+    requirements: {
+        field: "Pola jest wymagane.",
+        age: "Wiek musi być liczbą od 10 do 99.",
+        regul: "Musisz zaakceptować regulamin, aby kontynuować.",
+        category: "Wybierz kategorię.",
+        email: "Podaj poprawny adres e-mail.",
+        tel: "Podaj poprawny numer telefonu (min. 9 cyfr)."
     }
 } satisfies Locale;

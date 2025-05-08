@@ -37,7 +37,7 @@
     }
 
     main {
-        @apply w-[100dvw] sm:w-[40rem] flex flex-col gap-3 items-center px-3 pt-6 pb-24 overflow-x-hidden;
+        @apply w-[100dvw] sm:w-[36rem] md:w-[42rem] flex flex-col gap-3 items-center px-3 pt-6 pb-24 overflow-x-hidden;
     }
 
     h1,

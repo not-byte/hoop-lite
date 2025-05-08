@@ -19,14 +19,14 @@
                 {{ $t(`pages.index.content.sent.additional_info`) }}
             </NuxtLink>
         </template>
-        <template v-slot:link>
+        <template v-slot:about>
             <NuxtLink
                 target="_blank"
                 rel="noreferrer"
                 to="/o-turnieju"
                 class="text-crimson underline"
             >
-                {{ $t(`pages.index.content.start.link`) }}
+                {{ $t(`pages.index.content.start.about`) }}
             </NuxtLink>
         </template>
     </i18n-t>

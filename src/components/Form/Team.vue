@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { Category, stage, data } = useStageManager();
+const { Category, stage, data, errors } = useStageManager();
 </script>
 
 <template>
@@ -10,20 +10,24 @@ const { Category, stage, data } = useStageManager();
 
     <fieldset class="w-full flex flex-col gap-3">
         <InputBase
-            v-model="data.name"
+            v-model="data.team.name"
+            :placeholder="$t(`components.input.team.name`)"
             autocomplete="username"
             name="username"
-            :placeholder="$t(`components.input.team.name`)"
             type="text"
         />
+        <p v-if="errors.team.name" class="text-red-600 text-sm">
+            {{ $t(`requirements.field`) }}
+        </p>
+
         <aside
-            class="w-full h-12 rounded-lg py-2 px-4 border-1 border-mid placeholder:text-mid"
+            class="w-full h-12 rounded-lg py-2 px-4 border border-mid placeholder:text-mid"
         >
             <select
-                required
-                v-model="data.category"
-                name="category"
+                v-model="data.team.category"
                 :placeholder="$t(`components.select.category.0`)"
+                name="category"
+                required
                 class="bg-transparent w-full h-full outline-none"
             >
                 <option disabled selected :value="Category.NOT_SELECTED">
@@ -37,19 +41,30 @@ const { Category, stage, data } = useStageManager();
                 </option>
             </select>
         </aside>
+        <p v-if="errors.team.category" class="text-red-600 text-sm">
+            {{ $t(`requirements.category`) }}
+        </p>
+
         <InputBase
-            v-model="data.email"
+            v-model="data.team.email"
+            :placeholder="$t(`components.input.team.email`)"
             autocomplete="email"
             name="email"
-            :placeholder="$t(`components.input.team.email`)"
             type="email"
         />
+        <p v-if="errors.team.email" class="text-red-600 text-sm">
+            {{ $t(`requirements.email`) }}
+        </p>
+
         <InputBase
-            v-model="data.phone"
+            v-model="data.team.phone"
+            :placeholder="$t(`components.input.team.phone`)"
             autocomplete="tel"
             name="tel"
-            :placeholder="$t(`components.input.team.phone`)"
             type="tel"
         />
+        <p v-if="errors.team.phone" class="text-red-600 text-sm">
+            {{ $t(`requirements.tel`) }}
+        </p>
     </fieldset>
 </template>

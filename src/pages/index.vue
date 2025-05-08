@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup async>
 const stages = [
     resolveComponent("FormStart"),
     resolveComponent("FormTeam"),
@@ -17,7 +17,7 @@ const currentStage = computed(() => stages.at(stage.value ?? 0));
             class="w-full flex flex-col items-center justify-stretch gap-3"
         >
             <component :is="currentStage" />
-            <Controls />
+            <FormControls />
         </form>
     </main>
 </template>
