@@ -60,7 +60,10 @@ function validate(): boolean {
 
             team.name = !teamData.name;
             team.category = !teamData.category;
-            team.email = !/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(teamData.email);
+            team.email =
+                !/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(
+                    teamData.email
+                );
             team.phone = !/^\d{9}$/.test(`${teamData.phone}`);
 
             return !Object.values(team).includes(true);
@@ -72,7 +75,8 @@ function validate(): boolean {
 
             playerData.forEach((player, index) => {
                 const isLast = index === 3;
-                const isEmpty = !player.first_name && !player.last_name && !player.age;
+                const isEmpty =
+                    !player.first_name && !player.last_name && !player.age;
 
                 if (isLast && isEmpty) {
                     players[index] = {
@@ -86,7 +90,11 @@ function validate(): boolean {
                 const playerErrors = {
                     first_name: !player.first_name.trim(),
                     last_name: !player.last_name.trim(),
-                    age: !(typeof player.age === "number" && player.age >= 10 && player.age <= 99)
+                    age: !(
+                        typeof player.age === "number" &&
+                        player.age >= 10 &&
+                        player.age <= 99
+                    )
                 };
 
                 players[index] = playerErrors;
@@ -106,8 +114,6 @@ function validate(): boolean {
             return true;
     }
 }
-
-
 
 export const useStageManager = () => {
     function previous(): void {
@@ -129,23 +135,21 @@ export const useStageManager = () => {
                 stage.value++;
                 break;
             }
-            case Stage.SENT: {
-                break;
-            }
             case Stage.TEAM:
-            case Stage.PLAYERS:
-            case Stage.SUMMARY: {
+            case Stage.PLAYERS: {
                 if (!validate()) {
                     break;
                 }
-            }
-            case Stage.TEAM:
-            case Stage.PLAYERS: {
+
                 stage.value++;
 
                 break;
             }
             case Stage.SUMMARY: {
+                if (!validate()) {
+                    break;
+                }
+
                 const response = await $fetch("/api/form", {
                     method: "POST",
                     body: data.value
@@ -160,6 +164,9 @@ export const useStageManager = () => {
                 }
 
                 stage.value++;
+                break;
+            }
+            case Stage.SENT: {
                 break;
             }
         }
