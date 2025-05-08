@@ -13,7 +13,6 @@ concurrency: production
 jobs:
     release:
         name: Tag and create GitHub release
-        if: github.event.pull_request.merged == true
         runs-on: ubuntu-latest-arm
         permissions:
             contents: write
