@@ -137,11 +137,11 @@ export default {
                 eventname: "Knurowski Streetball 2025",
                 address: "ORLIK, ul. Ułanów 8",
                 p1: {
-                    title: "Faza zasadnicza (mecze w grupach)",
+                    titlefull: "Faza zasadnicza (mecze w grupach)",
                     content:
                         "Około {hour} ruszy faza zasadnicza turnieju, zespoły zostaną przydzielone losowo do grup, z których wychodzą dwie zwycięskie.",
                     hour: "9:30",
-                    titleshort:"Faza zasadnicza",
+                    title:"Faza zasadnicza",
                     descshort:"Losowe grupy, wychodzą dwie drużyny",
                 },
 
@@ -208,6 +208,7 @@ export default {
                         "Nad bezpieczeństwem wszystkich obecnych będzie czuwać {group}, zapewniająca pełną opiekę medyczną podczas całego wydarzenia.",
                     group: "Grupa Ratownicza SAFETY Gliwice",
                     hour: "całość",
+                    descshort: "Grupa Ratowniczna SAFETY Gliwice"
                 },
                 p7: {
                     title: "Nagrody",
@@ -215,7 +216,7 @@ export default {
                         "Dla zwycięzców turnieju przewidziane są {prizes}.",
                     prizes: "nagrody",
                     hour: "16:00",
-                    descshort:"Nagrody dla uczestników",
+                    descshort:"Nagrody dla zwycięzców turnieju!",
                 },
                 p8: {
                     title: "Informacje dodatkowe",
@@ -235,7 +236,7 @@ export default {
                     content:
                         "Zakończenie wydarzenia przewidziane jest na godzinę {hour}.",
                     hour: "około 17:00",
-                    descshort: "Zakończenie wydarzenia",
+                    descshort: "Zakończenie całego wydarzenia",
                 },
                 p11: {
                     content:

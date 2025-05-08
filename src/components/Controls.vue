@@ -39,5 +39,15 @@ async function register(): Promise<void> {
                 {{ $t(`components.button.previous`) }}
             </ButtonBase>
         </template>
+        <template v-if="Stage.START < stage && stage < Stage.SUMMARY">
+            <ButtonBase @click="next()" type="button">
+                {{ $t(`components.button.next`) }}
+            </ButtonBase>
+        </template>
+        <template v-if="stage === Stage.SUMMARY">
+            <ButtonBase @click="register()">
+                {{ $t(`components.button.submit`) }}
+            </ButtonBase>
+        </template>
     </aside>
 </template>
