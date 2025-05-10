@@ -16,6 +16,9 @@ export default defineNuxtConfig({
         "@nuxt/image"
     ],
     runtimeConfig: {
+        database:
+            "postgresql://postgres.oxjsfwlkzewsgozwenwd:Klubowyrudzielec123@aws-0-eu-central-1.pooler.supabase.com:5432/postgres",
+        token: "Klubowyrudzielec123",
         public: {
             author: "notbyte.com",
             name: "3X3",

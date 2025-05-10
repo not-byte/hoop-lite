@@ -29,7 +29,7 @@ const dataFactory = (): Data => ({
     accepted: false
 });
 
-const errorsFactory = (): Errors<Data> => ({
+const errorsFactory = (): Nested<Data, boolean> => ({
     team: {
         name: false,
         category: false,
@@ -41,77 +41,73 @@ const errorsFactory = (): Errors<Data> => ({
         last_name: false,
         age: false
     })),
-    accepted: true
+    accepted: false
 });
 
 const stage = ref<Stage>(stageFactory());
 
 const data = ref<Data>(dataFactory());
 
-const errors = ref<Errors<Data>>(errorsFactory());
+const errors = ref<Errors>(errorsFactory());
+
+const regex = {
+    team: {
+        name: /^.{3,}$/,
+        category: /^[1-2]$/,
+        email: /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/,
+        phone: /^(?:\+\d{1,3}[-\s]?)?(?:\d[-\s]?){9}$/
+    },
+    players: {
+        first_name: /^.{3,}$/,
+        last_name: /^.{3,}$/,
+        age: /^[1-9][0-9]$/
+    },
+    accepted: /^(true|false)$/
+} satisfies Patterns;
 
 function validate(): boolean {
-    let isValid = true;
-
     switch (stage.value) {
         case Stage.TEAM: {
-            const { team } = errors.value;
-            const { team: teamData } = data.value;
+            return true;
+            const keys = Object.keys(data.value.team);
 
-            team.name = !teamData.name;
-            team.category = !teamData.category;
-            team.email =
-                !/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(
-                    teamData.email
-                );
-            team.phone = !/^\d{9}$/.test(`${teamData.phone}`);
-
-            return !Object.values(team).includes(true);
+            return !keys.some(
+                (key) =>
+                    (errors.value.team[key] = !regex.team[key].test(
+                        data.value.team[key]
+                    ))
+            );
         }
-
         case Stage.PLAYERS: {
-            const { players } = errors.value;
-            const { players: playerData } = data.value;
+            return true;
+            return !data.value.players.some((_, index) => {
+                const keys = Object.keys(data.value.players[index]);
 
-            playerData.forEach((player, index) => {
-                const isLast = index === 3;
-                const isEmpty =
-                    !player.first_name && !player.last_name && !player.age;
+                const isLast = index === data.value.players.length - 1;
+                const isEmpty = keys.every(
+                    (key) => !data.value.players[index][key]
+                );
 
                 if (isLast && isEmpty) {
-                    players[index] = {
-                        first_name: false,
-                        last_name: false,
-                        age: false
-                    };
-                    return;
+                    return false;
                 }
 
-                const playerErrors = {
-                    first_name: !player.first_name.trim(),
-                    last_name: !player.last_name.trim(),
-                    age: !(
-                        typeof player.age === "number" &&
-                        player.age >= 10 &&
-                        player.age <= 99
-                    )
-                };
-
-                players[index] = playerErrors;
-
-                if (Object.values(playerErrors).includes(true)) {
-                    isValid = false;
-                }
+                return keys.some(
+                    (key) =>
+                        (errors.value.players[index][key] = !regex.players[
+                            key
+                        ].test(data.value.players[index][key]))
+                );
             });
-
-            return isValid;
         }
-
-        case Stage.SUMMARY:
-            return data.value.accepted;
-
-        default:
-            return true;
+        case Stage.SUMMARY: {
+            return !(errors.value.accepted = !regex.accepted.test(
+                `${data.value.accepted}`
+            ));
+        }
+        default: {
+            return false;
+        }
     }
 }
 

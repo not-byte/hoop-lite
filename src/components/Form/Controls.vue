@@ -5,17 +5,17 @@ const { Stage, stage, previous, next, reset } = useStageManager();
 <template>
     <aside class="w-full grid grid-cols-2 gap-3">
         <template v-if="stage === Stage.START">
-            <ButtonBase @click="next()" type="button" class="col-span-2">
+            <ButtonBase @click="next" type="button" class="col-span-2">
                 {{ $t(`components.button.start`) }}
             </ButtonBase>
         </template>
         <template v-if="Stage.START < stage && stage < Stage.SENT">
-            <ButtonBase @click="previous()" type="button">
+            <ButtonBase @click="previous" type="button">
                 {{ $t(`components.button.previous`) }}
             </ButtonBase>
         </template>
         <template v-if="Stage.START < stage && stage < Stage.SUMMARY">
-            <ButtonBase @click="next()" type="button">
+            <ButtonBase @click="next" type="button">
                 {{ $t(`components.button.next`) }}
             </ButtonBase>
         </template>
@@ -25,7 +25,7 @@ const { Stage, stage, previous, next, reset } = useStageManager();
             </ButtonBase>
         </template>
         <template v-if="stage === Stage.SENT">
-            <ButtonBase @click="reset()" class="col-span-2">
+            <ButtonBase @click="reset" class="col-span-2">
                 {{ $t(`components.button.back`) }}
             </ButtonBase>
         </template>

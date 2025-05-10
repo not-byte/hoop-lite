@@ -34,7 +34,7 @@ const { Stage, stage, data, errors, set } = useStageManager();
         </template>
     </i18n-t>
 
-    <h3 class="w-full text-left">
+    <h3 class="text-left">
         {{ $t(`pages.index.content.summary.subtitle.team`) }}
     </h3>
     <ul class="w-full">
@@ -47,9 +47,9 @@ const { Stage, stage, data, errors, set } = useStageManager();
                     class="text-crimson underline hover:cursor-pointer"
                 >
                     {{
-                        !data.name
+                        !data.team.name
                             ? $t(`components.input.fill`)
-                            : `${data.name.substring(0, 7)}...`
+                            : `${data.team.name.substring(0, 7)}...`
                     }}
                 </span>
             </p>
@@ -104,7 +104,7 @@ const { Stage, stage, data, errors, set } = useStageManager();
         </li>
     </ul>
 
-    <h3 class="w-full text-left">
+    <h3 class="text-left">
         {{ $t(`pages.index.content.summary.subtitle.players`) }}
     </h3>
     <ul class="w-full">
@@ -122,16 +122,15 @@ const { Stage, stage, data, errors, set } = useStageManager();
                 "
             >
                 <span class="flex gap-2">
-                    <span>4.</span>
-                    <span class="italic text-gray-500">{{
-                        $t(`pages.index.content.summary.summary.noplayer`)
-                    }}</span>
-                </span>
-                <span
-                    class="text-crimson underline hover:cursor-pointer"
-                    @click="set(Stage.PLAYERS)"
-                >
-                    {{ $t(`components.input.add`) }}
+                    <span
+                        >4. {{ $t(`pages.index.content.summary.bench`) }}
+                    </span>
+                    <span
+                        class="text-crimson underline hover:cursor-pointer"
+                        @click="set(Stage.PLAYERS)"
+                    >
+                        {{ $t(`components.input.add`) }}
+                    </span>
                 </span>
             </template>
 
@@ -156,7 +155,7 @@ const { Stage, stage, data, errors, set } = useStageManager();
     </ul>
 
     <fieldset class="w-full flex flex-col gap-2 items-end justify-end">
-        <section class="w-full flex gap-2 items-start justify-end">
+        <section class="w-full flex gap-2 items-center justify-end">
             <input
                 v-model="data.accepted"
                 type="checkbox"
@@ -168,7 +167,7 @@ const { Stage, stage, data, errors, set } = useStageManager();
                 tag="span"
                 keypath="components.input.submit"
                 scope="global"
-                class="text-high text-sm text-right"
+                class="text-sm text-right"
             >
                 <template v-slot:regulations>
                     <TextLink target="_blank" to="/regulamin">
@@ -182,8 +181,8 @@ const { Stage, stage, data, errors, set } = useStageManager();
             </i18n-t>
         </section>
 
-        <p v-if="errors.accepted" class="text-red-600 text-sm mt-1">
-            {{ $t(`requirements.regul`) }}
-        </p>
+        <TextImportant v-if="errors.accepted" class="text-sm text-right">
+            {{ $t(`requirements.regulations`) }}
+        </TextImportant>
     </fieldset>
 </template>

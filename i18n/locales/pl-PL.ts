@@ -101,7 +101,7 @@ export default {
                             team: "Drużyna",
                             players: "Zawodnicy"
                         },
-                        noplayer: "Brak Zawodnika"
+                        bench: "Brak rezerwowego"
                     },
                     sent: {
                         title: "Zgłoszenie wysłane!",
@@ -246,11 +246,11 @@ export default {
         }
     },
     requirements: {
-        field: "Pola jest wymagane.",
-        age: "Wiek musi być liczbą od 10 do 99.",
-        regul: "Musisz zaakceptować regulamin, aby kontynuować.",
-        category: "Wybierz kategorię.",
+        field: "Pole jest wymagane.",
         email: "Podaj poprawny adres e-mail.",
-        tel: "Podaj poprawny numer telefonu (min. 9 cyfr)."
+        phone: "Podaj poprawny numer telefonu (min. 9 cyfr).",
+        age: "Wiek musi być liczbą od 10 do 99.",
+        regulations: "Musisz zaakceptować regulamin, aby kontynuować.",
+        category: "Wybierz kategorię."
     }
 } satisfies Locale;

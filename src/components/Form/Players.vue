@@ -25,9 +25,9 @@ const { stage, data, errors } = useStageManager();
             :id="`player-${index}`"
             :placeholder="$t(`components.input.player.first_name`)"
         />
-        <p v-if="errors.players[index].first_name" class="text-red-600 text-sm">
+        <TextImportant v-if="errors.players[index].first_name" class="text-sm">
             {{ $t(`requirements.field`) }}
-        </p>
+        </TextImportant>
 
         <InputBase
             v-model="data.players[index].last_name"
@@ -35,9 +35,9 @@ const { stage, data, errors } = useStageManager();
             name="family-name"
             :placeholder="$t(`components.input.player.last_name`)"
         />
-        <p v-if="errors.players[index].last_name" class="text-red-600 text-sm">
+        <TextImportant v-if="errors.players[index].last_name" class="text-sm">
             {{ $t(`requirements.field`) }}
-        </p>
+        </TextImportant>
 
         <InputNumber
             v-model="data.players[index].age"
@@ -48,8 +48,8 @@ const { stage, data, errors } = useStageManager();
             :max="99"
             pattern="^[1-9][0-9]$"
         />
-        <p v-if="errors.players[index].age" class="text-red-600 text-sm">
+        <TextImportant v-if="errors.players[index].age" class="text-sm">
             {{ $t(`requirements.age`) }}
-        </p>
+        </TextImportant>
     </fieldset>
 </template>
