@@ -1,15 +1,9 @@
 <script lang="ts" setup>
 definePageMeta({
-    middleware: (_, { query: { token } }) => {
-        if (token === "KlubowyRudzielec123") {
-            return;
-        }
-
-        return navigateTo("/", { redirectCode: 301 });
-    }
+    middleware: "auth"
 });
 
-const { data: response } = await useFetch("/api/form");
+const { data: teams, error } = await useFetch("/api/form");
 </script>
 
 <template>
@@ -25,10 +19,11 @@ const { data: response } = await useFetch("/api/form");
         </p>
 
         <section
+            v-if="!error"
             class="w-full max-w-6xl grid gap-6 grid-rows-1 sm:grid-rows-2 lg:grid-rows-3 grid-cols-1 sm:grid-cols-3"
         >
             <div
-                v-for="({ team, players, accepted }, index) in response"
+                v-for="({ team, players, accepted }, index) in teams"
                 :key="index"
                 class="bg-white shadow rounded-xl p-4 border border-gray-200"
             >

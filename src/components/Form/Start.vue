@@ -10,7 +10,7 @@
         class="text-justify"
     >
         <template v-slot:regulations>
-            <TextLink to="regulations">
+            <TextLink to="/files/regulations.pdf" external download>
                 {{ $t(`pages.index.content.start.regulations`) }}
             </TextLink>
         </template>

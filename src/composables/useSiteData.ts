@@ -1,3 +1,11 @@
+type Link = {
+    href: string;
+    type: string;
+    rel: string;
+    sizes?: string;
+    media?: string;
+};
+
 export function useSiteData() {
     const config = useRuntimeConfig().public;
     const route = useRoute();

@@ -16,6 +16,8 @@ export default defineNuxtConfig({
         "@nuxt/image"
     ],
     runtimeConfig: {
+        database: "postgresql://user:password@host:5432/postgres",
+        token: "your-secret-token",
         public: {
             author: "notbyte.com",
             name: "3X3",

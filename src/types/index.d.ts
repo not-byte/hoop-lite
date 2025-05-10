@@ -12,11 +12,19 @@ enum Stage {
     SENT
 }
 
+type Flatten<Type> = Type extends Array<infer Inner> ? Flatten<Inner> : Type;
+
+type Nested<Origin, Type> = {
+    [Property in keyof Origin]: Origin[Property] extends object
+        ? Nested<Origin[Property], Type>
+        : Type;
+};
+
 type Team = {
     name: string;
     category: Category;
     email: string;
-    phone?: number;
+    phone?: string;
 };
 
 type Player = {
@@ -31,22 +39,10 @@ type Data = {
     accepted: boolean;
 };
 
-type Errors<T> = T extends string | number | boolean
-    ? boolean
-    : T extends Array<infer U>
-      ? Errors<U>[]
-      : { [K in keyof T]: Errors<T[K]> };
+type Errors = Nested<Data, boolean>;
 
-type InputType = "checkbox" | "email" | "number" | "tel" | "text";
-
-type Link = {
-    href: string;
-    type: string;
-    rel: string;
-    sizes?: string;
-    media?: string;
-};
-
-type FormPost = {
-    status: 400 | 202;
+type Patterns = {
+    [Property in keyof Origin]: Origin[Property] extends object
+        ? Nested<Flatten<Origin[Property]>, Type>
+        : Type;
 };
