@@ -1,7 +1,9 @@
-export default defineEventHandler(async (event): Promise<FormPost> => {
-    const team = await readBody(event);
+const { insert } = useDatabase();
 
-    if (!team) {
+export default defineEventHandler(async (event): Promise<FormPost> => {
+    const data = await readBody(event);
+
+    if (!data) {
         setResponseStatus(event, 400);
 
         return {
@@ -9,11 +11,7 @@ export default defineEventHandler(async (event): Promise<FormPost> => {
         };
     }
 
-    const teams = (await useStorage().getItem<Data[]>("teams")) || [];
-
-    teams.push(team);
-
-    await useStorage().setItem(`teams`, teams);
+    await insert(data);
 
     setResponseStatus(event, 202);
 

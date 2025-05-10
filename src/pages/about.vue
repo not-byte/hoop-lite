@@ -15,6 +15,7 @@ defineI18nRoute({
         </h1>
 
         <SectionAbout />
+
         <i18n-t
             tag="p"
             keypath="pages.about.description"
@@ -57,7 +58,7 @@ defineI18nRoute({
         <h3 class="text-left" id="p2">
             {{ $t("pages.about.content.p2.title") }}
         </h3>
-        <ul class="max-w-2xl list-disc list-inside">
+        <ul class="w-full list-disc list-inside">
             <li>
                 <i18n-t
                     keypath="pages.about.content.p2.list.item1.description"
@@ -139,7 +140,7 @@ defineI18nRoute({
             </template>
         </i18n-t>
 
-        <ul class="text-justify max-w-2xl list-disc list-inside">
+        <ul class="w-full text-justify list-disc list-inside">
             <li>{{ $t(`pages.about.content.p4.list.item1`) }}</li>
             <li>{{ $t(`pages.about.content.p4.list.item2`) }}</li>
             <li>{{ $t(`pages.about.content.p4.list.item3`) }}</li>

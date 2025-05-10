@@ -9,7 +9,7 @@ const {
     autocomplete?: string;
     name: string;
     placeholder: string;
-    type?: InputType;
+    type?: "checkbox" | "email" | "number" | "tel" | "text";
 }>();
 </script>
 

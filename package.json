@@ -44,5 +44,8 @@
         "singleQuote": false,
         "tabWidth": 4,
         "trailingComma": "none"
+    },
+    "dependencies": {
+        "postgres": "^3.4.5"
     }
 }
