@@ -29,14 +29,17 @@ const { data: teams, error } = await useFetch("/api/form");
                 </h2>
                 <ul>
                     <li>
-                        <p><strong>Email:</strong> {{ team.email }}</p>
-                    </li>
-                    <li>
-                        <p><strong>Phone:</strong> {{ team.phone || "N/A" }}</p>
+                        <p><strong>Adres e-mail:</strong> {{ team.email }}</p>
                     </li>
                     <li>
                         <p>
-                            <strong>Category:</strong>
+                            <strong>Numer telefonu:</strong>
+                            {{ team.phone || "N/A" }}
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <strong>Kategoria rozgrywek:</strong>
                             {{ team.category || "N/A" }}
                         </p>
                     </li>
@@ -51,12 +54,12 @@ const { data: teams, error } = await useFetch("/api/form");
                         class="p-3 rounded border border-mid"
                     >
                         <p>
-                            <strong>Name:</strong>
+                            <strong>Imię i nazwisko:</strong>
                             {{ player.first_name || "—" }}
                             {{ player.last_name || "—" }}
                         </p>
                         <p>
-                            <strong>Age:</strong>
+                            <strong>Wiek:</strong>
                             {{ player.age || "N/A" }}
                         </p>
                     </div>
