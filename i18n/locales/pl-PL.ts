@@ -22,7 +22,7 @@ export default {
                 phone: "Numer telefonu"
             },
             player: {
-                label: "Dane zawodnika nr",
+                label: "Dane zawodnika",
                 first_name: "Imię",
                 last_name: "Nazwisko",
                 age: "Wiek"
@@ -70,17 +70,21 @@ export default {
                     about: "tutaj."
                 },
                 team: {
-                    title: "Dane drużyny"
+                    title: "Dane drużyny",
+                    description:
+                        "Zgodnie z regulaminem tegoroczny turniej podzielony będzie na kategorie Pro i Amator, bez względu na podział wiekowy.{br} Kategoria {pro} - mogą zapisać się wszyscy chętni gracze (z naciskiem na świadomość wyboru), natomiast {amateur} pozwala na grę dla świeżych zespołów z osób grających rekreacyjnie lub aktywnych maksymalnie (niezrzeszonych w PZKosz)."
                 },
                 players: {
-                    title: "Dane zawodników"
+                    title: "Dane zawodników",
+                    bench: "(Rezerwa)"
                 },
                 summary: {
                     title: "Podsumowanie",
                     description:
-                        " Sprawdź poprawność podanych danych przed wysłaniem formularza, pamiętaj o zapoznaniu się z regulaminem i potwierdzeniem formularza na podanym adresie e-mail! Jeśli napotkałeś problem skontakuj się z nami na {messenger} lub {instagram}",
+                        "Sprawdź poprawność podanych danych przed wysłaniem formularza, pamiętaj o zapoznaniu się z regulaminem! Potwierdzenie o akceptacji do turnieju wysyłane będzie na podany adres e-mail do kilku dni roboczych po zatwierdzeniu przez organizatorów. Jeśli napotkałeś problem skontakuj się z nami na {messenger} lub {instagram}",
                     messenger: "Messengerze",
                     instagram: "Instagramie!",
+                    bench: "Brak rezerwowego",
                     subtitle: {
                         team: "Drużyna",
                         players: "Zawodnicy"
@@ -90,27 +94,7 @@ export default {
                     },
                     players: {
                         title: "Dane zawodników"
-                    },
-                    summary: {
-                        title: "Podsumowanie",
-                        description:
-                            " Sprawdź poprawność podanych danych przed wysłaniem formularza, pamiętaj o zapoznaniu się z regulaminem i potwierdzeniem formularza na podanym adresie e-mail! Jeśli napotkałeś problem skontakuj się z nami na {messenger} lub {instagram}",
-                        messenger: "Messengerze",
-                        instagram: "Instagramie!",
-                        subtitle: {
-                            team: "Drużyna",
-                            players: "Zawodnicy"
-                        },
-                        bench: "Brak rezerwowego"
-                    },
-                    sent: {
-                        title: "Zgłoszenie wysłane!",
-                        description:
-                            "Wygląda na to, że poprawnie wypełniliście formularz swojej drużyny, wkrótce poinformujemy o potwierdzeniu danych {additional_info}, widzimy się na turnieju już 1 czerwca! Więcej szczegółów o imprezie znajdziecie {link}",
-                        additional_info:
-                            "(UWAGA! Nie oznacza to zapewnionego miejsca na turnieju, sprawdźcie również SPAM poczty)"
-                    },
-                    regulations: "regulamin"
+                    }
                 },
                 sent: {
                     title: "Zgłoszenie wysłane!",

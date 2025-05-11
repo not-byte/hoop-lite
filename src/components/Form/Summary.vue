@@ -121,16 +121,12 @@ const { Stage, stage, data, errors, set } = useStageManager();
                     !player.age
                 "
             >
-                <span class="flex gap-2">
-                    <span
-                        >4. {{ $t(`pages.index.content.summary.bench`) }}
-                    </span>
-                    <span
-                        class="text-crimson underline hover:cursor-pointer"
-                        @click="set(Stage.PLAYERS)"
-                    >
-                        {{ $t(`components.input.add`) }}
-                    </span>
+                4. {{ $t(`pages.index.content.summary.bench`) }}
+                <span
+                    class="text-crimson underline hover:cursor-pointer"
+                    @click="set(Stage.PLAYERS)"
+                >
+                    {{ $t(`components.input.add`) }}
                 </span>
             </template>
 

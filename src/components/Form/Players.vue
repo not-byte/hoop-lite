@@ -9,17 +9,22 @@ const { stage, data, errors } = useStageManager();
     </h2>
 
     <fieldset
-        v-for="index in Object.keys(data.players)"
+        v-for="(player, index) in data.players"
         :key="index"
         class="w-full grid grid-flow-row gap-3"
     >
         <label :for="`player-${index}`">
             {{ $t(`components.input.player.label`) }}
-            {{ parseInt(index) + 1 }}
+            <template v-if="index !== data.players.length - 1">
+                {{ index + 1 }}
+            </template>
+            <template v-else>
+                {{ $t(`pages.index.content.players.bench`) }}
+            </template>
         </label>
 
         <InputBase
-            v-model="data.players[index].first_name"
+            v-model="player.first_name"
             autocomplete="given-name"
             name="given-name"
             :id="`player-${index}`"
@@ -30,7 +35,7 @@ const { stage, data, errors } = useStageManager();
         </TextImportant>
 
         <InputBase
-            v-model="data.players[index].last_name"
+            v-model="player.last_name"
             autocomplete="family-name"
             name="family-name"
             :placeholder="$t(`components.input.player.last_name`)"
@@ -40,7 +45,7 @@ const { stage, data, errors } = useStageManager();
         </TextImportant>
 
         <InputNumber
-            v-model="data.players[index].age"
+            v-model="player.age"
             autocomplete="age"
             name="age"
             :placeholder="$t(`components.input.player.age`)"
