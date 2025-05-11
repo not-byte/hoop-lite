@@ -168,7 +168,7 @@ const { Stage, stage, data, errors, set } = useStageManager();
                 <template v-slot:regulations>
                     <TextLink target="_blank" to="/regulamin">
                         {{
-                            $t(`pages.index.content.summary.regulations`)
+                            $t(`pages.index.content.start.regulations`)
                                 .split(" ", 1)
                                 .at(0)
                         }}
