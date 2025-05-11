@@ -10,24 +10,14 @@
         class="text-justify"
     >
         <template v-slot:additional_info>
-            <NuxtLink
-                target="_blank"
-                rel="noreferrer"
-                to="/regulamin"
-                class="text-crimson underline"
-            >
+            <TextImportant>
                 {{ $t(`pages.index.content.sent.additional_info`) }}
-            </NuxtLink>
+            </TextImportant>
         </template>
         <template v-slot:about>
-            <NuxtLink
-                target="_blank"
-                rel="noreferrer"
-                to="/o-turnieju"
-                class="text-crimson underline"
-            >
+            <TextLink to="/o-turnieju">
                 {{ $t(`pages.index.content.start.about`) }}
-            </NuxtLink>
+            </TextLink>
         </template>
     </i18n-t>
 </template>
