@@ -18,57 +18,53 @@ const { data: teams, error } = await useFetch("/api/form");
             {{ $t("pages.admin.description") }}
         </p>
 
-        <section
-            v-if="!error"
-            class="w-full max-w-6xl grid gap-6 grid-rows-1 sm:grid-rows-2 lg:grid-rows-3 grid-cols-1 sm:grid-cols-3"
-        >
-            <div
-                v-for="({ team, players, accepted }, index) in teams"
+        <ul v-if="!error" class="w-full grid gap-6 grid-rows-1">
+            <li
+                v-for="({ team, players }, index) in teams"
                 :key="index"
-                class="bg-white shadow rounded-xl p-4 border border-gray-200"
+                class="grid gap-3"
             >
-                <h2 class="text-lg font-bold text-blue-700">
+                <h2 class="text-crimson">
                     {{ team.name || "Unnamed Team" }}
                 </h2>
-                <p class="text-sm text-gray-600">
-                    <strong>Email:</strong> {{ team.email }}<br />
-                    <strong>Phone:</strong> {{ team.phone || "N/A" }}<br />
-                    <strong>Category:</strong> {{ team.category || "N/A" }}
-                </p>
+                <ul>
+                    <li>
+                        <p><strong>Adres e-mail:</strong> {{ team.email }}</p>
+                    </li>
+                    <li>
+                        <p>
+                            <strong>Numer telefonu:</strong>
+                            {{ team.phone || "N/A" }}
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <strong>Kategoria rozgrywek:</strong>
+                            {{ team.category || "N/A" }}
+                        </p>
+                    </li>
+                </ul>
 
-                <div class="mt-4">
-                    <span
-                        class="inline-block px-3 py-1 text-xs font-medium rounded-full"
-                        :class="{
-                            'bg-green-100 text-green-800': accepted,
-                            'bg-red-100 text-red-800': !accepted
-                        }"
+                <ul
+                    class="grid col-span-1 sm:col-span-2 grid-cols-1 sm:grid-cols-2 gap-2"
+                >
+                    <div
+                        v-for="(player, pIndex) in players"
+                        :key="pIndex"
+                        class="p-3 rounded border border-mid"
                     >
-                        {{ accepted ? "Accepted" : "Not Accepted" }}
-                    </span>
-                </div>
-
-                <div class="mt-3">
-                    <h3 class="text-md font-semibold mb-1">Players</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <div
-                            v-for="(player, pIndex) in players"
-                            :key="pIndex"
-                            class="p-2 bg-gray-50 rounded border"
-                        >
-                            <p>
-                                <strong>Name:</strong>
-                                {{ player.first_name || "—" }}
-                                {{ player.last_name || "—" }}
-                            </p>
-                            <p>
-                                <strong>Age:</strong>
-                                {{ player.age || "N/A" }}
-                            </p>
-                        </div>
+                        <p>
+                            <strong>Imię i nazwisko:</strong>
+                            {{ player.first_name || "—" }}
+                            {{ player.last_name || "—" }}
+                        </p>
+                        <p>
+                            <strong>Wiek:</strong>
+                            {{ player.age || "N/A" }}
+                        </p>
                     </div>
-                </div>
-            </div>
-        </section>
+                </ul>
+            </li>
+        </ul>
     </main>
 </template>
