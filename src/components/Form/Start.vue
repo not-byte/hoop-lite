@@ -3,6 +3,7 @@
     <h1 class="text-center">
         {{ $t(`pages.index.content.start.title`) }}
     </h1>
+
     <i18n-t
         tag="p"
         keypath="pages.index.content.start.description"
@@ -10,7 +11,7 @@
         class="text-justify"
     >
         <template v-slot:regulations>
-            <TextLink to="/files/regulations.pdf" external download>
+            <TextLink to="/files/regulations.pdf" external target="_blank">
                 {{ $t(`pages.index.content.start.regulations`) }}
             </TextLink>
         </template>

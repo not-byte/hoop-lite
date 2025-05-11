@@ -8,6 +8,28 @@ const { stage, data, errors } = useStageManager();
         {{ $t(`pages.index.content.team.title`) }}
     </h2>
 
+    <i18n-t
+        tag="p"
+        keypath="pages.index.content.team.description"
+        scope="global"
+        class="text-justify"
+    >
+        <template v-slot:br>
+            <br />
+            <br />
+        </template>
+        <template v-slot:amateur>
+            <TextImportant>
+                {{ $t(`components.select.category.1`) }}
+            </TextImportant>
+        </template>
+        <template v-slot:pro>
+            <TextImportant>
+                {{ $t(`components.select.category.2`) }}
+            </TextImportant>
+        </template>
+    </i18n-t>
+
     <fieldset class="w-full flex flex-col gap-3">
         <InputBase
             v-model="data.team.name"
