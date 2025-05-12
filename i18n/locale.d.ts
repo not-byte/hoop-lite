@@ -7,7 +7,7 @@ type Page = {
 };
 
 type Pages = Record<
-    "404" | "500" | "index" | "admin" | "about" | "regulations",
+    "404" | "500" | "index" | "admin" | "about" | "regulations" | "bracket",
     Page
 >;
 

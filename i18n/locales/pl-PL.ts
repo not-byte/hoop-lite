@@ -227,8 +227,23 @@ export default {
                     eventname: "Knurowski Streetball"
                 }
             }
+        },
+        bracket: {
+            title: "Drabinka turniejowa",
+            description:
+                "W turnieju biorą udział drużyny z kategorii amatorskiej i profesjonalnej. Więcej w {about}.",
+            about: "zakładce o turnieju",
+            error: "Błąd podczas ładowania drużyn",
+            group: "Grupa",
+            groupAndElimination: "Faza grupowa i pucharowa",
+            groups: "Faza grupowa: podział na grupy",
+            groupStage: "Mecze w grupach",
+            nextStage: "Zwycięzcy grup",
+            groupWinner: "Zwycięzca grupy",
+            noTeams: "Brak wystarczającej liczby drużyn"
         }
     },
+
     requirements: {
         field: "Pole jest wymagane.",
         email: "Podaj poprawny adres e-mail.",
