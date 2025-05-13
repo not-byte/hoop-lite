@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue'
 import { useFetch } from '#app'
+import Bracket from '~/components/Section/Bracket.vue'
+import GroupMatches from '~/components/Section/GroupMatches.vue'
 
 const { data, error } = await useFetch('/api/teams')
 
@@ -44,7 +46,7 @@ function generateMatchups(group) {
 </script>
 
 <template>
-  <main class="px-4 md:px-8 max-w-[1600px] mx-auto">
+  <main class="px-4 md:px-8 w-full bracket-page">
     <div class="flex justify-center mb-6">
       <IconLogo width="120" height="120" />
     </div>
@@ -60,7 +62,7 @@ function generateMatchups(group) {
       class="text-justify mb-8"
     >
       <template #about>
-        <TextLink to="/about">
+        <TextLink to="/o-turnieju">
           {{ $t('pages.bracket.about') }}
         </TextLink>
       </template>
@@ -70,12 +72,12 @@ function generateMatchups(group) {
       {{ $t('pages.bracket.error') }}
     </div>
 
-    <div v-if="Object.keys(groups).length">
+    <div v-if="Object.keys(groups).length" class="">
       <h2 class="text-2xl font-semibold text-crimson text-center mb-4">
         {{ $t('pages.bracket.groups') }}
       </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 m-auto gap-8 mb-12 w-[100dvw] sm:w-[36rem] md:w-[42rem]">
         <div
           v-for="(group, label) in groups"
           :key="label"
@@ -118,95 +120,18 @@ function generateMatchups(group) {
 
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-4 items-start w-full justify-center mb-12">
         <!-- Lewa kolumna z grupami A i C -->
-        <div class="space-y-8">
-          <div
-            v-for="label in ['A', 'C']"
-            :key="'group-left-' + label"
-            class="bg-white border-2 border-crimson rounded-2xl p-4 shadow"
-          >
-            <h3 class="text-xl font-semibold text-crimson text-center mb-2">
-              Grupa {{ label }}
-            </h3>
-            <div class="grid grid-cols-1 gap-2">
-              <div
-                v-for="(match, idx) in generateMatchups(groups[label])"
-                :key="idx"
-                class="flex flex-col items-center bg-white px-3 py-2 rounded-xl border border-gray-300"
-              >
-                <span class="font-medium text-dark text-center">{{ match.teamA.name }}</span>
-                <span class="text-mid text-sm">vs</span>
-                <span class="font-medium text-dark text-center">{{ match.teamB.name }}</span>
-              </div>
-            </div>
-            <div class="mt-2 border-t pt-1 text-center text-xs text-mid italic">
-              {{ $t('pages.bracket.groupWinner') }}: <span class="text-dark font-semibold">?</span>
-            </div>
-          </div>
+        <div class="space-y-8 w-full">
+          <GroupMatches :label="'A'" :group="groups['A']" />
+          <GroupMatches :label="'C'" :group="groups['C']" />
         </div>
 
-        <!-- Środkowa kolumna z drabinką -->
-        <div class="flex flex-col justify-center items-center gap-8 h-full">
-
-
-          <!-- Półfinał A vs B -->
-          <div class="flex flex-col items-center bg-white px-2 py-1 rounded-lg border border-gray-300 w-full max-w-[180px]">
-            <span class="text-sm text-dark">Grupa A</span>
-            <div class="flex items-center w-full my-1">
-              <div class="flex-grow border-t border-gray-300"></div>
-              <span class="px-2 text-crimson text-sm">vs</span>
-              <div class="flex-grow border-t border-gray-300"></div>
-            </div>
-            <span class="text-sm text-dark">Grupa B</span>
-          </div>
-
-          <!-- Finał -->
-          <div class="flex flex-col items-center bg-yellow-400 px-2 py-1 rounded-lg border border-gray-300 w-full max-w-[180px]">
-            <span class="text-sm text-white">Zwycięzca A/B</span>
-            <div class="flex items-center w-full my-1">
-              <div class="flex-grow border-t border-white"></div>
-              <span class="px-2 text-white text-sm">vs</span>
-              <div class="flex-grow border-t border-white"></div>
-            </div>
-            <span class="text-sm text-white">Zwycięzca C/D</span>
-          </div>
-
-          <!-- Półfinał C vs D -->
-          <div class="flex flex-col items-center bg-white px-2 py-1 rounded-lg border border-gray-300 w-full max-w-[180px]">
-            <span class="text-sm text-dark">Grupa C</span>
-            <div class="flex items-center w-full my-1">
-              <div class="flex-grow border-t border-gray-300"></div>
-              <span class="px-2 text-crimson text-sm">vs</span>
-              <div class="flex-grow border-t border-gray-300"></div>
-            </div>
-            <span class="text-sm text-dark">Grupa D</span>
-          </div>
-        </div>
+        <!-- Drabinka Playoff -->
+        <Bracket />
 
         <!-- Prawa kolumna z grupami B i D -->
-        <div class="space-y-8">
-          <div
-            v-for="label in ['B', 'D']"
-            :key="'group-right-' + label"
-            class="bg-white border-2 border-crimson rounded-2xl p-4 shadow"
-          >
-            <h3 class="text-xl font-semibold text-crimson text-center mb-2">
-              Grupa {{ label }}
-            </h3>
-            <div class="grid grid-cols-1 gap-2">
-              <div
-                v-for="(match, idx) in generateMatchups(groups[label])"
-                :key="idx"
-                class="flex flex-col items-center bg-white px-3 py-2 rounded-xl border border-gray-300"
-              >
-                <span class="font-medium text-dark text-center">{{ match.teamA.name }}</span>
-                <span class="text-mid text-sm">vs</span>
-                <span class="font-medium text-dark text-center">{{ match.teamB.name }}</span>
-              </div>
-            </div>
-            <div class="mt-2 border-t pt-1 text-center text-xs text-mid italic">
-              {{ $t('pages.bracket.groupWinner') }}: <span class="text-dark font-semibold">?</span>
-            </div>
-          </div>
+        <div class="space-y-8 w-full">
+          <GroupMatches :label="'B'" :group="groups['B']" />
+          <GroupMatches :label="'D'" :group="groups['D']" />
         </div>
       </div>
     </div>
@@ -216,3 +141,5 @@ function generateMatchups(group) {
     </div>
   </main>
 </template>
+
+
