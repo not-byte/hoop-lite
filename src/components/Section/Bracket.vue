@@ -23,8 +23,8 @@
     <div class="grid grid-rows-[1fr,3fr] space-y-8">
       <!--Finał-->
       <div class="flex flex-col items-center self-start">
-        <h2 class="text-2xl text-crimson font-bold mb-8">Finał</h2>
-        <div class="text-center rounded-lg bg-white border-crimson p-2 grid grid-cols-[2fr,1fr,2fr] justify-center gap-2">
+        <h2 class="text-2xl text-crimson font-bold text-center mb-8">Finał</h2>
+        <div class="text-center rounded-lg bg-yellow-400 text-dark border-crimson p-2 grid grid-cols-[2fr,1fr,2fr] justify-center gap-2">
           <span>Team W5</span>
           <TextImportant class="">vs</TextImportant>
           <span>Team W6</span>
@@ -49,7 +49,7 @@
         </div>
       </div>
     </div>
-      <!-- Finał -->
+
       
     </div>
 
