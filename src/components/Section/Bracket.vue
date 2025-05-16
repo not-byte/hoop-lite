@@ -20,7 +20,7 @@
     </div>
   </div>
     <!-- Drabinka Playoff -->
-    <div class="grid grid-rows-[1fr,3fr] space-y-8">
+    <div class="grid grid-rows-[1fr,1fr,1fr] space-y-8">
       <!--Finał-->
       <div class="flex flex-col items-center self-start">
         <h2 class="text-2xl text-crimson font-bold text-center mb-8">Finał</h2>
@@ -49,8 +49,15 @@
         </div>
       </div>
     </div>
-
-      
+        <!--3 miejsce-->
+    <div class="flex flex-col items-center self-start">
+      <h2 class="text-2xl text-crimson font-bold text-center mb-8">Mecz o 3 miejsce</h2>
+        <div class="text-center rounded-lg bg-white border-crimson p-2 grid grid-cols-[2fr,1fr,2fr] justify-center gap-2">
+          <span>Team L5</span>
+          <TextImportant class="">vs</TextImportant>
+          <span>Team L6</span>
+        </div>
+      </div>
     </div>
 
     <!-- Prawa strona: ćwierćfinały -->
